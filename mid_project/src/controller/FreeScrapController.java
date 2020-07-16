@@ -15,12 +15,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import service.free_board.CommandProcess;
+import service.free_scrap.CommandProcess;
 
 
-@WebServlet(urlPatterns = "*.free", initParams = {
-		@WebInitParam(name = "config", value = "/WEB-INF/freeCommand.properties") })
-public class FreeController extends HttpServlet {
+@WebServlet(urlPatterns = "*.freeS", initParams = {
+		@WebInitParam(name = "config", value = "/WEB-INF/freeScrapCommand.properties") })
+public class FreeScrapController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Map<String, Object> commandMap = new HashMap<>();
 
@@ -64,13 +64,13 @@ public class FreeController extends HttpServlet {
 			com = (CommandProcess) commandMap.get(command);
 			view = com.requestPro(request, response);
 			
-			//System.out.println("com : " + com);
-			//System.out.println("view : " + view);
+			System.out.println("com : " + com);
+			System.out.println("view : " + view);
 			
 		} catch (Throwable e) {
 			throw new ServletException(e);
 		}
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mate/free/" + view + ".jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/mate/freeScrap/" + view + ".jsp");
 		dispatcher.forward(request, response);
 	}
 

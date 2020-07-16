@@ -19,9 +19,9 @@
 <div align="center" style="margin: 100px;">
 	<input type="hidden" name="pageNum" value="${pageNum }">
 	<table class="w3-table w3-centered w3-bordered">
-		<tr><th>번호</th><th>카테고리</th><th>제목</th><th>작성일</th></tr>
+		<tr><th>번호</th><th>카테고리</th><th>제목</th><th>작성자</th><th>조회수</th><th>작성일</th></tr>
 		<c:if test="${empty list }">
-			<tr><th colspan="4">등록된 글이 없습니다</th></tr>
+			<tr><th colspan="6">등록된 글이 없습니다</th></tr>
 		</c:if>
 		<c:if test="${not empty list }">
 			<c:if test="${param.category == 'f' }">
@@ -34,6 +34,8 @@
 							<c:if test="${free.category == 'a'}">후기</c:if>
 						</td>
 						<td><a href="freeContent.free?free_no=${free.free_no }&pageNum=${pageNum }">${free.subject }</td>
+						<td>${free.member_id }</td>
+						<td>${free.cnt }</td>
 						<c:if test="${nowDate > pastDate }">
 							<td><fmt:formatDate value="${free.reg_date }" type="date" pattern="yyyy/MM/dd"/></td>
 						</c:if>
@@ -53,6 +55,8 @@
 							<c:if test="${free.category == 'a'}">후기</c:if>
 						</td>
 						<td><a href="freeContent.free?free_no=${free.free_no }&pageNum=${pageNum }">${free.subject }</td>
+						<td>${free.member_id }</td>
+						<td>${free.cnt }</td>
 						<c:if test="${nowDate > pastDate }">
 							<td><fmt:formatDate value="${free.reg_date }" type="date" pattern="yyyy/MM/dd"/></td>
 						</c:if>
@@ -72,6 +76,8 @@
 							<c:if test="${free.category == 'a'}">후기</c:if>
 						</td>
 						<td><a href="freeContent.free?free_no=${free.free_no }&pageNum=${pageNum }">${free.subject }</td>
+						<td>${free.member_id }</td>
+						<td>${free.cnt }</td>
 						<c:if test="${nowDate > pastDate }">
 							<td><fmt:formatDate value="${free.reg_date }" type="date" pattern="yyyy/MM/dd"/></td>
 						</c:if>
@@ -83,6 +89,7 @@
 			</c:if>
 		</c:if>
 	</table><p>
+	<button onclick="location.href='hotList.free?category=f'">Hot</button>
 	<c:if test="${not empty member_id }">
 		<input type="button" value="글쓰기" onclick="location.href='writeForm.free?category=${param.category }'"><p>
 	</c:if>

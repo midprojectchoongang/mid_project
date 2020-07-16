@@ -40,4 +40,17 @@
 	<select id="search" parameterType="string" resultType="integer">
 		select max(free_no) from free_board where member_id = #{member_id}
 	</select>
+	<update id="cntUp" parameterType="integer">
+		update free_board set cnt = cnt+1 where free_no = #{free_no}
+	</update>
+	<!-- hot List -->
+	<select id="hotList" parameterType="hashmap" resultMap="resultMap">
+		select * from (select rowNum rn, a.* from (select * from free_board where 
+		category = #{category} and cnt > #{cnt} and del = 'n' order by free_no desc) a) 
+		where rn between #{startRow} and #{endRow}
+	</select>
+	<select id="hotTotal" parameterType="hashmap" resultType="integer">
+		select count(*) from free_board where category = #{category} and
+		cnt > #{cnt} and del = 'n'
+	</select>
 </mapper>

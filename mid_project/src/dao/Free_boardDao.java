@@ -46,4 +46,21 @@ public class Free_boardDao {
 	public int search(String member_id) {
 		return session.selectOne("freens.search", member_id);
 	}
+	public void cntUp(int free_no) {
+		session.update("freens.cntUp", free_no);
+	}
+	public List<Free_board> hotList(int startRow, int endRow, String category, int cnt) {
+		HashMap<String, String> hm = new HashMap<>();
+		hm.put("startRow", startRow+"");
+		hm.put("endRow", endRow+"");
+		hm.put("category", category);
+		hm.put("cnt", cnt+"");
+		return session.selectList("freens.hotList", hm);
+	}
+	public int hotTotal(String category, int cnt) {
+		HashMap<String, String> hm = new HashMap<>();
+		hm.put("category", category);
+		hm.put("cnt", cnt+"");
+		return (int) session.selectOne("freens.hotTotal", hm);
+	}
 }

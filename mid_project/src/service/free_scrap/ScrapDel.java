@@ -1,13 +1,12 @@
-package service.free_board;
+package service.free_scrap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.Free_boardDao;
-import model.Free_board;
+import dao.Free_scrapDao;
 
-public class FreeContent implements CommandProcess {
+public class ScrapDel implements CommandProcess {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
@@ -16,15 +15,14 @@ public class FreeContent implements CommandProcess {
 		String pageNum = request.getParameter("pageNum");
 		int free_no = Integer.parseInt(request.getParameter("free_no"));
 		
-		Free_boardDao fd = Free_boardDao.getInstance();
-		Free_board free = fd.read(free_no);
+		Free_scrapDao fd = Free_scrapDao.getInstance();
 		
-		if(member_id != free.getMember_id()) { 
-			fd.cntUp(free_no);
-		}
-		
+		int result = fd.delete(member_id,free_no);
+
+		request.setAttribute("result", result);
+		request.setAttribute("member_id", member_id);
 		request.setAttribute("pageNum", pageNum);
-		request.setAttribute("free", free);
-		return "freeContent";
+		return "scrapDel";
 	}
+
 }
