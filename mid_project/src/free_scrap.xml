@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="freeScrapns">
+	<resultMap type="free_scrap" id="resultMap">
+		<result property="member_id" column="member_id" />
+		<result property="free_no" column="free_no" />
+		<result property="subject" column="subject" />
+		<result property="reg_date" column="reg_date" />
+		<result property="del" column="del" />
+	</resultMap>
+	<select id="list" parameterType="hashMap" resultMap="resultMap">
+		select * from (select rowNum rn, a.* from 
+		(select * from free_scrap where del = 'n' and member_id = #{member_id}
+		order by free_no desc) a) where rn between #{startRow} and #{endRow}
+	</select>
+	<select id="total" parameterType="string" resultType="integer">
+		select count(*) from free_scrap where del = 'n' and member_id = #{member_id}
+	</select>
+	<insert id="scrap" parameterType="free_scrap">
+		insert into free_scrap values 
+		(#{member_id}, #{free_no}, #{subject}, sysdate, 'n')
+	</insert>
+	<select id="read" parameterType="string" resultMap="resultMap">
+		select * from free_scrap where member_id = #{member_id} and del = 'n'
+		order by reg_date
+	</select>
+	<update id="delete" parameterType="hashmap">
+		update free_scrap set del = 'y' where member_id = #{member_id}
+		and free_no = #{free_no}
+	</update>
+</mapper>
