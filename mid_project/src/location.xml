@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="locatens">
+	<resultMap type="location" 		 	id="resultMap">
+		<result property="location_no" 	column="location_no"/>
+		<result property="local_name"  	column="local_name"/>
+	</resultMap>
+ 	<select id="select" parameterType="integer" resultType="location">
+		select local_name from location where location_no = #{location_no}
+	</select>
+</mapper>

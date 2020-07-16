@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="memberns">
+	<resultMap type="member" 		 	id="resultMap">
+		<result property="member_id" 	column="member_id"/>
+		<result property="password"  	column="password"/>
+		<result property="name"  	 	column="name"/>
+		<result property="gender"  	 	column="gender"/>
+		<result property="email"  	 	column="email"/>
+		<result property="tel"  	 	column="tel"/>
+		<result property="location_no"  column="location_no"/>
+		<result property="experience"   column="experience"/>
+		<result property="reg_date" 	column="reg_date"/>
+		<result property="del"  		column="del"/>
+	</resultMap>
+ 	<select id="idChk" parameterType="string" resultType="member">
+		select * from member where member_id=#{member_id}
+	</select>
+ 	<select id="select" parameterType="string" resultType="member">
+		select * from member where member_id=#{member_id} and del='n'
+	</select>
+	<insert id="insert" parameterType="member">
+		insert into member values(
+		#{member_id},#{password},#{name},#{gender},#{email},#{tel},
+		#{location_no},#{experience},sysdate,'n')
+	</insert>
+	<update id="update" parameterType="member">
+		update member set name=#{name},
+		email=#{email},tel=#{tel},location_no=#{location_no},experience=#{experience}
+		where member_id=#{member_id}
+	</update>
+	
+	<update id="updatePw" parameterType="member">
+		update member set password=#{password}
+		where member_id=#{member_id}
+	</update>
+	
+	<update id="delete" parameterType="int">
+		update member set del='y' where member_id=#{member_id}
+	</update>
+</mapper>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="freens">
+	<resultMap type="free_board" id="resultMap">
+		<result property="free_no" column="free_no" />
+		<result property="member_id" column="member_id" />
+		<result property="category" column="category" />
+		<result property="subject" column="subject" />
+		<result property="free_image1" column="free_image1" />
+		<result property="free_image2" column="free_image2" />
+		<result property="free_image3" column="free_image3" />
+		<result property="free_image4" column="free_image4" />
+		<result property="free_image5" column="free_image5" />
+		<result property="content" column="content" />
+		<result property="reg_date" column="reg_date" />
+		<result property="del" column="del" />
+	</resultMap>
+	<select id="list" parameterType="hashMap" resultMap="resultMap">
+		select * from (select rowNum rn, a.* from (select * from free_board where del = 'n' and category = #{category} order by free_no desc) a)
+		where rn between #{startRow} and #{endRow}
+	</select>
+	<insert id="write" parameterType="free_board">
+		insert into free_board values (free_seq.nextval, #{member_id}, #{category}, #{subject},
+		'test', 'test', 'test', 'test', 'test', #{content}, sysdate, 'n')
+	</insert>
+	<select id="total" parameterType="string" resultType="integer">
+		select count(*) from free_board where category = #{category} and del = 'n'
+	</select>
+	<select id="read" parameterType="integer" resultType="free_board">
+		select * from free_board where free_no = #{free_no}
+	</select>
+	<update id="update" parameterType="free_board">
+		update free_board set category = #{category}, subject = #{subject},
+		content = #{content} where free_no = #{free_no} 
+	</update>
+	<update id="delete" parameterType="integer">
+		update free_board set del = 'y' where free_no = #{free_no}
+	</update>
+	<select id="search" parameterType="string" resultType="integer">
+		select max(free_no) from free_board where member_id = #{member_id}
+	</select>
+</mapper>
