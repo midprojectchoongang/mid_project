@@ -7,7 +7,7 @@ import javax.servlet.http.HttpSession;
 import dao.Free_boardDao;
 import model.Free_board;
 
-public class FreeContent implements CommandProcess {
+public class HotContent implements CommandProcess {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
@@ -23,8 +23,10 @@ public class FreeContent implements CommandProcess {
 			fd.cntUp(free_no);
 		}
 		
+		request.setAttribute("member_id", member_id);
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("free", free);
 		return "freeContent";
 	}
+
 }
