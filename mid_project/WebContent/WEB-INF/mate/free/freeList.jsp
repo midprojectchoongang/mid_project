@@ -89,7 +89,7 @@
 			</c:if>
 		</c:if>
 	</table><p>
-	<button onclick="location.href='hotList.free?category=f'">Hot</button>
+	<button onclick="location.href='hotList.free?category=${param.category}'">Hot</button>
 	<c:if test="${not empty member_id }">
 		<input type="button" value="글쓰기" onclick="location.href='writeForm.free?category=${param.category }'"><p>
 	</c:if>

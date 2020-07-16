@@ -1,6 +1,6 @@
 package model;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Free_board {
 	
@@ -16,7 +16,15 @@ public class Free_board {
 	private String content;
 	private Date reg_date;
 	private String del;
+	private int cnt;
 	
+	
+	public int getCnt() {
+		return cnt;
+	}
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
 	public int getFree_no() {
 		return free_no;
 	}

@@ -16,11 +16,11 @@
 <div>
 	<input type="hidden" name="pageNum" value="${pageNum }">
 	<table>
-		<caption>
+		<%-- <caption>
 			<c:if test="${param.category == 'f'}">잡담</c:if>
 			<c:if test="${param.category == 'i'}">정보</c:if>
 			<c:if test="${param.category == 'a'}">후기</c:if>
-		</caption>
+		</caption> --%>
 			<tr><th>번호</th><th>제목</th><th>작성자</th><th>조회수</th><th>작성일</th></tr>
 		<c:if test="${empty hotList }">
 			<tr><th colspan="5">등록된 글이 없습니다</th></tr>
@@ -49,7 +49,7 @@
 			</c:if>
 	</table><p>
 	<div align="center">
-	<span><button onclick="location.href='freeList.free'">Hot-</button></span>
+	<span><button onclick="location.href='freeList.free?category=${category }'">Hot-</button></span>
 	<span>
 	<c:if test="${not empty member_id }">
 		<input type="button" value="글쓰기" onclick="location.href='writeForm.free?=${member_id }'"><p>
