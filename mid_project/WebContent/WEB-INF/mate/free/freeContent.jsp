@@ -46,7 +46,7 @@
 	<input type="button" value="삭제" onclick="delmsg()">&emsp;
 </c:if>
 <c:if test="${not empty member_id && member_id != free.member_id}">
-	<input type="button" value="스크랩" onclick="location.href='scrapAdd.freeS?free_no=${free.free_no }&pageNum=${pageNum }'">&emsp;
+	<input type="button" value="스크랩" onclick="location.href='scrapChk.freeS?free_no=${free.free_no }&pageNum=${pageNum }'">&emsp;
 </c:if>
 	<input type="button" value="목록보기" onclick="location.href='freeList.free?category=${free.category }&pageNum=${pageNum}'">
 </div>
