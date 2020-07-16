@@ -6,20 +6,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">@import url("btn.css");</style>
 </head>
 <body>
 <!-- Header, NavBar -->
 <%@ include file="../mainPage/nav.jsp" %>
 
 <div align="center" style="margin: 100px;">
-	<h2>${member.name}님 환영합니다</h2>
-	<table class="w3-table w3-centered w3-bordered">
-		<tr><td><button onclick="location.href='viewInfo.member'">회원정보보기</button></td></tr>
-		<tr><td><button onclick="location.href='updateForm.member'">회원정보수정</button></td></tr>
-		<tr><td><button onclick="location.href='updatePwForm.member'">비밀번호수정</button></td></tr>	
-		<tr><td><button onclick="location.href='delete.member'">회원탈퇴</button></td></tr>
-		<tr><td><button onclick="location.href='logout.main'">로그아웃</button></td></tr>
-	</table>
+	<h2 style="margin: 50px">${member.name}님 환영합니다</h2>
+	<div class="button-4"><div class="eff-4"></div><a href="viewInfo.member">회원정보보기</a></div>
+	<div class="button-4"><div class="eff-4"></div><a href="updateForm.member">회원정보수정</a></div>
+	<div class="button-4"><div class="eff-4"></div><a href="updatePwForm.member">비밀번호수정</a></div>
+	<div class="button-4"><div class="eff-4"></div><a href="delete.member">회원탈퇴</a></div>
+	<div class="button-4"><div class="eff-4"></div><a href="logout.main">로그아웃</a></div>
 </div>
 
 <!-- Footer -->
