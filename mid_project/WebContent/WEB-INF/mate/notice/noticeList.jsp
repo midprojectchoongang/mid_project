@@ -15,10 +15,13 @@
 
 <jsp:useBean id="now" class="java.util.Date"/>
 <fmt:formatDate value="${now }" pattern="yyyyMMdd" var="nowDate"/>
-<div align="center" style="margin: 100px;">
+<div align="center" style="margin-top: 100px; margin-left: 100px; margin-right: 100px">
+	<b style="font-size: 24px;text-align: left; margin-right:600px;">공지사항</b>
+	<!-- 관리자용 작성버튼 -->
+	<c:if test="${not empty master_id }"><button onclick="location.href='insertForm.notice'">공지 작성</button></c:if>
 	<!-- 리스트 -->
 	<table class="w3-table w3-centered w3-bordered">
-		<tr><th>번호</th><th>제목</th><th>작성일</th></tr>
+		<tr><th>번호</th><th>제목</th><th>등록일</th></tr>
 		<c:if test="${empty list }">
 			<tr><th colspan="3">작성된 공지사항이 없습니다</th></tr>
 		</c:if>
@@ -26,7 +29,7 @@
 		<c:forEach items="${list }" var="notice">
 			<fmt:formatDate value="${notice.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
 			<tr><th>${notice.notice_no }</th>
-				<td><a href="noticeContent.notice?notice_no=${notice.notice_no }&pageNum=${pageNum }">${notice.subject }</a></td>
+				<td style="width: 600px; text-align: left;"><a href="noticeContent.notice?notice_no=${notice.notice_no }&pageNum=${pageNum }">${notice.subject }</a></td>
 				<c:if test="${nowDate > pastDate }">
 				<td><fmt:formatDate value="${notice.reg_date }" type="date" pattern="yyyy/MM/dd"/></td>
 				</c:if>
@@ -51,13 +54,7 @@
 	<c:if test="${endPage < totalPage }">
 		<button onclick="location.href='noticeList.notice?pageNum=${endPage + 1 }'">다음</button>
 	</c:if>
-	<!-- 관리자용 작성버튼 -->
-	<c:if test="${not empty master_id }">
-		<hr>
-		<button onclick="location.href='insertForm.notice'">공지 작성</button>
-	</c:if>
 </div>
-
 <!-- Footer -->
 <%@ include file="../mainPage/footer.jsp" %>
 </body>
