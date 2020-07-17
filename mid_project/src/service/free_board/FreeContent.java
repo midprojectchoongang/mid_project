@@ -19,6 +19,7 @@ public class FreeContent implements CommandProcess {
 		
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("free", free);
+		
 		return "freeContent";
 	}
 }

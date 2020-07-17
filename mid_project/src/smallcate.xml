@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="smallcatens">
+	<resultMap type="smallcate" 		 	id="resultMap">
+		<result property="smallcate_id" 	column="smallcate_id"/>
+		<result property="smallcate_name"  	column="smallcate_name"/>
+		
+	</resultMap>
+	
+ 	<select id="select" parameterType="string" resultType="smallcate">
+		select smallcate_name from smallcate where smallcate_id = #{smallcate_id}
+	</select>
+</mapper>

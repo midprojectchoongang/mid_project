@@ -22,6 +22,7 @@
 	</table>
 </form>
 	<a href="joinForm.member">회원가입</a>&emsp;
+	
 	<a href="loginForm.master">관리자 로그인</a>
 </div>
 

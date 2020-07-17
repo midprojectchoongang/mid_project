@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="adoptns">
+	<resultMap type="adopt_board" id="resultMap">
+		<result property="adopt_no" column="adopt_no" />
+		<result property="member_id" column="member_id" />
+		<result property="largecate_id" column="largecate_id" />
+		<result property="smallcate_id" column="smallcate_id" />
+		<result property="location_no" column="location_no" />
+		<result property="subject" column="subject" />
+		<result property="adopt_image1" column="adopt_image1" />
+		<result property="adopt_image2" column="adopt_image2" />
+		<result property="adopt_image3" column="adopt_image3" />
+		<result property="adopt_image4" column="adopt_image4" />
+		<result property="adopt_image5" column="adopt_image5" />
+		<result property="content" column="content" />
+		<result property="applier_count" column="applier_count" />
+		<result property="reg_date" column="reg_date" />
+		<result property="del" column="del" />
+	</resultMap>
+	<select id="list" parameterType="hashMap" resultMap="resultMap">
+		select * from (select rowNum rn, a.* from 
+		(select * from adopt_board order by adopt_no desc) a)
+		where del = 'n' and rn between #{startRow} and #{endRow}
+	</select>
+		<insert id="write" parameterType="adopt_board">
+		insert into adopt_board values (adopt_seq.nextval,#{member_id},#{largecate_id},#{smallcate_id},#{location_no},#{subject},
+		'test', 'test', 'test', 'test', 'test',
+		#{content}, 0, sysdate, 'n')
+	</insert>
+	<select id="total" resultType="integer">
+		select count(*) from adopt_board
+	</select>
+	<select id="read" parameterType="integer" resultType="adopt_board">
+		select * from adopt_board where adopt_no = #{adopt_no}
+	</select>
+	<update id="update" parameterType="adopt_board">
+		update adopt_board set location_no = #{location_no}, subject = #{subject},
+		content = #{content} where adopt_no = #{adopt_no} 
+	</update>
+	<update id="delete" parameterType="integer">
+		update adopt_board set del = 'y' where adopt_no = #{adopt_no}
+	</update>
+	<select id="search" parameterType="string" resultType="integer">
+		select max(adopt_no) from adopt_board where member_id = #{member_id}
+	</select>
+</mapper>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="largecatens">
+	<resultMap type="largecate" 		 	id="resultMap">
+		<result property="largecate_id" 	column="largecate_id"/>
+		<result property="largecate_name"  	column="largecate_name"/>
+		
+	</resultMap>
+	
+ 	<select id="select" parameterType="string" resultType="largecate">
+		select largecate_name from largecate where largecate_id = #{largecate_id}
+	</select>
+</mapper>
