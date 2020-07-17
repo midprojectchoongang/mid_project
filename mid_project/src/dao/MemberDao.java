@@ -1,29 +1,18 @@
 package dao;
-
 import java.io.Reader;
-import java.sql.*;
 import java.util.*;
-import javax.sql.*;
-
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-
 import model.Member;
-
-import javax.naming.*;
-
 public class MemberDao {
 	private static MemberDao instance = new MemberDao();
-
 	private MemberDao() {
 	}
-
 	public static MemberDao getInstance() {
 		return instance;
 	}
-
 	private  static SqlSession session;
 	static {
 		try {
@@ -36,17 +25,14 @@ public class MemberDao {
 			System.out.println("초기화 에러 : "+e.getMessage());
 		}
 	}
-
 	public Member select(String member_id) {
 		Member member = (Member)session.selectOne("memberns.select", member_id);
 		return member;
 	}
-	
 	public Member idChk(String member_id) {
 		Member member = (Member)session.selectOne("memberns.idChk", member_id);
 		return member;
 	}
-
 	public int loginChk(String member_id, String password) {
 		int result = 0;
 		Member member = select(member_id);
@@ -57,22 +43,19 @@ public class MemberDao {
 		}
 		return result;
 	}
-
 	public int insert(Member member) {
 		return session.insert("memberns.insert", member);
 	}
-
 	public int update(Member member) {
 		return session.update("memberns.update", member);
 	}
-	
 	public int updatePw(Member member) {
 		return session.update("memberns.updatePw", member);
 	}
-	
 	public int delete(String member_id) {
 		return session.update("memberns.delete", member_id);
 	}
-
-	
+	public List<Member> list() {
+		return session.selectList("memberns.list");
+	}
 }

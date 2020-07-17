@@ -39,4 +39,7 @@
 	<update id="delete" parameterType="int">
 		update member set del='y' where member_id=#{member_id}
 	</update>
+	<select id="list" resultMap="resultMap">
+		select * from member order by member_id
+	</select>
 </mapper>

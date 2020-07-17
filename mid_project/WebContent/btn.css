@@ -1,36 +1,65 @@
-.button-4{
-  width:140px;
-  height:50px;
-  border:3px solid #34495e;
-  text-align:center;
-  cursor:pointer;
-  position:relative;
-  box-sizing:border-box;
-  overflow:hidden;
-  margin:0 0 20px 0px;
+.btn-two {
+	margin: 9px;
 }
-.button-4 a{
-  font-family:arial;
-  font-size:16px;
-  color:#34495e;
-  text-decoration:none;
-  line-height:50px;
-  transition:all .5s ease;
-  z-index:2;
-  position:relative;
+
+a[class*="btn"] {text-decoration: none;}
+input[class*="btn"], 
+button[class*="btn"] {border: 0;}
+
+/* Here you can change the button sizes */
+.btn-two.large {
+  padding: 20px 40px; 
+  font-size: 22px;
 }
-.eff-4{
-  width:140px;
-  height:50px;
-  left:-140px;
-  background:#34495e;
-  position:absolute;
-  transition:all .5s ease;
-  z-index:1;
+
+.btn-two.small {
+  padding: 8px 18px;  
+  font-size: 14px;
 }
-.button-4:hover .eff-4{
-  left:0;
+
+.btn-two.mini {
+  padding: 4px 12px;  
+  font-size: 12px;
 }
-.button-4:hover a{
-  color:#fff;
+
+.btn-two.block {
+  display: block;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* Colors for .btn and .btn-two */
+.btn-two.blue     {background-color: #7fb1bf;}
+.btn-two.green   {background-color: #9abf7f;}
+.btn-two.red       {background-color: #ff3737;}
+.btn-two.black       {background-color: #000000;}
+.btn-two.purple {background-color: #cb99c5;}
+.btn-two.cyan     {background-color: #7fccde;}
+.btn-two.yellow {background-color: #f0d264;}
+.btn-two.charcoal  {background-color: #4e5656;}
+
+.rounded {
+  border-radius: 10px;
+}
+
+/* Button two - I have no creativity for names */
+.btn-two {
+	color: white;	
+	padding: 15px 25px;
+	display: inline-block;
+	border: 1px solid rgba(0,0,0,0.21);
+	border-bottom-color: rgba(0,0,0,0.34);
+	text-shadow:0 1px 0 rgba(0,0,0,0.15);
+	box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
+				      0 2px 0 -1px rgba(0,0,0,0.13), 
+				      0 3px 0 -1px rgba(0,0,0,0.08), 
+				      0 3px 13px -1px rgba(0,0,0,0.21);
+}
+.btn-two:active {
+	top: 1px;
+	border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
+	box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
+	position: relative;
 }

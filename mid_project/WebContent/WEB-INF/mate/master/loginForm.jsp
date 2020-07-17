@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ include file="../sessions/masterSession.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,13 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+<!-- Header, NavBar -->
+<%@ include file="../mainPage/nav.jsp" %>
+
 <c:if test="${not empty master_id }">
 	<script type="text/javascript">
 		location.href="main.main";
 	</script>
 </c:if>
-<!-- Header, NavBar -->
-<%@ include file="../mainPage/nav.jsp" %>
 
 <div align="center" style="margin: 100px;">
 <form action="login.master" method="post">

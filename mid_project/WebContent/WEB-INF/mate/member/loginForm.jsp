@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ include file="../sessions/memberSession.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<!-- Header, NavBar -->
+<%@ include file="../mainPage/nav.jsp" %>
+
 <c:if test="${not empty member_id }">
 	<script type="text/javascript">
 		location.href="main.main";
