@@ -19,12 +19,15 @@ public class FreeContent implements CommandProcess {
 		Free_boardDao fd = Free_boardDao.getInstance();
 		Free_board free = fd.read(free_no);
 		
-		if(member_id != free.getMember_id()) { 
+		if (member_id.equals(free.getMember_id())) { 
+		}
+		else {
 			fd.cntUp(free_no);
 		}
 		
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("free", free);
+		
 		return "freeContent";
 	}
 }

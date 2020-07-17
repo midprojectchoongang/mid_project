@@ -15,6 +15,7 @@
 		<result property="content" column="content" />
 		<result property="reg_date" column="reg_date" />
 		<result property="del" column="del" />
+		<result property="cnt" column="cnt" />
 	</resultMap>
 	<select id="list" parameterType="hashMap" resultMap="resultMap">
 		select * from (select rowNum rn, a.* from (select * from free_board where del = 'n' and category = #{category} order by free_no desc) a)
@@ -22,7 +23,7 @@
 	</select>
 	<insert id="write" parameterType="free_board">
 		insert into free_board values (free_seq.nextval, #{member_id}, #{category}, #{subject},
-		'test', 'test', 'test', 'test', 'test', #{content}, sysdate, 'n')
+		'test', 'test', 'test', 'test', 'test', #{content}, sysdate, 'n', 0)
 	</insert>
 	<select id="total" parameterType="string" resultType="integer">
 		select count(*) from free_board where category = #{category} and del = 'n'
