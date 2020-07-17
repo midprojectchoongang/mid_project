@@ -25,6 +25,7 @@
 				<a href="freeList.free?category=a" class="w3-bar-item w3-button">입양 후기</a>
 			</div>
 		</div>
+		<a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">보호소</a>
 		<c:if test="${empty member_id && empty master_id }">
 			<a href="loginForm.member" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal">로그인</a>
 		</c:if>
