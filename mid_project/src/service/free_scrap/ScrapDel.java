@@ -18,7 +18,7 @@ public class ScrapDel implements CommandProcess {
 		Free_scrapDao fd = Free_scrapDao.getInstance();
 		
 		int result = fd.delete(member_id,free_no);
-
+		
 		request.setAttribute("result", result);
 		request.setAttribute("member_id", member_id);
 		request.setAttribute("pageNum", pageNum);

@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../sessions/memberSession.jsp" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
@@ -101,10 +99,10 @@
 	
 	<c:forEach var="i" begin="${startPage }" end="${endPage }">
 		<c:if test="${i == currentPage }">
-			<button onclick="location.href='freeList.free?pageNum=${i }'" disabled="disabled">${ i }</button>
+			<button onclick="location.href='freeList.free?category=${param.category}&pageNum=${i }'" disabled="disabled">${ i }</button>
 		</c:if>
 		<c:if test="${i != currentPage }">
-			<button onclick="location.href='freeList.free?pageNum=${i }'">${i }</button>
+			<button onclick="location.href='freeList.free?category=${param.category}&pageNum=${i }'">${i }</button>
 		</c:if>
 	</c:forEach>
 

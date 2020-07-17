@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ include file="../sessions/memberSession.jsp" %>
-<%@ include file="../sessions/masterSession.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +10,7 @@
 	function delmsg() {
 	    var msg = "게시물을 삭제합니다";
 		if (confirm(msg)) {
-		    location.href = 'delete.free?free_no=${free.free_no}&pageNum=${pageNum}';
+		    location.href = 'delete.free?category=${free.category}&free_no=${free.free_no}&pageNum=${pageNum}';
 		} else {
 			return;
 		}
@@ -32,10 +29,12 @@
 			<td><c:if test="${free.category == 'f'}">잡담</c:if>
 				<c:if test="${free.category == 'i'}">정보</c:if>
 				<c:if test="${free.category == 'a'}">후기</c:if></td>
-			<th>제목</th><td>${free.subject }</td>
-		</tr>
-		<tr><th>작성자</th><td>${free.member_id }</td>
 			<th>작성일</th><td>${free.reg_date }</td></tr>
+		</tr>
+		<tr>
+			<th>제목</th><td>${free.subject }</td>
+			<th>작성자</th><td>${free.member_id }</td>
+			
 		<tr height="300"><td colspan="4" style="text-align: left; padding: 50px;">${free.content }</td></tr>
 	</table><p>
 <c:if test="${member_id == free.member_id }">

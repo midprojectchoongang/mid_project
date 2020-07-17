@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ include file="../sessions/memberSession.jsp" %>
-<%@ include file="../sessions/masterSession.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,10 +19,13 @@
 </script>
 </head>
 <body>
+<!-- Header, NavBar -->
+<%@ include file="../mainPage/nav.jsp" %>
+
 <fmt:formatDate value="${free.reg_date }" pattern="yyyy.MM.dd  HH:mm" var="date"/>
-<div>
+<div align="center" style="margin: 100px;">
 	<input type="hidden" name="pageNum" value="${pageNum }">
-	<table>
+	<table class="w3-table w3-centered w3-bordered">
 		<tr><th>카테고리</th>
 			<td><c:if test="${free.category == 'f'}">잡담</c:if>
 				<c:if test="${free.category == 'i'}">정보</c:if>
@@ -48,7 +48,10 @@
 <c:if test="${not empty member_id && member_id != free.member_id}">
 	<input type="button" value="스크랩" onclick="location.href='scrapChk.freeS?free_no=${free.free_no }&pageNum=${pageNum }'">&emsp;
 </c:if>
-	<input type="button" value="목록보기" onclick="location.href='hotList.free?pageNum=${pageNum}'">
+	<input type="button" value="목록보기" onclick="location.href='hotList.free?category=${free.category }&pageNum=${pageNum}'">
 </div>
+
+<!-- Footer -->
+<%@ include file="../mainPage/footer.jsp" %>
 </body>
 </html>

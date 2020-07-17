@@ -31,6 +31,7 @@ public class FreeList implements CommandProcess {
 		request.setAttribute("totalPage", totalPage);
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("pageNum", pageNum);
+		request.setAttribute("category", category);
 		request.setAttribute("list", list);
 		return "freeList";
 	}

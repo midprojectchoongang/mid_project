@@ -14,7 +14,6 @@ public class HotList implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
 		
 		String category = request.getParameter("category");
-		System.out.println(category+"1");
 		int cnt = 5;
 		Free_boardDao fd = Free_boardDao.getInstance();
 		// page
@@ -34,9 +33,9 @@ public class HotList implements CommandProcess {
 		int endPage = startPage + pagePerBlock - 1;
 		if (endPage > totalPage)
 			endPage = totalPage;
-		System.out.println(category+"2");
+		
 		List<Free_board> hotList = fd.hotList(startRow, endRow, category, cnt);
-		System.out.println(category+"3");
+		
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("currentPage", currentPage);

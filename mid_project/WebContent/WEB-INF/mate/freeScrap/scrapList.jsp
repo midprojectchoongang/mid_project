@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="../sessions/memberSession.jsp" %>
 <%@ include file="../sessions/masterSession.jsp" %>
@@ -13,7 +14,13 @@
 </style>
 </head>
 <body>
-	<table>
+<!-- Header, NavBar -->
+<%@ include file="../mainPage/nav.jsp" %>
+
+<jsp:useBean id="now" class="java.util.Date"/>
+<fmt:formatDate value="${now }" pattern="yyyyMMdd" var="nowDate"/>
+<div align="center" style="margin: 100px;">
+	<table class="w3-table w3-centered w3-bordered">
 	<input type="hidden" name="pageNum" value="${pageNum }">
 		<tr>
 			<th>번호</th>
@@ -33,7 +40,7 @@
 					<td>${free_scrap.free_no }</td>
 					<td><a href="freeContent.free?free_no=${free_scrap.free_no }&pageNum=${pageNum }">${free_scrap.subject }</td>
 					<td>${free_scrap.reg_date }</td>
-					<td><button onclick="location.href='scrapDel.freeS?free_no=${free_scrap.free_no}&pageNum=${pageNum }'">삭제</button></td>
+					<td><button onclick="location.href='scrapDel.freeS?free_no=${free_scrap.free_no}&&pageNum=${pageNum }'">삭제</button></td>
 			</c:if>
 			</c:forEach>
 		</c:if>
@@ -59,5 +66,9 @@
 		<button onclick="location.href='freeList.free?pageNum=${endPage + 1 }'">>></button>
 	</c:if>
 	</div>
+</div>
+
+<!-- Footer -->
+<%@ include file="../mainPage/footer.jsp" %>
 </body>
 </html>

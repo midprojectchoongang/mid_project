@@ -18,15 +18,13 @@ public class ScrapChk implements CommandProcess {
 		String pageNum = request.getParameter("pageNum");
 		int free_no = Integer.parseInt(request.getParameter("free_no"));
 		
-		
 		Free_scrapDao fsd = Free_scrapDao.getInstance();
 		List<Free_scrap> list = fsd.read(member_id);
-
+		
 		request.setAttribute("member_id", member_id);
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("free_no", free_no);
 		request.setAttribute("list", list);
-		
 		return "scrapChk";
 	}
 

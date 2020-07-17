@@ -10,15 +10,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<c:forEach var="free_scrap" items="${list }">
-	<c:if test="${free_scrap.free_no == free_no }">
+<c:if test="${empty list }">
+		<script type="text/javascript">
+			location.href='scrapAdd.freeS?free_no=${free_no }&pageNum=${pageNum }';
+		</script>
+</c:if>
+<c:forEach var="scrap_chk" items="${list }">
+	<c:if test="${scrap_chk.free_no == free_no }">
 		<script type="text/javascript">
 			alert('이미 스크랩 한 글입니다');
 			history.go(-1);
 		</script>
 	</c:if>
-	<c:if test="${free_scrap.free_no != free_no }">
+	<c:if test="${scrap_chk.free_no != free_no }">
 		<script type="text/javascript">
 			location.href='scrapAdd.freeS?free_no=${free_no }&pageNum=${pageNum }';
 		</script>

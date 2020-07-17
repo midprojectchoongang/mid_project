@@ -11,11 +11,14 @@
 <style type="text/css">@import url("temp.css");</style>
 </head>
 <body>
+<!-- Header, NavBar -->
+<%@ include file="../mainPage/nav.jsp" %>
+
 <jsp:useBean id="now" class="java.util.Date"/>
 <fmt:formatDate value="${now }" pattern="yyyyMMdd" var="nowDate"/>
-<div>
+<div align="center" style="margin: 100px;">
 	<input type="hidden" name="pageNum" value="${pageNum }">
-	<table>
+	<table class="w3-table w3-centered w3-bordered">
 		<%-- <caption>
 			<c:if test="${param.category == 'f'}">잡담</c:if>
 			<c:if test="${param.category == 'i'}">정보</c:if>
@@ -77,5 +80,8 @@
 	</c:if>
 	</div>
 </div>
+
+<!-- Footer -->
+<%@ include file="../mainPage/footer.jsp" %>
 </body>
 </html>
