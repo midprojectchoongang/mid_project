@@ -38,8 +38,8 @@
 		<tr height="300"><td colspan="4" style="text-align: left; padding: 50px;">${free.content }</td></tr>
 	</table><p>
 <c:if test="${member_id == free.member_id }">
-	<input type="button" value="수정" onclick="location.href='updateForm.free?free_no=${free.free_no }&pageNum=${pageNum }'">&emsp;
-	<input type="button" value="삭제" onclick="delmsg()">&emsp;
+	<a href="updateForm.free?free_no=${free.free_no }&pageNum=${pageNum }" class="btn-two mini charcoal rounded">수정</a>
+	<a href="delmsg()" class="btn-two mini red rounded">삭제</a>
 </c:if>
 <c:if test="${not empty master_id }">
 	<input type="button" value="삭제" onclick="delmsg()">&emsp;

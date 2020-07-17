@@ -10,14 +10,6 @@
 <!-- Header, NavBar -->
 <%@ include file="../mainPage/nav.jsp" %>
 
-<c:if test="${not empty member_id }">
-	<script type="text/javascript">
-		location.href="main.main";
-	</script>
-</c:if>
-<!-- Header, NavBar -->
-<%@ include file="../mainPage/nav.jsp" %>
-
 <div align="center" style="margin: 100px;">
 <form action="login.member">
 	<table class="w3-table w3-centered w3-bordered">
