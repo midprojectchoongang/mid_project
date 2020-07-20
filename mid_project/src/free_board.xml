@@ -46,12 +46,10 @@
 	</update>
 	<!-- hot List -->
 	<select id="hotList" parameterType="hashmap" resultMap="resultMap">
-		select * from (select rowNum rn, a.* from (select * from free_board where 
-		category = #{category} and cnt > #{cnt} and del = 'n' order by free_no desc) a) 
+		select * from (select rowNum rn, a.* from (select * from free_board where cnt > #{cnt} and del = 'n' order by free_no desc) a) 
 		where rn between #{startRow} and #{endRow}
 	</select>
-	<select id="hotTotal" parameterType="hashmap" resultType="integer">
-		select count(*) from free_board where category = #{category} and
-		cnt > #{cnt} and del = 'n'
+	<select id="hotTotal" parameterType="integer" resultType="integer">
+		select count(*) from free_board where cnt > #{cnt} and del = 'n'
 	</select>
 </mapper>

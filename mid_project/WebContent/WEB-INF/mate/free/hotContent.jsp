@@ -50,7 +50,7 @@
 		</c:if>
 	</span>
 	<span id="right">
-		<a href="hotList.free?category=${free.category }&pageNum=${pageNum}" class="btn-two mini charcoal rounded">목록</a>
+		<a href="hotList.free?pageNum=${pageNum}" class="btn-two mini charcoal rounded">목록</a>
 	</span>
 </div>
 

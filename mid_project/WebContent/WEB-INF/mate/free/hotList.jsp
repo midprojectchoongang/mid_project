@@ -24,7 +24,7 @@
 			<c:if test="${param.category == 'i'}">정보</c:if>
 			<c:if test="${param.category == 'a'}">후기</c:if>
 		</caption> --%>
-			<tr><th>번호</th><th>제목</th><th>작성자</th><th>조회수</th><th>작성일</th></tr>
+			<tr><th>번호</th><th>카테고리</th><th>제목</th><th>작성자</th><th>조회수</th><th>작성일</th></tr>
 		<c:if test="${empty hotList }">
 			<tr><th colspan="5">등록된 글이 없습니다</th></tr>
 		</c:if>
@@ -33,7 +33,10 @@
 					<fmt:formatDate value="${hotList.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
 					<tr>
 						<td>${hotList.free_no }</td>
-						<td style="width: 600px; text-align: left;">
+						<c:if test="${hotList.category == 'f' }"><td>자유</td></c:if>
+						<c:if test="${hotList.category == 'i' }"><td>정보</td></c:if>
+						<c:if test="${hotList.category == 'a' }"><td>후기</td></c:if>
+						<td style="width: 500px; text-align: left;">
 							<a href="hotContent.free?free_no=${hotList.free_no }&pageNum=${pageNum }" style="margin-left: 20px">${hotList.subject }</a>
 						</td>
 						<td>${hotList.member_id }</td>

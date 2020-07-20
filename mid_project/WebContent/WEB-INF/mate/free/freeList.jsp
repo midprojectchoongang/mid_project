@@ -91,16 +91,13 @@
 	</table><p>
 </div>
 
-<div style="text-align: center; height: 80px">
-	<span style="float: left; margin-left: 20%">
-		<c:if test="${not empty member_id }">
-			<a href="hotList.free?category=${param.category}" class="btn-two small red rounded">HOT</a>
-		</c:if>
-	</span>
-	<span style="float: right; margin-right: 20%">
-		<a href="writeForm.free?category=${param.category }" class="btn-two small charcoal rounded">글쓰기</a>
-	</span>
-</div>
+<c:if test="${not empty member_id }">
+	<div style="text-align: center; height: 80px">
+		<span style="float: right; margin-right: 20%">
+			<a href="writeForm.free?category=${param.category }" class="btn-two small charcoal rounded">글쓰기</a>
+		</span>
+	</div>
+</c:if>
 	
 <div id="page1">
 	<c:if test="${startPage > pagePerBlock }">

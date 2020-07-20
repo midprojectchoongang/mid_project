@@ -49,18 +49,14 @@ public class Free_boardDao {
 	public void cntUp(int free_no) {
 		session.update("freens.cntUp", free_no);
 	}
-	public List<Free_board> hotList(int startRow, int endRow, String category, int cnt) {
-		HashMap<String, String> hm = new HashMap<>();
-		hm.put("startRow", startRow+"");
-		hm.put("endRow", endRow+"");
-		hm.put("category", category);
-		hm.put("cnt", cnt+"");
+	public List<Free_board> hotList(int startRow, int endRow, int cnt) {
+		HashMap<String, Integer> hm = new HashMap<>();
+		hm.put("startRow", startRow);
+		hm.put("endRow", endRow);
+		hm.put("cnt", cnt);
 		return session.selectList("freens.hotList", hm);
 	}
-	public int hotTotal(String category, int cnt) {
-		HashMap<String, String> hm = new HashMap<>();
-		hm.put("category", category);
-		hm.put("cnt", cnt+"");
-		return (int) session.selectOne("freens.hotTotal", hm);
+	public int hotTotal(int cnt) {
+		return session.selectOne("freens.hotTotal", cnt);
 	}
 }

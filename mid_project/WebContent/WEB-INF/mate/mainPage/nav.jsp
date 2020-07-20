@@ -20,6 +20,7 @@
 		<div class="w3-dropdown-hover w3-hide-small">
     		<button class="w3-button w3-hide-small w3-hover-white">게시판 <i class="fa fa-caret-down"></i></button>     
 			<div class="w3-dropdown-content w3-card-4 w3-bar-block">
+				<a href="hotList.free" class="w3-bar-item w3-button">HOT</a>
 				<a href="freeList.free?category=f" class="w3-bar-item w3-button">자유</a>
 				<a href="freeList.free?category=i" class="w3-bar-item w3-button">정보</a>
 				<a href="freeList.free?category=a" class="w3-bar-item w3-button">입양 후기</a>
