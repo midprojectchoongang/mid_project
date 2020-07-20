@@ -6,6 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	function delmsg(appNo) {
+	    var msg = "지원서를 삭제합니다";
+		if (confirm(msg)) {
+		    location.href = 'delete.application?application_no='+appNo+'&pageNum=${pageNum}';
+		} else {
+		    return;
+		}
+	}
+</script>
 </head>
 <body>
 <!-- Header, NavBar -->
@@ -63,9 +73,12 @@
 					<c:if test="${application.location_no == 63}">전북</c:if>
 					<c:if test="${application.location_no == 64}">제주</c:if>
 					</td>
-					<td><a href="appContent.application?application_no=${application.application_no }&pageNum=${pageNum }">${application.subject }</td>
+					<td>
+					<a href="appContent.application?application_no=${application.application_no }&pageNum=${pageNum }">
+					${application.subject }
+					</td>
 					<td>${application.reg_date }</td>
-					<td><button onclick="location.href='scrapDel.freeS?free_no=${free_scrap.free_no}&&pageNum=${pageNum }'">취소</button></td>
+					<td><button onclick="delmsg(${application.application_no})">취소</button></td>
 				</tr>
 			</c:forEach>
 		</c:if>

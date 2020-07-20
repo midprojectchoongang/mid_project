@@ -51,4 +51,7 @@ public class ApplicationDao {
 	public Application read(int application_no) {
 		return session.selectOne("applyns.read", application_no);
 	}
+	public int delete(int application_no) {
+		return session.update("applyns.delete", application_no);
+	}
 }

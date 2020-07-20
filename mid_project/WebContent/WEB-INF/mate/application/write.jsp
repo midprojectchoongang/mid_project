@@ -10,7 +10,13 @@
 <body>
 <c:if test="${result > 0 }">
 <script type="text/javascript">
-	location.href="adoptList.adopt?pageNum=${pageNum}";
+	var msg = "내 지원서 보기";
+	if (confirm(msg)) {
+	    location.href="myAppList.application";
+	}
+	else {
+		location.href="adoptList.adopt?pageNum=${pageNum}";
+	}
 </script>
 </c:if>
 <c:if test="${result == 0 }">

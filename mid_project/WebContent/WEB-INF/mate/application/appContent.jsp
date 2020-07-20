@@ -9,7 +9,7 @@
 	function delmsg() {
 	    var msg = "지원서를 삭제합니다";
 		if (confirm(msg)) {
-		    location.href = 'delete.adopt?adopt_no=${adopt.adopt_no}&pageNum=${pageNum}';
+		    location.href = 'delete.application?application_no=${application_no}&pageNum=${pageNum}';
 		} else {
 		    return;
 		}
@@ -22,7 +22,7 @@
 
 <div align="center" style="margin: 100px;">
 		<input type="hidden" name="pageNum" value="${pageNum }">
-		<input type="hidden" name="adopt_no" value="${adopt.adopt_no }">
+		<input type="hidden" name="application_no" value="${apply.application_no }">
 	<table class="w3-table w3-centered w3-bordered">
 		<tr>
 			<th>분류</th>
