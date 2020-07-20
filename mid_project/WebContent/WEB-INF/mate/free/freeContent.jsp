@@ -29,27 +29,30 @@
 			<td><c:if test="${free.category == 'f'}">잡담</c:if>
 				<c:if test="${free.category == 'i'}">정보</c:if>
 				<c:if test="${free.category == 'a'}">후기</c:if></td>
-			<th>작성일</th><td>${free.reg_date }</td></tr>
+			<th>작성일</th><td>${free.reg_date }</td>
 		</tr>
 		<tr>
 			<th>제목</th><td>${free.subject }</td>
 			<th>작성자</th><td>${free.member_id }</td>
-			
 		<tr height="300"><td colspan="4" style="text-align: left; padding: 50px;">${free.content }</td></tr>
 	</table><p>
-<c:if test="${member_id == free.member_id }">
-	<a href="updateForm.free?free_no=${free.free_no }&pageNum=${pageNum }" class="btn-two mini charcoal rounded">수정</a>
-	<a href="delmsg()" class="btn-two mini red rounded">삭제</a>
-</c:if>
-<c:if test="${not empty master_id }">
-	<input type="button" value="삭제" onclick="delmsg()">&emsp;
-</c:if>
-<c:if test="${not empty member_id && member_id != free.member_id}">
-	<input type="button" value="스크랩" onclick="location.href='scrapChk.freeS?free_no=${free.free_no }&pageNum=${pageNum }'">&emsp;
-</c:if>
-	<input type="button" value="목록보기" onclick="location.href='freeList.free?category=${free.category }&pageNum=${pageNum}'">
+	<div id="left">
+		<c:if test="${member_id == free.member_id }">
+			<a href="updateForm.free?free_no=${free.free_no }&pageNum=${pageNum }" class="btn-two mini blue rounded">수정</a>
+			<a href="delmsg()" class="btn-two mini red rounded">삭제</a>
+		</c:if>
+		<c:if test="${not empty master_id }">
+			<a href="delmsg()" class="btn-two mini red rounded">삭제</a>
+		</c:if>
+		<c:if test="${not empty member_id && member_id != free.member_id}">
+			<a href="location.href='scrapChk.freeS?free_no=${free.free_no }&pageNum=${pageNum }" class="btn-two mini blue rounded">스크랩</a>
+		</c:if>
+		<span id="center">	</span>
+		<span id="right">
+			<a href="freeList.free?category=${free.category }&pageNum=${pageNum}" class="btn-two mini charcoal rounded">목록</a>
+		</span>
+	</div>
 </div>
-
 <!-- Footer -->
 <%@ include file="../mainPage/footer.jsp" %>
 </body>

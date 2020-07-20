@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../sessions/masterSession.jsp" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
@@ -15,10 +13,14 @@
 
 <jsp:useBean id="now" class="java.util.Date"/>
 <fmt:formatDate value="${now }" pattern="yyyyMMdd" var="nowDate"/>
-<div align="center" style="margin-top: 100px; margin-left: 100px; margin-right: 100px">
-	<b style="font-size: 24px;text-align: left; margin-right:600px;">공지사항</b>
-	<!-- 관리자용 작성버튼 -->
-	<c:if test="${not empty master_id }"><button onclick="location.href='insertForm.notice'">공지 작성</button></c:if>
+<b style="font-size:24px; margin-left:350px; margin-top:50px; position: absolute;">공지사항</b>
+
+<!-- 관리자용 작성버튼 -->
+<c:if test="${not empty master_id }">
+	<a href="insertForm.notice" class="btn-two small charcoal rounded" style="position: absolute; margin-top: 80px; margin-left: 1065px">공지 작성</a>
+</c:if>
+
+<div align="center" style="margin: 150px 100PX 0 100px;">
 	<!-- 리스트 -->
 	<table class="w3-table w3-centered w3-bordered">
 		<tr><th>번호</th><th>제목</th><th>등록일</th></tr>
@@ -39,22 +41,26 @@
 			</c:forEach>
 		</c:if>
 	</table><p>
+</div>
+
 	<!-- 페이지 -->
+<div id="page1">
 	<c:if test="${startPage > pagePerBlock }">
-		<button onclick="location.href='noticeList.notice?pageNum=${startPage - 1 }'">이전</button>
+		<a href="noticeList.notice?pageNum=${startPage - 1 }" class="btn-two page charcoal rounded">이전</a>
 	</c:if>
 	<c:forEach var="i" begin="${startPage }" end="${endPage }">
 		<c:if test="${i == currentPage }">
-			<button onclick="location.href='noticeList.notice?pageNum=${i }'" disabled="disabled">${ i }</button>
+			<b>${ i }</b>
 		</c:if>
 		<c:if test="${i != currentPage }">
-			<button onclick="location.href='noticeList.notice?pageNum=${i }'">${i }</button>
+			<a href="noticeList.notice?pageNum=${i }">${i }</a>
 		</c:if>
 	</c:forEach>
 	<c:if test="${endPage < totalPage }">
-		<button onclick="location.href='noticeList.notice?pageNum=${endPage + 1 }'">다음</button>
+		<a href="noticeList.notice?pageNum=${endPage + 1 }" class="btn-two page charcoal rounded">다음</a>
 	</c:if>
 </div>
+
 <!-- Footer -->
 <%@ include file="../mainPage/footer.jsp" %>
 </body>
