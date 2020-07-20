@@ -14,17 +14,13 @@ public class FreeContent implements CommandProcess {
 		
 		Free_boardDao fd = Free_boardDao.getInstance();
 		Free_board free = fd.read(free_no);
-		MasterDao md = MasterDao.getInstance();
-		Master master = md.select(master_id);
 		
 		System.out.println(member_id);
 
 		if (member_id == null) {
 			if (master_id == null) {				
 				fd.cntUp(free_no);
-			} else if (master_id.equals(master.getMaster_id())) {
-				fd.cntUp(free_no);
-			}
+			} else {}
 		} else if (member_id.equals(free.getMember_id())) {	
 		} else {
 			fd.cntUp(free_no);
