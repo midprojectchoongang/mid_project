@@ -64,8 +64,8 @@ public class AdoptScrapController extends HttpServlet {
 			com = (CommandProcess) commandMap.get(command);
 			view = com.requestPro(request, response);
 			
-			System.out.println("com : " + com);
-			System.out.println("view : " + view);
+			//System.out.println("com : " + com);
+			//System.out.println("view : " + view);
 			
 		} catch (Throwable e) {
 			throw new ServletException(e);
