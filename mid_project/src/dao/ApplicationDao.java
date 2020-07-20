@@ -1,6 +1,7 @@
 package dao;
 
 import java.io.Reader;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
@@ -27,8 +28,13 @@ public class ApplicationDao {
 			System.out.println("초기화 에러 : " + e.getMessage());
 		}
 	}
-	public List<Application> list() {
-		return session.selectList("applyns.list");
+	public List<Application> list(String startRow, String endRow, String member_id) {
+		HashMap<String, String> hm = new HashMap<>();
+		hm.put("startRow", startRow);
+		hm.put("endRow", endRow);
+		hm.put("member_id", member_id);
+		
+		return session.selectList("applyns.list", hm);
 	}/*
 		 * public Free select(int deptno) { return (Free)
 		 * session.selectOne("deptns.select", deptno); } public int insert(Free dept) {
@@ -36,4 +42,16 @@ public class ApplicationDao {
 		 * { return session.update("deptns.update", dept); } public int delete(int
 		 * deptno) { return session.delete("deptns.delete", deptno); }
 		 */
+	public int total(String member_id) {
+		return session.selectOne("applyns.total", member_id);
+	}
+	public int apply(Application app) {
+		return session.insert("applyns.apply", app);
+	}
+	public Application read(int application_no) {
+		return session.selectOne("applyns.read", application_no);
+	}
+	public int delete(int application_no) {
+		return session.update("applyns.delete", application_no);
+	}
 }

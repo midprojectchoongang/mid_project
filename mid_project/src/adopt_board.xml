@@ -30,7 +30,7 @@
 		#{content}, 0, sysdate, 'n')
 	</insert>
 	<select id="total" resultType="integer">
-		select count(*) from adopt_board
+		select count(*) from adopt_board where del = 'n'
 	</select>
 	<select id="read" parameterType="integer" resultType="adopt_board">
 		select * from adopt_board where adopt_no = #{adopt_no}

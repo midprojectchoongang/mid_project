@@ -18,5 +18,23 @@
 		<result property="reg_date" column="reg_date" />
 		<result property="del" column="del" />
 	</resultMap>
-	
+	<select id="list" parameterType="hashMap" resultMap="resultMap">
+		select * from (select rowNum rn, a.* from (select * from application
+		where del = 'n' and member_id = #{member_id} order by reg_date desc) a)
+		where rn between #{startRow} and #{endRow}
+	</select>
+	<select id="total" resultType="integer">
+		select count(*) from application where member_id = #{member_id} and del = 'n'
+	</select>
+	<insert id="apply" parameterType="application">
+		insert into application values(application_seq.nextval, #{member_id},
+		#{adopt_no}, #{largecate_id}, #{smallcate_id}, #{location_no}, 
+		#{subject}, #{gender}, #{email}, #{tel}, #{experience}, #{content}, sysdate, 'n')
+	</insert>
+	<select id="read" parameterType="integer" resultType="application">
+		select * from application where application_no = #{application_no}
+	</select>
+	<update id="delete" parameterType="integer">
+		update application set del = 'y' where application_no = #{application_no}
+	</update>
 </mapper>
