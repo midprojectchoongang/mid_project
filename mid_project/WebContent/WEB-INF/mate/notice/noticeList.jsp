@@ -30,7 +30,7 @@
 		<c:forEach items="${list }" var="notice">
 			<fmt:formatDate value="${notice.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
 			<tr><th>${notice.notice_no }</th>
-				<td style="width: 600px; text-align: left;"><a href="noticeContent.notice?notice_no=${notice.notice_no }&pageNum=${pageNum }">${notice.subject }</a></td>
+				<td style="width: 60%; text-align: left;"><a href="noticeContent.notice?notice_no=${notice.notice_no }&pageNum=${pageNum }">${notice.subject }</a></td>
 				<c:if test="${nowDate > pastDate }">
 				<td><fmt:formatDate value="${notice.reg_date }" type="date" pattern="yyyy/MM/dd"/></td>
 				</c:if>

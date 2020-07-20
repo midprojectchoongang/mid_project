@@ -36,7 +36,7 @@
 						<c:if test="${hotList.category == 'f' }"><td>자유</td></c:if>
 						<c:if test="${hotList.category == 'i' }"><td>정보</td></c:if>
 						<c:if test="${hotList.category == 'a' }"><td>후기</td></c:if>
-						<td style="width: 500px; text-align: left;">
+						<td style="width: 50%; text-align: left;">
 							<a href="hotContent.free?free_no=${hotList.free_no }&pageNum=${pageNum }" style="margin-left: 20px">${hotList.subject }</a>
 						</td>
 						<td>${hotList.member_id }</td>

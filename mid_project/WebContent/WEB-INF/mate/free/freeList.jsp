@@ -35,7 +35,7 @@
 				<c:if test="${free.category == 'f' }">
 				<fmt:formatDate value="${free.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
 					<tr><td>${free.free_no }</td>
-						<td style="width: 600px; text-align: left;">
+						<td style="width: 60%; text-align: left;">
 							<a href="freeContent.free?free_no=${free.free_no }&pageNum=${pageNum }" style="margin-left: 20px">${free.subject }</a>
 						</td>
 						<td>${free.member_id }</td>
@@ -54,7 +54,7 @@
 				<c:if test="${free.category == 'i' }">
 				<fmt:formatDate value="${free.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
 					<tr><td>${free.free_no }</td>
-						<td style="width: 600px; text-align: left;">
+						<td style="width: 60%; text-align: left;">
 							<a href="freeContent.free?free_no=${free.free_no }&pageNum=${pageNum }" style="margin-left: 20px">${free.subject }</a>
 						</td>
 						<td>${free.member_id }</td>
@@ -73,7 +73,7 @@
 				<c:if test="${free.category == 'a' }">
 				<fmt:formatDate value="${free.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
 					<tr><td>${free.free_no }</td>
-						<td style="width: 600px; text-align: left;">
+						<td style="width: 60%; text-align: left;">
 							<a href="freeContent.free?free_no=${free.free_no }&pageNum=${pageNum }" style="margin-left: 20px">${free.subject }</a>
 						</td>
 						<td>${free.member_id }</td>
