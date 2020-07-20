@@ -3,8 +3,8 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="masterns">
 	<resultMap type="master" id="resultMap">
-		<result property="id"		column="id"/>
-		<result property="password" column="password"/>
+		<result property="master_id"	column="master_id"/>
+		<result property="password" 	column="password"/>
 	</resultMap>
 	<select id="select" parameterType="string" resultType="master">
 		select * from master where master_id = #{master_id}

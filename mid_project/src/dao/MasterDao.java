@@ -28,7 +28,7 @@ public class MasterDao {
 		}
 		return result;
 	}
-	public Master select(String id) {
-		return session.selectOne("masterns.select", id);
+	public Master select(String master_id) {
+		return session.selectOne("masterns.select", master_id);
 	}
 }
