@@ -32,7 +32,7 @@
 			<th>카테고리</th>
 			<td>
 				<c:if test="${adopt.largecate_id == 'd'}">강아지</c:if>
-				<c:if test="${adopt.smallcate_id == 'c'}">고양이</c:if>
+				<c:if test="${adopt.largecate_id == 'c'}">고양이</c:if>
 			</td>
 			<td>
 				<c:if test="${adopt.smallcate_id == 'd1'}">대형견</c:if>										
@@ -65,9 +65,11 @@
 </c:if>
 <c:if test="${not empty member_id && member_id != adopt.member_id}">
 	<input type="button" value="스크랩" onclick="location.href='scrapChk.adoptS?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }'">&emsp;
+	<input type="button" value="지원하기" onclick="location.href='writeForm.application?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }'">	
 </c:if>
 	<input type="button" value="목록보기" onclick="location.href='adoptList.adopt?pageNum=${pageNum}'">
 </div>
-	
+
+
 </body>
 </html>

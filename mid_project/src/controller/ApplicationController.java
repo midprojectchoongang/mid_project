@@ -15,10 +15,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import service.free_board.CommandProcess;
+import service.application.CommandProcess;
 
 
-@WebServlet(urlPatterns = "*.apply", initParams = {
+@WebServlet(urlPatterns = "*.application", initParams = {
 		@WebInitParam(name = "config", value = "/WEB-INF/applicationCommand.properties") })
 public class ApplicationController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -63,10 +63,10 @@ public class ApplicationController extends HttpServlet {
 			command = command.substring(request.getContextPath().length() + 1);
 			com = (CommandProcess) commandMap.get(command);
 			view = com.requestPro(request, response);
-			/*
+			
 			System.out.println("com : " + com);
 			System.out.println("view : " + view);
-			*/
+			
 		
 		} catch (Throwable e) {
 			throw new ServletException(e);
