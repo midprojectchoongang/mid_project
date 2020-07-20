@@ -34,25 +34,22 @@
 		<tr>
 			<th>제목</th><td>${free.subject }</td>
 			<th>작성자</th><td>${free.member_id }</td>
+			
 		<tr height="300"><td colspan="4" style="text-align: left; padding: 50px;">${free.content }</td></tr>
 	</table><p>
-	<div id="left">
-		<c:if test="${member_id == free.member_id }">
-			<a href="updateForm.free?free_no=${free.free_no }&pageNum=${pageNum }" class="btn-two mini blue rounded">수정</a>
-			<a href="delmsg()" class="btn-two mini red rounded">삭제</a>
-		</c:if>
-		<c:if test="${not empty master_id }">
-			<a href="delmsg()" class="btn-two mini red rounded">삭제</a>
-		</c:if>
-		<c:if test="${not empty member_id && member_id != free.member_id}">
-			<a href="location.href='scrapChk.freeS?free_no=${free.free_no }&pageNum=${pageNum }" class="btn-two mini blue rounded">스크랩</a>
-		</c:if>
-		<span id="center">	</span>
-		<span id="right">
-			<a href="freeList.free?category=${free.category }&pageNum=${pageNum}" class="btn-two mini charcoal rounded">목록</a>
-		</span>
-	</div>
+	<c:if test="${member_id == free.member_id }">
+		<a href="updateForm.free?free_no=${free.free_no }&pageNum=${pageNum }" class="btn-two mini blue rounded">수정</a>
+		<a href="delmsg()" class="btn-two mini red rounded">삭제</a>
+	</c:if>
+	<c:if test="${not empty master_id }">
+		<a href="delmsg()" class="btn-two mini red rounded">삭제</a>
+	</c:if>
+	<c:if test="${not empty member_id && member_id != free.member_id}">
+		<a href="scrapChk.freeS?free_no=${free.free_no }&pageNum=${pageNum }" class="btn-two mini blue rounded">스크랩</a>
+	</c:if>
+		<a href="freeList.free?category=${free.category }&pageNum=${pageNum}" class="btn-two mini charcoal rounded">목록</a>
 </div>
+
 <!-- Footer -->
 <%@ include file="../mainPage/footer.jsp" %>
 </body>

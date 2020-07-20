@@ -13,11 +13,11 @@
 
 <jsp:useBean id="now" class="java.util.Date"/>
 <fmt:formatDate value="${now }" pattern="yyyyMMdd" var="nowDate"/>
-<b style="font-size:24px; margin-left:350px; margin-top:50px; position: absolute;">공지사항</b>
+<b style="font-size:24px; margin-left:25%; margin-top:4%; position: absolute;">공지사항</b>
 
 <!-- 관리자용 작성버튼 -->
 <c:if test="${not empty master_id }">
-	<a href="insertForm.notice" class="btn-two small charcoal rounded" style="position: absolute; margin-top: 80px; margin-left: 1065px">공지 작성</a>
+	<a href="insertForm.notice" class="btn-two small charcoal rounded" style="position: absolute; margin-top: 6%; margin-left: 70%">공지 작성</a>
 </c:if>
 
 <div align="center" style="margin: 150px 100PX 0 100px;">
