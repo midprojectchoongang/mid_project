@@ -6,10 +6,8 @@ import javax.servlet.http.HttpSession;
 
 import dao.Adopt_boardDao;
 import dao.ApplicationDao;
-import dao.MemberDao;
 import model.Adopt_board;
 import model.Application;
-import model.Member;
 
 public class Write implements CommandProcess {
 
@@ -49,6 +47,7 @@ public class Write implements CommandProcess {
 		app.setContent(content);
 				
 		int result = ad.apply(app);
+		int count = abd.count(adopt_no);
 		
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("result", result);

@@ -45,4 +45,7 @@ public class Adopt_boardDao {
 	public int search(String member_id) {
 		return session.selectOne("adoptns.search", member_id);
 	}
+	public int count(int adopt_no) {
+		return session.update("adoptns.count", adopt_no);
+	}
 }
