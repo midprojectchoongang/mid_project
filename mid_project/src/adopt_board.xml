@@ -45,4 +45,7 @@
 	<select id="search" parameterType="string" resultType="integer">
 		select max(adopt_no) from adopt_board where member_id = #{member_id}
 	</select>
+	<update id="count" parameterType="integer">
+		update adopt_board set applier_count = applier_count+1 where adopt_no = #{adopt_no}
+	</update>
 </mapper>
