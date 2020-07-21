@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shelterns">
+	<resultMap type="shelter" id="resultMap">
+		<result property="shelter_no" 		column="shelter_no"/>
+		<result property="location_no" 		column="location_no"/>
+		<result property="name"  			column="name"/>
+		<result property="tel"  			column="tel"/>
+		<result property="del"  			column="del"/>
+	</resultMap>
+	<select id="list" parameterType="hashMap" resultMap="resultMap">
+		select * from (select rowNum rn, a.* from (select * from shelter where del = 'n' order by shelter_no) a)
+		where rn between #{startRow} and #{endRow}
+	</select>
+	<select id="total" resultType="integer">
+	select count(*) from shelter where del = 'n'
+	</select>
+	<insert id="insert" parameterType="shelter">
+		insert into shelter values(shelter_seq.nextval, #{location_no}, #{name}, #{tel}, 'n')
+	</insert>
+	<select id="select" resultType="shelter">
+		select * from shelter where shelter_no = #{shelter_no}
+	</select>
+	<update id="update" parameterType="shelter">
+		update shelter set location_no = #{location_no}, name = #{name}, tel = #{tel} where shelter_no = #{shelter_no}
+	</update>
+	<update id="delete" parameterType="integer">
+		update shelter set del = 'y' where shelter_no = #{shelter_no}
+	</update>
+</mapper>
