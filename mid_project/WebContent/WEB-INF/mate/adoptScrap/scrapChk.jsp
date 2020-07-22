@@ -10,17 +10,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<c:forEach var="adopt_scrap" items="${list }">
-	<c:if test="${adopt_scrap.adopt_no == adopt_no }">
+<c:if test="${empty list }">
+		<script type="text/javascript">
+			location.href='scrapAdd.adoptS?adopt_no=${adopt_no }&pageNum=${pageNum }';
+		</script>
+</c:if>
+<c:forEach var="adopt_chk" items="${list }">
+	<c:if test="${adopt_chk.adopt_no == param.adopt_no }">
 		<script type="text/javascript">
 			alert('이미 스크랩 한 글입니다');
-			//history.go(-1);
-			history.back();
-			
+			history.go(-1);	
 		</script>
 	</c:if>
-	<c:if test="${adopt_scrap.adopt_no != adopt_no }">
+	<c:if test="${adopt_chk.adopt_no != param.adopt_no }">
 		<script type="text/javascript">
 			location.href='scrapAdd.adoptS?adopt_no=${adopt_no }&pageNum=${pageNum }';
 		</script>

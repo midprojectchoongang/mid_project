@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="../sessions/memberSession.jsp" %>
 <%@ include file="../sessions/masterSession.jsp" %>
@@ -13,8 +14,14 @@
 </style>
 </head>
 <body>
+<!-- Header, NavBar -->
+<%@ include file="../mainPage/nav.jsp" %>
+
+
+
+<div align="center" style="margin: 100px;">
+	<table class="w3-table w3-centered w3-bordered">
 	<input type="hidden" name="pageNum" value="${pageNum }">
-	<table>
 		<tr>
 			<th>번호</th>
 			<th>지역</th>
@@ -90,5 +97,9 @@
 		<button onclick="location.href='adoptList.adopt?pageNum=${endPage + 1 }'">>></button>
 	</c:if>
 	</div>
+</div>	
+
+<!-- Footer -->
+<%@ include file="../mainPage/footer.jsp" %>
 </body>
 </html>
