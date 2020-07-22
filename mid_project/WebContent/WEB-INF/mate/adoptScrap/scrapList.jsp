@@ -15,7 +15,6 @@
 <fmt:formatDate value="${now }" pattern="yyyyMMdd" var="nowDate"/>
 
 	<input type="hidden" name="pageNum" value="${pageNum }">
-	<table>
 		<tr>
 			<th>번호</th>
 			<th>지역</th>
@@ -91,5 +90,9 @@
 		<button onclick="location.href='adoptList.adopt?pageNum=${endPage + 1 }'">>></button>
 	</c:if>
 	</div>
+</div>	
+
+<!-- Footer -->
+<%@ include file="../mainPage/footer.jsp" %>
 </body>
 </html>

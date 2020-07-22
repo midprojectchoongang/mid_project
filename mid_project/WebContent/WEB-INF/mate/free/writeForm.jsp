@@ -56,8 +56,8 @@
 			<td><textarea name="content" rows="10" cols="50" required="required"></textarea></td>
 		</tr>
 	</table><p>
-		<input type="submit" value="등록" onclick="location.href='write.free'">
-		<input type="button" value="취소" onclick="location.href='freeList.free?category=&{category}'">
+		<input type="submit" value="등록" onclick="location.href='write.free?category=${category}'">
+		<input type="button" value="취소" onclick="location.href='freeList.free'">
 </form>
 </div>
 

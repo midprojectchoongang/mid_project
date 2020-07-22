@@ -17,7 +17,7 @@
 
 <!-- 관리자용 작성버튼 -->
 <c:if test="${not empty master_id }">
-	<a href="insertForm.notice" class="btn-two small charcoal rounded" style="position: absolute; margin-top: -50px; margin-left: 65%">공지 작성</a>
+	<a href="insertForm.notice" class="btn-two small charcoal rounded" style="position: absolute; margin-top: -50px; margin-left: 70%">공지 작성</a>
 </c:if>
 
 	<!-- 리스트 -->

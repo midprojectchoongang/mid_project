@@ -28,13 +28,13 @@ public class ScrapList implements CommandProcess {
 				
 		// block
 		int pagePerBlock = 10;
-		int total = asd.total();
+		int total = asd.total(member_id);
 		int totalPage = (int)Math.ceil((double)total/rowPerPage);
 		int startPage = currentPage - (currentPage-1) % pagePerBlock;
 		int endPage = startPage + pagePerBlock - 1;
 		if (endPage > totalPage) endPage = totalPage;
 		
-		List<Adopt_scrap> list = asd.list(startRow, endRow);
+		List<Adopt_scrap> list = asd.list(startRow, endRow, member_id);
 		
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
