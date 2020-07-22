@@ -13,11 +13,11 @@ public class WriteAction implements CommandProcess {
 		
 		String pageNum = request.getParameter("pageNum");
 		String member_id = request.getParameter("member_id");
-		
+
 		String largecate_id = request.getParameter("largecate_id"); 
 		String smallcate_id = request.getParameter("smallcate_id");
 		int location_no = Integer.parseInt(request.getParameter("location_no"));
-		 
+
 		String subject = request.getParameter("subject");
 		String content = request.getParameter("content");
 		String adopt_image1 = "adopt_image1"; 

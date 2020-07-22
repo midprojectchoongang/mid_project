@@ -24,8 +24,8 @@
 <jsp:useBean id="now" class="java.util.Date"/>
 <fmt:formatDate value="${now }" pattern="yyyyMMdd" var="nowDate"/>
 <div align="center" style="margin: 100px;">
-	<table class="w3-table w3-centered w3-bordered">
 	<input type="hidden" name="pageNum" value="${pageNum }">
+	<table class="w3-table w3-centered w3-bordered">
 		<tr>
 			<th>공고번호</th>
 			<th>분류</th>
@@ -74,7 +74,7 @@
 					<c:if test="${application.location_no == 64}">제주</c:if>
 					</td>
 					<td>
-					<a href="appContent.application?application_no=${application.application_no }&pageNum=${pageNum }">
+					<a href="appContent.application?application_no=${application.application_no }&pageNum=${pageNum }"></a>
 					${application.subject }
 					</td>
 					<td>${application.reg_date }</td>

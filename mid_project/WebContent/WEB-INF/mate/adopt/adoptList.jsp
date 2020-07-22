@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ include file="../sessions/memberSession.jsp" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
@@ -16,7 +14,10 @@
 <!-- Header, NavBar -->
 <%@ include file="../mainPage/nav.jsp" %>
 
-<div align="center" style="margin: 100px;">
+<%@ include file="../mainPage/sideNav.jsp" %>
+
+<b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">공고게시판</b>
+<div align="center" style="margin: 200px 100px 0 100px; position: relative; min-height: 450px">
 	<input type="hidden" name="pageNum" value="${pageNum }">
 	<table class="w3-table w3-centered w3-bordered">
 		<tr>
@@ -24,7 +25,7 @@
 			<th>지역</th>
 			<th>대분류</th>
 			<th>소분류</th>	
-			<th>제목</th>
+			<th style="width: 50%">제목</th>
 			<th>작성일</th>
 			<th>조회수</th>
 		</tr>
@@ -72,31 +73,34 @@
 				</tr>
 			</c:forEach>
 		</c:if>
-	</table>
-	<p>
-	<div align="center">
-		<input type="button" value="공고글 작성" onclick="location.href='writeForm.adopt'">
-	</div>
-	
-	<!-- 페이징 -->
-	<c:if test="${startPage > pagePerBlock }">
-	<button onclick="location.href='adoptList.adopt?pageNum=${startPage - 1 }'"><<</button>
+	</table><p>
+	<c:if test="${not empty member_id }">
+		<div style="text-align: center; height: 80px">
+			<span style="float: right; margin-right: 20%">
+				<a href="writeForm.adopt" class="btn-two small charcoal rounded">공고글 작성</a>
+			</span>
+		</div>
 	</c:if>
-	
+</div>
+
+		<!-- 페이지 -->
+<div id="page1">
+	<c:if test="${startPage > pagePerBlock }">
+		<a href="adoptList.adopt?pageNum=${startPage - 1 }"><<</a>
+	</c:if>
 	<c:forEach var="i" begin="${startPage }" end="${endPage }">
 		<c:if test="${i == currentPage }">
-			<button onclick="location.href='adoptList.adopt?pageNum=${i }'" disabled="disabled">${ i }</button>
+			<b>${ i }</b>
 		</c:if>
 		<c:if test="${i != currentPage }">
-			<button onclick="location.href='adoptList.adopt?pageNum=${i }'">${i }</button>
+			<a href="adoptList.adopt?pageNum=${i }">${i }</a>
 		</c:if>
 	</c:forEach>
-
 	<c:if test="${endPage < totalPage }">
-		<button onclick="location.href='adoptList.adopt?pageNum=${endPage + 1 }'">>></button>
+		<a href="adoptList.adopt?pageNum=${endPage + 1 }">>></a>
 	</c:if>
-                                                    
 </div>
+                                                    
 <!-- Footer -->
 <%@ include file="../mainPage/footer.jsp" %>
 </body>

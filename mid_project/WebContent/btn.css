@@ -81,3 +81,33 @@ button[class*="btn"] {border: 0;}
 	box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
 	position: relative;
 }
+
+	/* 사이드바 스타일 */
+	.sidenav {
+		height: 100%;
+		width: 10%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding-top: 12%;
+		z-index: 1;
+	}
+	.sidenav .parent {
+		padding: 8px 8px 8px 50%;
+		text-decoration: none;
+		font-size: 25px;
+		font-weight: bold;
+		color: #000;
+		display: block;
+	}
+	.sidenav .child {
+		padding: 0 8px 0 60%;
+		text-decoration: none;
+		font-size: 15px;
+		font-weight: bold;
+		color: #000;
+		display: block;
+	}
+	.sidenav a:hover, .offcanvas a:focus {
+		color: #ff0000;
+	}

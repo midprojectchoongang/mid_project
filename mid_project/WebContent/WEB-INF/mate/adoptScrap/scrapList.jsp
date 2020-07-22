@@ -13,8 +13,8 @@
 </style>
 </head>
 <body>
-	<table>
 	<input type="hidden" name="pageNum" value="${pageNum }">
+	<table>
 		<tr>
 			<th>번호</th>
 			<th>지역</th>

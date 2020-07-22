@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<footer class="w3-container w3-padding-20 w3-theme-d1 w3-center">
+<footer class="w3-container w3-padding-20 w3-theme-d1 w3-center" style="bottom:0; z-index: 2;">
 	<div>
 		<div class="w3-row">
 			<div>

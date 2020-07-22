@@ -1,20 +1,39 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
-<%@ include file="../sessions/memberSession.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">@import url("temp.css");</style>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+	function changeCate(val) {
+		if (val == 'd') {
+			//뿌려줄값을 배열로정렬
+			num = new Array("대형견","중형견","소형견");
+			vnum = new Array("1","2","3");
+		} else if (val == 'c') {
+			num = new Array("장모종","단모종");
+			vnum = new Array("1","2");
+		}
+		// 셀렉트안의 리스트를 기본값으로 한다..
+		for(i=0; i<form.smallcate_id.length; i++) {
+			form.smallcate_id.options[0] = null;
+		}
+		//포문을 이용하여 두번째(test2)셀렉트 박스에 값을 뿌려줍니당)
+		for(i=0; i<num.length; i++) {
+			document.form.smallcate_id.options[i] = new Option(num[i],vnum[i]);
+			document.form.smallcate_id.options[i].value = document.form.largecate_id.value + (i+1);
+		}
+	}
+</script>
 </head>
 
 <body>
 <!-- Header, NavBar -->
 <%@ include file="../mainPage/nav.jsp" %>
 <div align="center" style="margin: 100px;">
-<form action="write.adopt" method="post">
+<form action="write.adopt" method="post" name="form">
 	<input type="hidden" name="member_id" value="${member_id }">
 	<input type="hidden" name="pageNum" value="${pageNum }">
 	<table class="w3-table w3-centered w3-bordered">
@@ -34,21 +53,17 @@
 			</td>
 		</tr>
 		<tr>	
-			<th>대분류</th>
-			<td><select size="1" name="largecate_id">
-					<option value="d" selected="selected">강아지</option>
+			<th>종류</th>
+			<td><select size="1" name="largecate_id" class="largecate" onchange="changeCate(document.form.largecate_id.value)" required="required">
+					<option value="" selected="selected">--1차 카테고리--</option>
+					<option value="d">강아지</option>
 					<option value="c">고양이</option>
-			</select></td>
-		</tr>
-		<tr>
-			<th>소분류</th>
-			<td><select size="1" name="smallcate_id">
-					<option value="d1" selected="selected">대형견</option>
-					<option value="d2">중형견</option>
-					<option value="d3">소형견</option>
-					<option value="c1">장모</option>
-					<option value="c2">단모</option>
-			</select></td>
+				</select>
+				<select size="1" name="smallcate_id" required="required">
+					<option>--1차 카테고리 먼저 선택--</option>
+				</select>
+			</td>
+				
 		</tr>
 		<tr>
 			<th>제목</th>
