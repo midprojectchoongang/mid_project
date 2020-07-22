@@ -26,7 +26,7 @@ public class HotContent implements CommandProcess {
 		request.setAttribute("member_id", member_id);
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("free", free);
-		return "freeContent";
+		return "hotContent";
 	}
 
 }

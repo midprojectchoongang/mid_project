@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="commentsns">
+	<resultMap type="comments" id="resultMap">
+		<result property="comment_no" column="comment_no" />
+		<result property="member_id" column="member_id" />
+		<result property="free_no" column="free_no" />
+		<result property="comm_content" column="comm_content" />
+		<result property="ref" column="ref" />
+		<result property="re_step" column="re_step" />
+		<result property="re_level" column="re_level" />
+		<result property="reg_date" column="reg_date" />
+		<result property="del" column="del" />
+	</resultMap>
+	
+</mapper>
