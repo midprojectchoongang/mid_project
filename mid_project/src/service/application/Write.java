@@ -51,7 +51,7 @@ public class Write implements CommandProcess {
 		
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("result", result);
-		return "writeForm";
+		return "write";
 	}
 
 }
