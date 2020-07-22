@@ -21,7 +21,7 @@
 </c:if>
 
 	<!-- 리스트 -->
-<div align="center" style="margin: 200px 100px 0 100px; position: relative;">
+<div align="center" style="margin: 200px 100px 0 100px; position: relative; min-height: 450px">
 	<table class="w3-table w3-centered w3-bordered">
 		<tr><th>번호</th><th>제목</th><th>등록일</th></tr>
 		<c:if test="${empty list }">
@@ -46,7 +46,7 @@
 	<!-- 페이지 -->
 <div id="page1">
 	<c:if test="${startPage > pagePerBlock }">
-		<a href="noticeList.notice?pageNum=${startPage - 1 }" class="btn-two page charcoal rounded">이전</a>
+		<a href="noticeList.notice?pageNum=${startPage - 1 }"><<</a>
 	</c:if>
 	<c:forEach var="i" begin="${startPage }" end="${endPage }">
 		<c:if test="${i == currentPage }">
@@ -57,7 +57,7 @@
 		</c:if>
 	</c:forEach>
 	<c:if test="${endPage < totalPage }">
-		<a href="noticeList.notice?pageNum=${endPage + 1 }" class="btn-two page charcoal rounded">다음</a>
+		<a href="noticeList.notice?pageNum=${endPage + 1 }">>></a>
 	</c:if>
 </div>
 

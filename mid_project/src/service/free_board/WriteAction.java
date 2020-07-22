@@ -2,6 +2,7 @@ package service.free_board;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.Free_boardDao;
 import model.Free_board;
@@ -10,9 +11,9 @@ public class WriteAction implements CommandProcess {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
-
+		HttpSession session = request.getSession();
+		String member_id = (String)session.getAttribute("member_id");
 		String pageNum = request.getParameter("pageNum");
-		String member_id = request.getParameter("member_id");
 		String category = request.getParameter("category");
 		String subject = request.getParameter("subject");
 		String content = request.getParameter("content");
@@ -35,7 +36,7 @@ public class WriteAction implements CommandProcess {
 
 		Free_boardDao fd = Free_boardDao.getInstance();
 		int result = fd.insert(free_board);
-		int free_no = fd.search(member_id);
+		int free_no = fd.search(free_board.getMember_id());
 		
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("free_no", free_no);

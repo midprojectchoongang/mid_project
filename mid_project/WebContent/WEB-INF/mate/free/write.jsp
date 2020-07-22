@@ -10,7 +10,7 @@
 <body>
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
-		location.href="freeList.free?pageNum=${pageNum}";
+		location.href="freeContent.free?free_no=${free_no}&pageNum=${pageNum}";
 	</script>
 </c:if>
 <c:if test="${result == 0 }">

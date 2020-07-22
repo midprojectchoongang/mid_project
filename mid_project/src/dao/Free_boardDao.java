@@ -44,6 +44,7 @@ public class Free_boardDao {
 		return session.update("freens.delete", free_no);
 	}
 	public int search(String member_id) {
+		System.out.println(member_id);
 		return session.selectOne("freens.search", member_id);
 	}
 	public void cntUp(int free_no) {

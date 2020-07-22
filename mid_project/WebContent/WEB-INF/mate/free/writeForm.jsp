@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../sessions/memberSession.jsp" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +19,7 @@
 <%@ include file="../mainPage/nav.jsp" %>
 
 <div align="center" style="margin: 100px;">
-<form action="write.free" method="post" enctype="multipart/form-data">
+<form action="write.free" method="post">
 	<input type="hidden" name="pageNum" value="${pageNum }">
 	<input type="hidden" name="member_id" value="${member_id }">
 	<table class="w3-table w3-centered w3-bordered">
@@ -59,7 +57,7 @@
 		</tr>
 	</table><p>
 		<input type="submit" value="등록" onclick="location.href='write.free'">
-		<input type="button" value="취소" onclick="location.href='freeList.free'">
+		<input type="button" value="취소" onclick="location.href='freeList.free?category=&{category}'">
 </form>
 </div>
 

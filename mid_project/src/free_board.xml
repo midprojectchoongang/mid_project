@@ -49,4 +49,7 @@
 	<select id="hotTotal" parameterType="integer" resultType="integer">
 		select count(*) from free_board where cnt > #{cnt} and del = 'n'
 	</select>
+	<select id="search" parameterType="string" resultType="integer">
+		select max(free_no) from free_board where member_id = #{member_id}
+	</select>
 </mapper>
