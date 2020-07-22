@@ -14,9 +14,9 @@
 
 <jsp:useBean id="now" class="java.util.Date"/>
 <fmt:formatDate value="${now }" pattern="yyyyMMdd" var="nowDate"/>
-<b style="font-size:24px; margin-left:25%; margin-top:4%; position: absolute;">HOT 게시판</b>
+<b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">HOT 게시판</b>
 
-<div align="center" style="margin: 150px 100PX 0 100px;">
+<div align="center" style="margin: 200px 100px 0 100px; position: relative; min-height: 450px">
 	<input type="hidden" name="pageNum" value="${pageNum }">
 	<table class="w3-table w3-centered w3-bordered">
 		<%-- <caption>
@@ -57,7 +57,7 @@
 
 <div id="page1">
 	<c:if test="${startPage > pagePerBlock }">
-		<a href="hotList.free?pageNum=${startPage - 1 }" class="btn-two page charcoal rounded">이전</a>
+		<a href="hotList.free?pageNum=${startPage - 1 }"><<</a>
 	</c:if>
 	<c:forEach var="i" begin="${startPage }" end="${endPage }">
 		<c:if test="${i == currentPage }">
@@ -68,7 +68,7 @@
 		</c:if>
 	</c:forEach>
 	<c:if test="${endPage < totalPage }">
-		<a href="hotList.free?pageNum=${endPage + 1 }" class="btn-two page charcoal rounded">다음</a>
+		<a href="hotList.free?pageNum=${endPage + 1 }">>></a>
 	</c:if>
 </div>
 

@@ -14,15 +14,15 @@
 <%@ include file="../mainPage/nav.jsp" %>
 
 <c:if test="${param.category == 'f' }">
-	<b style="font-size:24px; margin-left:25%; margin-top:4%; position: absolute;">자유게시판</b>
+	<b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">자유게시판</b>
 </c:if>
 <c:if test="${param.category == 'i' }">
-	<b style="font-size:24px; margin-left:25%; margin-top:4%; position: absolute;">정보게시판</b>
+	<b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">정보게시판</b>
 </c:if>
 <c:if test="${param.category == 'a' }">
-	<b style="font-size:24px; margin-left:25%; margin-top:4%; position: absolute;">입양 후기</b>
+	<b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">입양 후기</b>
 </c:if>
-<div align="center" style="margin: 150px 100PX 0 100px;">
+<div align="center" style="margin: 200px 100px 0 100px; position: relative; min-height: 450px">
 	<input type="hidden" name="pageNum" value="${pageNum }">
 	<table class="w3-table w3-centered w3-bordered">
 		<tr><th>번호</th><th>제목</th><th>작성자</th><th>조회수</th><th>작성일</th></tr>
