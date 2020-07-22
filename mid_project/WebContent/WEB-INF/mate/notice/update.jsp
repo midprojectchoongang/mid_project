@@ -11,7 +11,7 @@
 <div align="center">
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
-		location.href="view.notice?notice_no=${notice_no }&pageNum=${pageNum }";
+		location.href="noticeContent.notice?notice_no=${notice_no }&pageNum=${pageNum }";
 	</script>
 </c:if>
 <c:if test="${result <= 0 }">

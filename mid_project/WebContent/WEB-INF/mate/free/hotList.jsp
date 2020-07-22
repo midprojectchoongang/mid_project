@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ include file="../sessions/memberSession.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +14,9 @@
 
 <jsp:useBean id="now" class="java.util.Date"/>
 <fmt:formatDate value="${now }" pattern="yyyyMMdd" var="nowDate"/>
-<div align="center" style="margin: 100px;">
+<b style="font-size:24px; margin-left:25%; margin-top:4%; position: absolute;">HOT 게시판</b>
+
+<div align="center" style="margin: 150px 100PX 0 100px;">
 	<input type="hidden" name="pageNum" value="${pageNum }">
 	<table class="w3-table w3-centered w3-bordered">
 		<%-- <caption>
@@ -24,7 +24,7 @@
 			<c:if test="${param.category == 'i'}">정보</c:if>
 			<c:if test="${param.category == 'a'}">후기</c:if>
 		</caption> --%>
-			<tr><th>번호</th><th>제목</th><th>작성자</th><th>조회수</th><th>작성일</th></tr>
+			<tr><th>번호</th><th>카테고리</th><th>제목</th><th>작성자</th><th>조회수</th><th>작성일</th></tr>
 		<c:if test="${empty hotList }">
 			<tr><th colspan="5">등록된 글이 없습니다</th></tr>
 		</c:if>
@@ -33,9 +33,11 @@
 					<fmt:formatDate value="${hotList.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
 					<tr>
 						<td>${hotList.free_no }</td>
-						
-						<td>
-						<a href="hotContent.free?free_no=${hotList.free_no }&pageNum=${pageNum }">${hotList.subject }
+						<c:if test="${hotList.category == 'f' }"><td>자유</td></c:if>
+						<c:if test="${hotList.category == 'i' }"><td>정보</td></c:if>
+						<c:if test="${hotList.category == 'a' }"><td>후기</td></c:if>
+						<td style="width: 50%; text-align: left;">
+							<a href="hotContent.free?free_no=${hotList.free_no }&pageNum=${pageNum }" style="margin-left: 20px">${hotList.subject }</a>
 						</td>
 						<td>${hotList.member_id }</td>
 						<td>${hotList.cnt }</td>
@@ -51,34 +53,23 @@
 				</c:forEach>
 			</c:if>
 	</table><p>
-	<div align="center">
-	<span><button onclick="location.href='freeList.free?category=${category }'">Hot-</button></span>
-	<span>
-	<c:if test="${not empty member_id }">
-		<input type="button" value="글쓰기" onclick="location.href='writeForm.free?=${member_id }'"><p>
-	</c:if>
-	</span>
-	</div>
-	
-	<!-- 페이징 -->
-	<div align="center">
+</div>
+
+<div id="page1">
 	<c:if test="${startPage > pagePerBlock }">
-	<button onclick="location.href='hotList.free?pageNum=${startPage - 1 }'">이전</button>
+		<a href="hotList.free?pageNum=${startPage - 1 }" class="btn-two page charcoal rounded">이전</a>
 	</c:if>
-	
 	<c:forEach var="i" begin="${startPage }" end="${endPage }">
 		<c:if test="${i == currentPage }">
-			<button onclick="location.href='hotList.free?pageNum=${i }'" disabled="disabled">${ i }</button>
+			<b>${ i }</b>
 		</c:if>
 		<c:if test="${i != currentPage }">
-			<button onclick="location.href='hotList.free?pageNum=${i }'">${i }</button>
+			<a href="hotList.free?category=${param.category}&pageNum=${i }">${i }</a>
 		</c:if>
 	</c:forEach>
-
 	<c:if test="${endPage < totalPage }">
-		<button onclick="location.href='hotList.free?pageNum=${endPage + 1 }'">다음</button>
+		<a href="hotList.free?pageNum=${endPage + 1 }" class="btn-two page charcoal rounded">다음</a>
 	</c:if>
-	</div>
 </div>
 
 <!-- Footer -->

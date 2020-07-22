@@ -1,14 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ include file="../sessions/memberSession.jsp" %>
-<%@ include file="../sessions/masterSession.jsp" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">@import url("temp.css");</style>
+<script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript">
 	function delmsg() {
 	    var msg = "게시물을 삭제합니다";
@@ -18,6 +17,14 @@
 		    return;
 		}
 	}
+	
+	$(function() {
+	    var writer = "${adopt.member_id}";
+	    var loginId = "${member_id}";  
+	    if (writer == loginId) {
+			$('#showList').load('applicationList.application?adopt_no=${adopt.adopt_no}');
+	    }
+	});
 </script>
 </head>
 <body>
@@ -32,7 +39,7 @@
 			<th>카테고리</th>
 			<td>
 				<c:if test="${adopt.largecate_id == 'd'}">강아지</c:if>
-				<c:if test="${adopt.smallcate_id == 'c'}">고양이</c:if>
+				<c:if test="${adopt.largecate_id == 'c'}">고양이</c:if>
 			</td>
 			<td>
 				<c:if test="${adopt.smallcate_id == 'd1'}">대형견</c:if>										
@@ -65,9 +72,15 @@
 </c:if>
 <c:if test="${not empty member_id && member_id != adopt.member_id}">
 	<input type="button" value="스크랩" onclick="location.href='scrapChk.adoptS?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }'">&emsp;
+	<input type="button" value="지원하기" onclick="location.href='writeForm.application?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }'">	
 </c:if>
 	<input type="button" value="목록보기" onclick="location.href='adoptList.adopt?pageNum=${pageNum}'">
 </div>
-	
+
+<div id="showList">
+</div>
+
+<!-- Footer -->
+<%@ include file="../mainPage/footer.jsp" %>
 </body>
 </html>

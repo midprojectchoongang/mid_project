@@ -15,6 +15,7 @@
 		<result property="content" column="content" />
 		<result property="reg_date" column="reg_date" />
 		<result property="del" column="del" />
+		<result property="cnt" column="cnt" />
 	</resultMap>
 	<select id="list" parameterType="hashMap" resultMap="resultMap">
 		select * from (select rowNum rn, a.* from (select * from free_board where del = 'n' and category = #{category} order by free_no desc) a)
@@ -22,7 +23,7 @@
 	</select>
 	<insert id="write" parameterType="free_board">
 		insert into free_board values (free_seq.nextval, #{member_id}, #{category}, #{subject},
-		'test', 'test', 'test', 'test', 'test', #{content}, sysdate, 'n')
+		'test', 'test', 'test', 'test', 'test', #{content}, sysdate, 'n', 0)
 	</insert>
 	<select id="total" parameterType="string" resultType="integer">
 		select count(*) from free_board where category = #{category} and del = 'n'
@@ -37,20 +38,15 @@
 	<update id="delete" parameterType="integer">
 		update free_board set del = 'y' where free_no = #{free_no}
 	</update>
-	<select id="search" parameterType="string" resultType="integer">
-		select max(free_no) from free_board where member_id = #{member_id}
-	</select>
 	<update id="cntUp" parameterType="integer">
 		update free_board set cnt = cnt+1 where free_no = #{free_no}
 	</update>
 	<!-- hot List -->
 	<select id="hotList" parameterType="hashmap" resultMap="resultMap">
-		select * from (select rowNum rn, a.* from (select * from free_board where 
-		category = #{category} and cnt > #{cnt} and del = 'n' order by free_no desc) a) 
+		select * from (select rowNum rn, a.* from (select * from free_board where cnt > #{cnt} and del = 'n' order by free_no desc) a) 
 		where rn between #{startRow} and #{endRow}
 	</select>
-	<select id="hotTotal" parameterType="hashmap" resultType="integer">
-		select count(*) from free_board where category = #{category} and
-		cnt > #{cnt} and del = 'n'
+	<select id="hotTotal" parameterType="integer" resultType="integer">
+		select count(*) from free_board where cnt > #{cnt} and del = 'n'
 	</select>
 </mapper>

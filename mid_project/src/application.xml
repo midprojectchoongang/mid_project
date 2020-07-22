@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="applyns">
+	<resultMap type="application" id="resultMap">
+		<result property="application_no" column="application_no" />
+		<result property="member_id" column="member_id" />
+		<result property="adopt_no" column="adopt_no" />
+		<result property="largecate_id" column="largecate_id" />
+		<result property="smallcate_id" column="smallcate_id" />
+		<result property="location_no" column="location_no" />
+		<result property="subject" column="subject" />
+		<result property="gender" column="gender" />
+		<result property="email" column="email" />
+		<result property="tel" column="tel" />
+		<result property="experience" column="experience" />
+		<result property="content" column="content" />
+		<result property="reg_date" column="reg_date" />
+		<result property="del" column="del" />
+	</resultMap>
+	<select id="list" parameterType="hashMap" resultMap="resultMap">
+		select * from (select rowNum rn, a.* from (select * from application
+		where del = 'n' and member_id = #{member_id} order by reg_date desc) a)
+		where rn between #{startRow} and #{endRow}
+	</select>
+	<select id="total" parameterType="string" resultType="integer">
+		select count(*) from application where member_id = #{member_id} and del = 'n'
+	</select>
+	<insert id="apply" parameterType="application">
+		insert into application values(application_seq.nextval, #{member_id},
+		#{adopt_no}, #{largecate_id}, #{smallcate_id}, #{location_no}, 
+		#{subject}, #{gender}, #{email}, #{tel}, #{experience}, #{content}, sysdate, 'n')
+	</insert>
+	<select id="read" parameterType="integer" resultType="application">
+		select * from application where application_no = #{application_no}
+	</select>
+	<update id="delete" parameterType="integer">
+		update application set del = 'y' where application_no = #{application_no}
+	</update>
+	<!-- 받은 지원서 목록 -->
+	<select id="appList" parameterType="hashMap" resultMap="resultMap">
+		select * from (select rowNum rn, a.* from (select * from application
+		where del = 'n' and adopt_no = #{adopt_no} order by reg_date desc) a)
+		where rn between #{startRow} and #{endRow}
+	</select>
+	<select id="appTotal" parameterType="integer" resultType="integer">
+		select count(*) from application where adopt_no = #{adopt_no} and del = 'n'
+	</select>
+</mapper>

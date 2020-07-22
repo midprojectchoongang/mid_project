@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">@import url("temp.css");</style>
 </head>
 <body>
 <jsp:useBean id="now" class="java.util.Date"/>
@@ -14,10 +13,19 @@
 <!-- Header, NavBar -->
 <%@ include file="../mainPage/nav.jsp" %>
 
-<div align="center" style="margin: 100px;">
+<c:if test="${param.category == 'f' }">
+	<b style="font-size:24px; margin-left:25%; margin-top:4%; position: absolute;">자유게시판</b>
+</c:if>
+<c:if test="${param.category == 'i' }">
+	<b style="font-size:24px; margin-left:25%; margin-top:4%; position: absolute;">정보게시판</b>
+</c:if>
+<c:if test="${param.category == 'a' }">
+	<b style="font-size:24px; margin-left:25%; margin-top:4%; position: absolute;">입양 후기</b>
+</c:if>
+<div align="center" style="margin: 150px 100PX 0 100px;">
 	<input type="hidden" name="pageNum" value="${pageNum }">
 	<table class="w3-table w3-centered w3-bordered">
-		<tr><th>번호</th><th>카테고리</th><th>제목</th><th>작성자</th><th>조회수</th><th>작성일</th></tr>
+		<tr><th>번호</th><th>제목</th><th>작성자</th><th>조회수</th><th>작성일</th></tr>
 		<c:if test="${empty list }">
 			<tr><th colspan="6">등록된 글이 없습니다</th></tr>
 		</c:if>
@@ -27,11 +35,9 @@
 				<c:if test="${free.category == 'f' }">
 				<fmt:formatDate value="${free.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
 					<tr><td>${free.free_no }</td>
-						<td><c:if test="${free.category == 'f'}">잡담</c:if>
-							<c:if test="${free.category == 'i'}">정보</c:if>
-							<c:if test="${free.category == 'a'}">후기</c:if>
+						<td style="width: 60%; text-align: left;">
+							<a href="freeContent.free?free_no=${free.free_no }&pageNum=${pageNum }" style="margin-left: 20px">${free.subject }</a>
 						</td>
-						<td><a href="freeContent.free?free_no=${free.free_no }&pageNum=${pageNum }">${free.subject }</td>
 						<td>${free.member_id }</td>
 						<td>${free.cnt }</td>
 						<c:if test="${nowDate > pastDate }">
@@ -48,11 +54,9 @@
 				<c:if test="${free.category == 'i' }">
 				<fmt:formatDate value="${free.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
 					<tr><td>${free.free_no }</td>
-						<td><c:if test="${free.category == 'f'}">잡담</c:if>
-							<c:if test="${free.category == 'i'}">정보</c:if>
-							<c:if test="${free.category == 'a'}">후기</c:if>
+						<td style="width: 60%; text-align: left;">
+							<a href="freeContent.free?free_no=${free.free_no }&pageNum=${pageNum }" style="margin-left: 20px">${free.subject }</a>
 						</td>
-						<td><a href="freeContent.free?free_no=${free.free_no }&pageNum=${pageNum }">${free.subject }</td>
 						<td>${free.member_id }</td>
 						<td>${free.cnt }</td>
 						<c:if test="${nowDate > pastDate }">
@@ -69,11 +73,9 @@
 				<c:if test="${free.category == 'a' }">
 				<fmt:formatDate value="${free.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
 					<tr><td>${free.free_no }</td>
-						<td><c:if test="${free.category == 'f'}">잡담</c:if>
-							<c:if test="${free.category == 'i'}">정보</c:if>
-							<c:if test="${free.category == 'a'}">후기</c:if>
+						<td style="width: 60%; text-align: left;">
+							<a href="freeContent.free?free_no=${free.free_no }&pageNum=${pageNum }" style="margin-left: 20px">${free.subject }</a>
 						</td>
-						<td><a href="freeContent.free?free_no=${free.free_no }&pageNum=${pageNum }">${free.subject }</td>
 						<td>${free.member_id }</td>
 						<td>${free.cnt }</td>
 						<c:if test="${nowDate > pastDate }">
@@ -87,27 +89,30 @@
 			</c:if>
 		</c:if>
 	</table><p>
-	<button onclick="location.href='hotList.free?category=${param.category}'">Hot</button>
-	<c:if test="${not empty member_id }">
-		<input type="button" value="글쓰기" onclick="location.href='writeForm.free?category=${param.category }'"><p>
-	</c:if>
+</div>
+
+<c:if test="${not empty member_id }">
+	<div style="text-align: center; height: 80px">
+		<span style="float: right; margin-right: 20%">
+			<a href="writeForm.free?category=${param.category }" class="btn-two small charcoal rounded">글쓰기</a>
+		</span>
+	</div>
+</c:if>
 	
-	<!-- 페이징 -->
+<div id="page1">
 	<c:if test="${startPage > pagePerBlock }">
-	<button onclick="location.href='freeList.free?pageNum=${startPage - 1 }'">이전</button>
+		<a href="freeList.free?pageNum=${startPage - 1 }" class="btn-two page charcoal rounded">이전</a>
 	</c:if>
-	
 	<c:forEach var="i" begin="${startPage }" end="${endPage }">
 		<c:if test="${i == currentPage }">
-			<button onclick="location.href='freeList.free?category=${param.category}&pageNum=${i }'" disabled="disabled">${ i }</button>
+			<b>${ i }</b>
 		</c:if>
 		<c:if test="${i != currentPage }">
-			<button onclick="location.href='freeList.free?category=${param.category}&pageNum=${i }'">${i }</button>
+			<a href="freeList.free?category=${param.category}&pageNum=${i }">${i }</a>
 		</c:if>
 	</c:forEach>
-
 	<c:if test="${endPage < totalPage }">
-		<button onclick="location.href='freeList.free?pageNum=${endPage + 1 }'">다음</button>
+		<a href="freeList.free?pageNum=${endPage + 1 }" class="btn-two page charcoal rounded">다음</a>
 	</c:if>
 </div>
 

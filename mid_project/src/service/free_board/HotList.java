@@ -10,11 +10,8 @@ import model.Free_board;
 
 public class HotList implements CommandProcess {
 
-	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
-		
-		String category = request.getParameter("category");
-		int cnt = 5;
+		int cnt = 20;
 		Free_boardDao fd = Free_boardDao.getInstance();
 		// page
 		int rowPerPage = 10;
@@ -27,14 +24,14 @@ public class HotList implements CommandProcess {
 
 		// block
 		int pagePerBlock = 10;
-		int total = fd.hotTotal(category, cnt);
+		int total = fd.hotTotal(cnt);
 		int totalPage = (int) Math.ceil((double) total / rowPerPage);
 		int startPage = currentPage - (currentPage - 1) % pagePerBlock;
 		int endPage = startPage + pagePerBlock - 1;
 		if (endPage > totalPage)
 			endPage = totalPage;
 		
-		List<Free_board> hotList = fd.hotList(startRow, endRow, category, cnt);
+		List<Free_board> hotList = fd.hotList(startRow, endRow, cnt);
 		
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
@@ -42,7 +39,6 @@ public class HotList implements CommandProcess {
 		request.setAttribute("totalPage", totalPage);
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("pageNum", pageNum);
-		request.setAttribute("category", category);
 		request.setAttribute("hotList", hotList);
 
 		return "hotList";
