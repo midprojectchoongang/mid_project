@@ -14,19 +14,27 @@
 	</resultMap>
 	<select id="list" parameterType="hashMap" resultMap="resultMap">
 		select * from (select rowNum rn, a.* from 
-		(select * from adopt_scrap where del = 'n' order by adopt_no desc) a)
-		where rn between #{startRow} and #{endRow}
+		(select * from adopt_scrap where del = 'n' and member_id = #{member_id}
+		 order by adopt_no desc) a)	where rn between #{startRow} and #{endRow}
 	</select>
-	<select id="total" resultType="integer">
-		select count(*) from adopt_scrap where del = 'n'
+	<select id="total" parameterType="string" resultType="integer">
+		select count(*) from adopt_scrap where del = 'n' and member_id = #{member_id}
 	</select>
 	<insert id="scrap" parameterType="adopt_scrap">
 		insert into adopt_scrap values 
 		(#{member_id},#{adopt_no},#{largecate_id},#{smallcate_id},#{location_no},
 		 #{subject}, sysdate, 'n')
 	</insert>
-	<select id="read" parameterType="string" resultMap="resultMap">
-		select * from adopt_scrap where member_id = #{member_id} and del='n'
-		order by reg_date
+	<select id="read" parameterType="hashmap" resultMap="resultMap">
+		select * from adopt_scrap where member_id = #{member_id} and
+		adopt_no = #{adopt_no} order by reg_date
 	</select>
+	<update id="delete" parameterType="hashmap">
+		update adopt_scrap set del = 'y' where member_id = #{member_id}
+		and adopt_no = #{adopt_no}
+	</update>
+	<update id="re_Scrap" parameterType="hashmap">
+		update adopt_scrap set del = 'n', reg_date = sysdate
+		where member_id = #{member_id} and adopt_no = #{adopt_no}
+	</update>	
 </mapper>

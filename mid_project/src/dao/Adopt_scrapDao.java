@@ -43,9 +43,11 @@ public class Adopt_scrapDao {
 	public int scrap(Adopt_scrap adopt_scrap) {
 		return session.insert("adoptScrapns.scrap", adopt_scrap);
 	}
-	@SuppressWarnings("unchecked")
-	public List<Adopt_scrap> read(String member_id) {
-		return session.selectList("adoptScrapns.read", member_id);
+	public Adopt_scrap read(String member_id, String adopt_no) {
+		HashMap<String, String> hm = new HashMap<>();
+		hm.put("member_id", member_id);
+		hm.put("adopt_no", adopt_no);		
+		return session.selectOne("adoptScrapns.read", hm);
 	}
 	public int delete(String member_id, int adopt_no) {
 		HashMap<String, String> deleteKey = new HashMap<>();
@@ -54,5 +56,12 @@ public class Adopt_scrapDao {
 		
 		return session.update("adoptScrapns.delete", deleteKey);
 	}
+	public int reScrap(String member_id, String adopt_noChk) {
+		HashMap<String, String> hm = new HashMap<>();
+		hm.put("member_id", member_id);
+		hm.put("adopt_no", adopt_noChk);
+		
+		return session.update("adoptScrapns.re_Scrap", hm);
+	}	
 	
 }

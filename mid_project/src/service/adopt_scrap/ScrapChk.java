@@ -1,7 +1,5 @@
 package service.adopt_scrap;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -17,16 +15,15 @@ public class ScrapChk implements CommandProcess {
 		String member_id = (String) session.getAttribute("member_id");
 		String pageNum = request.getParameter("pageNum");
 		int adopt_no = Integer.parseInt(request.getParameter("adopt_no"));		
+		String adopt_noChk = adopt_no + "";
 		
 		Adopt_scrapDao asd = Adopt_scrapDao.getInstance();
-		List<Adopt_scrap> list = asd.read(member_id);
+		Adopt_scrap list = asd.read(member_id, adopt_noChk);
 
 		request.setAttribute("member_id", member_id);
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("adopt_no", adopt_no);
-
-		request.setAttribute("list", list);
-		
+		request.setAttribute("list", list);	
 		return "scrapChk";
 	}
 
