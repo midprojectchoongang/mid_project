@@ -8,11 +8,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:useBean id="now" class="java.util.Date"/>
+<fmt:formatDate value="${now }" pattern="yyyyMMdd" var="nowDate"/>
+
 <!-- Header, NavBar -->
 <%@ include file="../mainPage/nav.jsp" %>
 
-<jsp:useBean id="now" class="java.util.Date"/>
-<fmt:formatDate value="${now }" pattern="yyyyMMdd" var="nowDate"/>
 <b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">공지사항</b>
 
 <!-- 관리자용 작성버튼 -->

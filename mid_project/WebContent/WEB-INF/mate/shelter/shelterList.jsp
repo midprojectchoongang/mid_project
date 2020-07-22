@@ -10,15 +10,17 @@
 <body>
 <!-- Header, NavBar -->
 <%@ include file="../mainPage/nav.jsp" %>
-	
-	<div align="center" style="margin-top: 100px; margin-left: 100px; margin-right: 100px">
-	<input type="hidden" name="pageNum" value="${pageNum }">
-		<b style="font-size: 24px;text-align: left; margin-right:600px;">보호소 찾기</b>
-	
-	<!-- 관리자용 작성버튼 -->
-	<c:if test="${not empty master_id }"><button onclick="location.href='insertForm.shelter'">작성</button></c:if>
 
-		<!-- 리스트 -->
+<b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">내 주변 보호소 목록</b>
+
+<!-- 관리자용 작성버튼 -->
+<c:if test="${not empty master_id }">
+	<a href="insertForm.shelter" class="btn-two small charcoal rounded" style="position: absolute; margin-top: -50px; margin-left: 70%">공지 작성</a>
+</c:if>
+
+	<!-- 리스트 -->
+<div align="center" style="margin-top: 200px; position: relative; min-height: 500px">
+	<input type="hidden" name="pageNum" value="${pageNum }">
 		<table class="w3-table w3-centered w3-bordered">
 			<tr>
 				<th>지역</th><th>보호소 이름</th><th>전화번호</th>
@@ -74,25 +76,24 @@
 	</table><p>
 </p>
 </div>
-		<!-- 페이지 -->
-	<div id="page1">
-		<c:if test="${startPage > pagePerBlock }">
-		<button onclick="location.href='shelterList.shelter?pageNum=${startPage - 1 }'">이전</button>
-		</c:if>
-		<c:forEach var="i" begin="${startPage }" end="${endPage }">
+
+	<!-- 페이지 -->
+<div id="page1">
+	<c:if test="${startPage > pagePerBlock }">
+		<a href="shelterList.shelter?pageNum=${startPage - 1 }"><<</a>
+	</c:if>
+	<c:forEach var="i" begin="${startPage }" end="${endPage }">
 		<c:if test="${i == currentPage }">
-			<button onclick="location.href='shelterList.shelter?pageNum=${i }'" disabled="disabled">${ i }</button>
+			<b>${ i }</b>
 		</c:if>
 		<c:if test="${i != currentPage }">
-			<button onclick="location.href='shelterList.shelter?pageNum=${i }'">${i }</button>
+			<a href="shelterList.shelter?pageNum=${i }">${i }</a>
 		</c:if>
-		</c:forEach>
-		<c:if test="${endPage < totalPage }">
-		<button onclick="location.href='shelterList.shelter?pageNum=${endPage + 1 }'">다음</button>
-		</c:if>
-	</div>
-	
-
+	</c:forEach>
+	<c:if test="${endPage < totalPage }">
+		<a href="shelterList.shelter?pageNum=${endPage + 1 }">>></a>
+	</c:if>
+</div>
 		
 <!-- Footer -->
 <%@ include file="../mainPage/footer.jsp" %>

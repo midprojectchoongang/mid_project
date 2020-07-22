@@ -11,6 +11,7 @@
 <body>
 <jsp:useBean id="now" class="java.util.Date"/>
 <fmt:formatDate value="${now }" pattern="yyyyMMdd" var="nowDate"/>
+
 <div align="center" style="margin-top: 200px; position: relative; min-height: 500px">
 	<input type="hidden" name="pageNum" value="${pageNum }">
 	<table class="w3-table w3-centered w3-bordered">
@@ -81,7 +82,7 @@
 		</c:if>
 	</c:forEach>
 	<c:if test="${endPage < totalPage }">
-		<a href="location.href='applicationList.application?pageNum=${endPage + 1 }">>></a>
+		<a href="'applicationList.application?pageNum=${endPage + 1 }">>></a>
 	</c:if>
 </div>
 

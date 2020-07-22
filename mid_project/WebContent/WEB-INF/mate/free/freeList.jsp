@@ -10,14 +10,15 @@
 <body>
 <jsp:useBean id="now" class="java.util.Date"/>
 <fmt:formatDate value="${now }" pattern="yyyyMMdd" var="nowDate"/>
+
 <!-- Header, NavBar -->
 <%@ include file="../mainPage/nav.jsp" %>
 
 <c:if test="${param.category == 'f' }">
-	<b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">자유게시판</b>
+	<b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">자유 게시판</b>
 </c:if>
 <c:if test="${param.category == 'i' }">
-	<b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">정보게시판</b>
+	<b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">정보 게시판</b>
 </c:if>
 <c:if test="${param.category == 'a' }">
 	<b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">입양 후기</b>
@@ -98,10 +99,10 @@
 		</span>
 	</div>
 </c:if>
-	
+
 <div id="page1">
 	<c:if test="${startPage > pagePerBlock }">
-		<a href="freeList.free?pageNum=${startPage - 1 }" class="btn-two page charcoal rounded">이전</a>
+		<a href="freeList.free?pageNum=${startPage - 1 }"><<</a>
 	</c:if>
 	<c:forEach var="i" begin="${startPage }" end="${endPage }">
 		<c:if test="${i == currentPage }">
@@ -112,7 +113,7 @@
 		</c:if>
 	</c:forEach>
 	<c:if test="${endPage < totalPage }">
-		<a href="freeList.free?pageNum=${endPage + 1 }" class="btn-two page charcoal rounded">다음</a>
+		<a href="freeList.free?pageNum=${endPage + 1 }">>></a>
 	</c:if>
 </div>
 
