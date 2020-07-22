@@ -16,6 +16,7 @@
 	<a href="viewInfo.member" class="btn-two charcoal rounded">회원정보보기</a><br>
 	<a href="updateForm.member" class="btn-two charcoal rounded">회원정보수정</a><br>
 	<a href="updatePwForm.member" class="btn-two charcoal rounded">비밀번호수정</a><br>
+	<a href="scrapList.adoptS" class="btn-two charcoal rounded">공고스크랩</a><br>
 	<a href="scrapList.freeS" class="btn-two charcoal rounded">자유스크랩</a><br>
 	<a href="myAppList.application" class="btn-two charcoal rounded">내 지원서</a><br>
 	<a href="delete.member" class="btn-two red rounded">회원탈퇴</a>

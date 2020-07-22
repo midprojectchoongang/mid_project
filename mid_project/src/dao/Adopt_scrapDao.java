@@ -29,15 +29,16 @@ public class Adopt_scrapDao {
 		}
 	}
 	@SuppressWarnings("unchecked")
-	public List<Adopt_scrap> list(int startRow, int endRow) {
-		HashMap<String, Integer> hm = new HashMap<>();
-		hm.put("startRow", startRow);
-		hm.put("endRow", endRow);
+	public List<Adopt_scrap> list(int startRow, int endRow, String member_id) {
+		HashMap<String, String> hm = new HashMap<>();
+		hm.put("startRow", startRow+"");
+		hm.put("endRow", endRow+"");
+		hm.put("member_id", member_id);
 		
 		return session.selectList("adoptScrapns.list", hm);
 	}
-	public int total() {
-		return (int) session.selectOne("adoptScrapns.total");
+	public int total(String member_id) {
+		return (int) session.selectOne("adoptScrapns.total", member_id);
 	}
 	public int scrap(Adopt_scrap adopt_scrap) {
 		return session.insert("adoptScrapns.scrap", adopt_scrap);
@@ -46,6 +47,12 @@ public class Adopt_scrapDao {
 	public List<Adopt_scrap> read(String member_id) {
 		return session.selectList("adoptScrapns.read", member_id);
 	}
-	
+	public int delete(String member_id, int adopt_no) {
+		HashMap<String, String> deleteKey = new HashMap<>();
+		deleteKey.put("member_id", member_id);
+		deleteKey.put("adopt_no", adopt_no+"");
+		
+		return session.update("adoptScrapns.delete", deleteKey);
+	}
 	
 }
