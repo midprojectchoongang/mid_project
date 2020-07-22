@@ -11,7 +11,7 @@ import model.Free_board;
 public class HotList implements CommandProcess {
 
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
-		int cnt = 10;
+		int cnt = 20;
 		Free_boardDao fd = Free_boardDao.getInstance();
 		// page
 		int rowPerPage = 10;
