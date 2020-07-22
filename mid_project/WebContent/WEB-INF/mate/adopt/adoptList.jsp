@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ include file="../sessions/memberSession.jsp" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
@@ -74,28 +72,32 @@
 		</c:if>
 	</table>
 	<p>
-	<div align="center">
-		<input type="button" value="공고글 작성" onclick="location.href='writeForm.adopt'">
+	
+	<c:if test="${not empty member_id }">
+	<div style="text-align: center; height: 80px">
+		<span style="float: right; margin-right: 20%">
+			<a href="writeForm.adopt" class="btn-two small charcoal rounded">글쓰기</a>
+		</span>
 	</div>
+</c:if>
 	
 	<!-- 페이징 -->
+<div id="page1">
 	<c:if test="${startPage > pagePerBlock }">
-	<button onclick="location.href='adoptList.adopt?pageNum=${startPage - 1 }'"><<</button>
+	<a href="adoptList.adopt?pageNum=${startPage - 1 }" class="btn-two page charcoal rounded">이전</a>
 	</c:if>
 	
 	<c:forEach var="i" begin="${startPage }" end="${endPage }">
 		<c:if test="${i == currentPage }">
-			<button onclick="location.href='adoptList.adopt?pageNum=${i }'" disabled="disabled">${ i }</button>
+			<b>${ i }</b>
 		</c:if>
 		<c:if test="${i != currentPage }">
-			<button onclick="location.href='adoptList.adopt?pageNum=${i }'">${i }</button>
+			<a href="adoptList.adopt?pageNum=${i }">${i }</a>
 		</c:if>
 	</c:forEach>
-
 	<c:if test="${endPage < totalPage }">
-		<button onclick="location.href='adoptList.adopt?pageNum=${endPage + 1 }'">>></button>
-	</c:if>
-                                                    
+		<a href="adoptList.adopt?pageNum=${endPage + 1 }" class="btn-two page charcoal rounded">다음</a>
+	</c:if>                                                  
 </div>
 <!-- Footer -->
 <%@ include file="../mainPage/footer.jsp" %>
