@@ -21,8 +21,8 @@
 	</resultMap>
 	<select id="list" parameterType="hashMap" resultMap="resultMap">
 		select * from (select rowNum rn, a.* from 
-		(select * from adopt_board order by adopt_no desc) a)
-		where del = 'n' and rn between #{startRow} and #{endRow}
+		(select * from adopt_board where del = 'n' order by adopt_no desc) a) 
+		where rn between #{startRow} and #{endRow}
 	</select>
 		<insert id="write" parameterType="adopt_board">
 		insert into adopt_board values (adopt_seq.nextval,#{member_id},#{largecate_id},#{smallcate_id},#{location_no},#{subject},
@@ -30,7 +30,7 @@
 		#{content}, 0, sysdate, 'n')
 	</insert>
 	<select id="total" resultType="integer">
-		select count(*) from adopt_board
+		select count(*) from adopt_board where del = 'n'
 	</select>
 	<select id="read" parameterType="integer" resultType="adopt_board">
 		select * from adopt_board where adopt_no = #{adopt_no}
@@ -45,4 +45,7 @@
 	<select id="search" parameterType="string" resultType="integer">
 		select max(adopt_no) from adopt_board where member_id = #{member_id}
 	</select>
+	<update id="count" parameterType="integer">
+		update adopt_board set applier_count = applier_count+1 where adopt_no = #{adopt_no}
+	</update>
 </mapper>
