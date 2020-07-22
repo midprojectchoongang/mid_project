@@ -58,4 +58,10 @@ public class MemberDao {
 	public List<Member> list() {
 		return session.selectList("memberns.list");
 	}
+	public int delMaster(String member_id, String del_be) {
+		HashMap<String, String> hm = new HashMap<>();
+		hm.put("member_id", member_id);
+		hm.put("del", del_be);
+		return session.update("memberns.delMaster", hm);
+	}
 }

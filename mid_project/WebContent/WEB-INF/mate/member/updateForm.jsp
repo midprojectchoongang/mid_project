@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../sessions/memberSession.jsp" %>
 <!DOCTYPE html><html><head><meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -9,7 +8,7 @@
 <%@ include file="../mainPage/nav.jsp" %>
 
 <div align="center" style="margin: 100px;">
-<form action="update.member" method="post" name="frm" onsubmit="return chk()">
+<form action="update.member" method="post">
 	<input type="hidden" name="member_id" value="${member_id }">
 	<input type="hidden" name="password" value="${password }">
 <table class="w3-table w3-centered w3-bordered"><caption>회원정보수정</caption>
