@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,7 +46,19 @@ function delmsg() {
 <!-- Header, NavBar -->
 <%@ include file="../mainPage/nav.jsp" %>
 
-<div align="center" style="margin: 100px;">
+<fmt:formatDate value="${free.reg_date }" pattern="yyyy.MM.dd  HH:mm" var="date"/>
+<c:if test="${free.category == 'f' }">
+	<b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">자유게시판</b>
+</c:if>
+<c:if test="${free.category == 'i' }">
+	<b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">정보게시판</b>
+</c:if>
+<c:if test="${free.category == 'a' }">
+	<b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">입양 후기</b>
+</c:if>
+
+	<!-- 리스트 -->
+<div align="center" style="margin-top: 200px; position: relative; min-height: 500px">
 	<input type="hidden" name="pageNum" value="${pageNum }">
 	<input type="hidden" name="free_no" value="${free.free_no }">
 	<table class="w3-table w3-centered w3-bordered">
@@ -53,14 +66,12 @@ function delmsg() {
 			<td><c:if test="${free.category == 'f'}">잡담</c:if>
 				<c:if test="${free.category == 'i'}">정보</c:if>
 				<c:if test="${free.category == 'a'}">후기</c:if></td>
-			<th>작성일</th><td>${free.reg_date }</td>
+			<th>작성일</th><td>${date }</td>
 		</tr>
 		<tr>
 			<th>제목</th><td>${free.subject }</td>
 			<th>작성자</th><td>${free.member_id }</td>
-		<tr height="300">
-		<td colspan="4" style="text-align: left; padding: 50px;">${free.content }</td>
-		</tr>
+		<tr height="300"><td colspan="4" style="text-align: left; padding: 50px;"><pre>${free.content }</pre></td></tr>	
 		<!-- 댓글  작성 -->
 		<c:if test="${not empty member_id }">
 		<tr>

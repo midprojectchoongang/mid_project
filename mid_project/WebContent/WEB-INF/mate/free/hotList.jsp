@@ -19,12 +19,7 @@
 <div align="center" style="margin-top: 200px; position: relative; min-height: 500px">
 	<input type="hidden" name="pageNum" value="${pageNum }">
 	<table class="w3-table w3-centered w3-bordered">
-		<%-- <caption>
-			<c:if test="${param.category == 'f'}">잡담</c:if>
-			<c:if test="${param.category == 'i'}">정보</c:if>
-			<c:if test="${param.category == 'a'}">후기</c:if>
-		</caption> --%>
-			<tr><th>번호</th><th>카테고리</th><th>제목</th><th>작성자</th><th>조회수</th><th>작성일</th></tr>
+			<tr><th>번호</th><th>카테고리</th><th style="width: 50%">제목</th><th>작성자</th><th>조회수</th><th>작성일</th></tr>
 		<c:if test="${empty hotList }">
 			<tr><th colspan="5">등록된 글이 없습니다</th></tr>
 		</c:if>

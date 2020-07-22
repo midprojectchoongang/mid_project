@@ -13,7 +13,6 @@
 <fmt:formatDate value="${now }" pattern="yyyyMMdd" var="nowDate"/>
 <!-- Header, NavBar -->
 <%@ include file="../mainPage/nav.jsp" %>
-
 <%@ include file="../mainPage/sideNav.jsp" %>
 
 <b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">공고게시판</b>

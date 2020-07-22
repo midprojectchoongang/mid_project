@@ -25,7 +25,7 @@
 			<th>지역</th>
 			<th>성별</th>
 			<th>반려동물 경험</th>
-			<th>제목</th>
+			<th style="width: 50%">제목</th>
 			<th>작성일</th>
 		</tr>
 			<c:forEach var="application" items="${appList }">

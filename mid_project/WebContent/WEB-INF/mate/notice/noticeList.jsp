@@ -23,15 +23,15 @@
 	<!-- 리스트 -->
 <div align="center" style="margin-top: 200px; position: relative; min-height: 500px">
 	<table class="w3-table w3-centered w3-bordered">
-		<tr><th>번호</th><th>제목</th><th>등록일</th></tr>
+		<tr><th>번호</th><th style="width: 60%;">제목</th><th>등록일</th></tr>
 		<c:if test="${empty list }">
 			<tr><th colspan="3">작성된 공지사항이 없습니다</th></tr>
 		</c:if>
 		<c:if test="${not empty list }">
 		<c:forEach items="${list }" var="notice">
 			<fmt:formatDate value="${notice.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
-			<tr><th>${notice.notice_no }</th>
-				<td style="width: 60%; text-align: left;"><a href="noticeContent.notice?notice_no=${notice.notice_no }&pageNum=${pageNum }">${notice.subject }</a></td>
+			<tr><td>${notice.notice_no }</td>
+				<td style="text-align: left;"><a href="noticeContent.notice?notice_no=${notice.notice_no }&pageNum=${pageNum }">${notice.subject }</a></td>
 				<c:if test="${nowDate > pastDate }">
 				<td><fmt:formatDate value="${notice.reg_date }" type="date" pattern="yyyy/MM/dd"/></td>
 				</c:if>

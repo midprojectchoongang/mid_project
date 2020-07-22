@@ -25,7 +25,7 @@
 <div align="center" style="margin-top: 200px; position: relative; min-height: 500px">
 	<input type="hidden" name="pageNum" value="${pageNum }">
 	<table class="w3-table w3-centered w3-bordered">
-		<tr><th>번호</th><th>제목</th><th>작성자</th><th>조회수</th><th>작성일</th></tr>
+		<tr><th>번호</th><th style="width: 50%">제목</th><th>작성자</th><th>조회수</th><th>작성일</th></tr>
 		<c:if test="${empty list }">
 			<tr><th colspan="6">등록된 글이 없습니다</th></tr>
 		</c:if>
@@ -35,7 +35,7 @@
 				<c:if test="${free.category == 'f' }">
 				<fmt:formatDate value="${free.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
 					<tr><td>${free.free_no }</td>
-						<td style="width: 60%; text-align: left;">
+						<td style="text-align: left;">
 							<a href="freeContent.free?free_no=${free.free_no }&pageNum=${pageNum }" style="margin-left: 20px">${free.subject }</a>
 						</td>
 						<td>${free.member_id }</td>

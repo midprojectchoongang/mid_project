@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../sessions/masterSession.jsp" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
@@ -24,11 +22,14 @@
 <%@ include file="../mainPage/nav.jsp" %>
 
 <fmt:formatDate value="${notice.reg_date }" pattern="yyyy.MM.dd  HH:mm" var="date"/>
-<div align="center" style="margin: 100px;">
+<b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">공지사항</b>
+
+	<!-- 리스트 -->
+<div align="center" style="margin-top: 200px; position: relative; min-height: 500px">
 	<table class="w3-table w3-centered w3-bordered">
 		<tr><th>${notice.subject }</th>
 			<td>${date }</td></tr>
-		<tr height="300"><td colspan="3" style="text-align: left; padding: 50px;">${notice.content }</td></tr>	
+		<tr style="min-height: 300px"><td colspan="3" style="text-align: left; padding: 50px;"><pre>${notice.content }</pre></td></tr>	
 	</table><p>
 	<button onclick="location.href='noticeList.notice?category=${free.category }&pageNum=${pageNum }'">목록보기</button>
 	<!-- 관리자용 수정 및 삭제 버튼 -->

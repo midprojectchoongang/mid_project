@@ -22,20 +22,23 @@
 <%@ include file="../mainPage/nav.jsp" %>
 
 <fmt:formatDate value="${free.reg_date }" pattern="yyyy.MM.dd  HH:mm" var="date"/>
-<div align="center" style="margin: 100px;">
+<b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">HOT 게시판</b>
+
+	<!-- 리스트 -->
+<div align="center" style="margin-top: 200px; position: relative; min-height: 500px">
 	<input type="hidden" name="pageNum" value="${pageNum }">
 	<table class="w3-table w3-centered w3-bordered">
 		<tr><th>카테고리</th>
 			<td><c:if test="${free.category == 'f'}">잡담</c:if>
 				<c:if test="${free.category == 'i'}">정보</c:if>
 				<c:if test="${free.category == 'a'}">후기</c:if></td>
-			<th>작성일</th><td>${date }</td>
+			<th>작성일</th><td>${date }</td><td style="width: 100px"></td>
 			<th>조회수</th><td>${free.cnt }</td>
 		</tr>
 		<tr>
-			<th>제목</th><td colspan="3">${free.subject }</td>
+			<th>제목</th><td colspan="4">${free.subject }</td>
 			<th>작성자</th><td>${free.member_id }</td>
-		<tr><td colspan="6">${free.content }</td></tr>
+		<tr height="300"><td colspan="6" style="text-align: left; padding: 50px;"><pre>${free.content }</pre></td></tr>
 	</table><p>
 	<span id="left">
 		<c:if test="${member_id == free.member_id }">

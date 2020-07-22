@@ -9,22 +9,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-@import url("temp.css");
-</style>
 </head>
 <body>
-<!-- Header, NavBar -->
 <%@ include file="../mainPage/nav.jsp" %>
 
 <jsp:useBean id="now" class="java.util.Date"/>
 <fmt:formatDate value="${now }" pattern="yyyyMMdd" var="nowDate"/>
-<div align="center" style="margin: 100px;">
-	<table class="w3-table w3-centered w3-bordered">
+<b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">게시판 스크랩</b>
+
+<div align="center" style="margin-top: 200px; position: relative; min-height: 500px">
 	<input type="hidden" name="pageNum" value="${pageNum }">
+	<table class="w3-table w3-centered w3-bordered">
 		<tr>
 			<th>번호</th>
-			<th>제목</th>
+			<th style="width:60%">제목</th>
 			<th>작성일</th>
 			<th>삭제</th>
 		</tr>
@@ -38,7 +36,7 @@
 			<c:if test="${free_scrap.member_id == member_id }">
 				<tr>
 					<td>${free_scrap.free_no }</td>
-					<td><a href="freeContent.free?free_no=${free_scrap.free_no }&pageNum=${pageNum }">${free_scrap.subject }</td>
+					<td><a href="freeContent.free?free_no=${free_scrap.free_no }&pageNum=${pageNum }">${free_scrap.subject }</a></td>
 					<td>${free_scrap.reg_date }</td>
 					<td><button onclick="location.href='scrapDel.freeS?free_no=${free_scrap.free_no}&&pageNum=${pageNum }'">삭제</button></td>
 			</c:if>

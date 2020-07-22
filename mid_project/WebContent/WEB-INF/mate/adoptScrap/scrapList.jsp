@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="../sessions/memberSession.jsp" %>
 <%@ include file="../sessions/masterSession.jsp" %>
@@ -8,11 +9,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-@import url("temp.css");
-</style>
 </head>
 <body>
+<jsp:useBean id="now" class="java.util.Date"/>
+<fmt:formatDate value="${now }" pattern="yyyyMMdd" var="nowDate"/>
+
 	<input type="hidden" name="pageNum" value="${pageNum }">
 	<table>
 		<tr>
@@ -20,7 +21,7 @@
 			<th>지역</th>
 			<th>대분류</th>
 			<th>소분류</th>	
-			<th>제목</th>
+			<th style="width: 50%">제목</th>
 			<th>작성일</th>
 			<th>조회수</th>
 		</tr>

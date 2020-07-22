@@ -69,18 +69,11 @@
 	<c:if test="${not empty master_id }">
 		<a href="delmsg()" class="btn-two mini red rounded">삭제</a>
 	</c:if>
-	
 		<c:if test="${not empty member_id && member_id != free.member_id}">
 		<a href="scrapChk.adoptS?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" class="btn-two mini blue rounded">스크랩</a>
+		<a href="writeForm.application?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" class="btn-two mini blue rounded">지원하기	</a>
 	</c:if>
-		<a href="adoptList.adopt?category=${ }pageNum=${pageNum}" class="btn-two mini charcoal rounded">목록</a>
-		
-		
-<c:if test="${not empty member_id && member_id != adopt.member_id}">
-	<input type="button" value="스크랩" onclick="location.href='scrapChk.adoptS?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }'">&emsp;
-	<input type="button" value="지원하기" onclick="location.href='writeForm.application?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }'">	
-</c:if>
-	<input type="button" value="목록보기" onclick="location.href='adoptList.adopt?pageNum=${pageNum}'">
+		<a href="#" onclick="history.back()" class="btn-two mini charcoal rounded">목록</a>
 </div>
 
 <div id="showList">
