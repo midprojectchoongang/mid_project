@@ -43,9 +43,11 @@ public class Free_boardDao {
 	public int delete(int free_no) {
 		return session.update("freens.delete", free_no);
 	}
-	public int search(String member_id) {
-		return session.selectOne("freens.search", member_id);
-	}
+
+	/*
+	 * public int search(String member_id) { return
+	 * session.selectOne("freens.search", member_id); }
+	 */
 	public void cntUp(int free_no) {
 		session.update("freens.cntUp", free_no);
 	}
