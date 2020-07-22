@@ -24,7 +24,6 @@
 			<th>소분류</th>	
 			<th>제목</th>
 			<th>작성일</th>
-			<th>조회수</th>
 		</tr>
 		<c:if test="${empty list }">
 			<tr>
@@ -66,7 +65,6 @@
 					</td>
 					<td><a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }">${adopt.subject }</a></td>
 					<td>${adopt.reg_date }</td>
-					<td>조회수</td>
 				</tr>
 			</c:forEach>
 		</c:if>
