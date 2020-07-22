@@ -11,10 +11,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@ include file="../mainPage/nav.jsp" %>
-
 <jsp:useBean id="now" class="java.util.Date"/>
 <fmt:formatDate value="${now }" pattern="yyyyMMdd" var="nowDate"/>
+
+<!-- Header, NavBar -->
+<%@ include file="../mainPage/nav.jsp" %>
+
 <b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">게시판 스크랩</b>
 
 <div align="center" style="margin-top: 200px; position: relative; min-height: 500px">
@@ -42,28 +44,24 @@
 			</c:if>
 			</c:forEach>
 		</c:if>
-	</table>
+	</table><p>
 	
 	<!-- 페이징 -->
-	<p>
-	<div align="center">
+<div id="page1">
 	<c:if test="${startPage > pagePerBlock }">
-	<button onclick="location.href='freeList.free?pageNum=${startPage - 1 }'"><<</button>
+		<a href="freeList.free?pageNum=${startPage - 1 }"><<</a>
 	</c:if>
-	
 	<c:forEach var="i" begin="${startPage }" end="${endPage }">
 		<c:if test="${i == currentPage }">
-			<button onclick="location.href='freeList.free?pageNum=${i }'" disabled="disabled">${ i }</button>
+			<b>${ i }</b>
 		</c:if>
 		<c:if test="${i != currentPage }">
-			<button onclick="location.href='freeList.free?pageNum=${i }'">${i }</button>
+			<a href="freeList.free?pageNum=${i }">${i }</a>
 		</c:if>
 	</c:forEach>
-
 	<c:if test="${endPage < totalPage }">
-		<button onclick="location.href='freeList.free?pageNum=${endPage + 1 }'">>></button>
+		<a href="freeList.free?pageNum=${endPage + 1 }">>></a>
 	</c:if>
-	</div>
 </div>
 
 <!-- Footer -->

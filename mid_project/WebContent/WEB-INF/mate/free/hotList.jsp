@@ -9,11 +9,12 @@
 <style type="text/css">@import url("temp.css");</style>
 </head>
 <body>
+<jsp:useBean id="now" class="java.util.Date"/>
+<fmt:formatDate value="${now }" pattern="yyyyMMdd" var="nowDate"/>
+
 <!-- Header, NavBar -->
 <%@ include file="../mainPage/nav.jsp" %>
 
-<jsp:useBean id="now" class="java.util.Date"/>
-<fmt:formatDate value="${now }" pattern="yyyyMMdd" var="nowDate"/>
 <b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">HOT 게시판</b>
 
 <div align="center" style="margin-top: 200px; position: relative; min-height: 500px">

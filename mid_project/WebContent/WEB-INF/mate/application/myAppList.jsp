@@ -18,12 +18,15 @@
 </script>
 </head>
 <body>
+<jsp:useBean id="now" class="java.util.Date"/>
+<fmt:formatDate value="${now }" pattern="yyyyMMdd" var="nowDate"/>
+
 <!-- Header, NavBar -->
 <%@ include file="../mainPage/nav.jsp" %>
 
-<jsp:useBean id="now" class="java.util.Date"/>
-<fmt:formatDate value="${now }" pattern="yyyyMMdd" var="nowDate"/>
-<div align="center" style="margin: 100px;">
+<b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">내 지원현황</b>
+
+<div align="center" style="margin-top: 200px; position: relative; min-height: 500px">
 	<input type="hidden" name="pageNum" value="${pageNum }">
 	<table class="w3-table w3-centered w3-bordered">
 		<tr>
@@ -82,28 +85,25 @@
 				</tr>
 			</c:forEach>
 		</c:if>
-	</table>
-	
+	</table><p>
+</div>	
+
 	<!-- 페이징 -->
-	<p>
-	<div id="page1">
+<div id="page1">
 	<c:if test="${startPage > pagePerBlock }">
-	<button onclick="location.href='myAppList.application?pageNum=${startPage - 1 }'"><<</button>
+		<a href="myAppList.application?pageNum=${startPage - 1 }"><<</a>
 	</c:if>
-	
 	<c:forEach var="i" begin="${startPage }" end="${endPage }">
 		<c:if test="${i == currentPage }">
-			<button onclick="location.href='myAppList.application?pageNum=${i }'" disabled="disabled">${ i }</button>
+			<b>${ i }</b>
 		</c:if>
 		<c:if test="${i != currentPage }">
-			<button onclick="location.href='myAppList.application?pageNum=${i }'">${i }</button>
+			<a href="myAppList.application?pageNum=${i }">${i }</a>
 		</c:if>
 	</c:forEach>
-
 	<c:if test="${endPage < totalPage }">
-		<button onclick="location.href='myAppList.application?pageNum=${endPage + 1 }'">>></button>
+		<a href="myAppList.application?pageNum=${endPage + 1 }">>></a>
 	</c:if>
-	</div>
 </div>
 
 <!-- Footer -->
