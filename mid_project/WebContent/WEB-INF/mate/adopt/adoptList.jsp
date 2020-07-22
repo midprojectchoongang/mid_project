@@ -17,7 +17,7 @@
 <%@ include file="../mainPage/sideNav.jsp" %>
 
 <b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">공고게시판</b>
-<div align="center" style="margin: 200px 100px 0 100px; position: relative; min-height: 450px">
+<div align="center" style="margin-top: 200px; position: relative; min-height: 500px">
 	<input type="hidden" name="pageNum" value="${pageNum }">
 	<table class="w3-table w3-centered w3-bordered">
 		<tr>

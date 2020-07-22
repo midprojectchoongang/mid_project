@@ -93,7 +93,7 @@ button[class*="btn"] {border: 0;}
 		z-index: 1;
 	}
 	.sidenav .parent {
-		padding: 8px 8px 8px 50%;
+		padding: 8px 8px 8px 40%;
 		text-decoration: none;
 		font-size: 25px;
 		font-weight: bold;
@@ -101,7 +101,7 @@ button[class*="btn"] {border: 0;}
 		display: block;
 	}
 	.sidenav .child {
-		padding: 0 8px 0 60%;
+		padding: 0 8px 0 50%;
 		text-decoration: none;
 		font-size: 15px;
 		font-weight: bold;

@@ -17,11 +17,11 @@
 
 <!-- 관리자용 작성버튼 -->
 <c:if test="${not empty master_id }">
-	<a href="insertForm.notice" class="btn-two small charcoal rounded" style="position: absolute; margin-top: 6%; margin-left: 70%">공지 작성</a>
+	<a href="insertForm.notice" class="btn-two small charcoal rounded" style="position: absolute; margin-top: -50px; margin-left: 65%">공지 작성</a>
 </c:if>
 
 	<!-- 리스트 -->
-<div align="center" style="margin: 200px 100px 0 100px; position: relative; min-height: 450px">
+<div align="center" style="margin-top: 200px; position: relative; min-height: 500px">
 	<table class="w3-table w3-centered w3-bordered">
 		<tr><th>번호</th><th>제목</th><th>등록일</th></tr>
 		<c:if test="${empty list }">

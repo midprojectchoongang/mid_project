@@ -11,9 +11,9 @@
 <body>
 <jsp:useBean id="now" class="java.util.Date"/>
 <fmt:formatDate value="${now }" pattern="yyyyMMdd" var="nowDate"/>
-<div align="center" style="margin: 100px;">
-	<table class="w3-table w3-centered w3-bordered">
+<div align="center" style="margin-top: 200px; position: relative; min-height: 500px">
 	<input type="hidden" name="pageNum" value="${pageNum }">
+	<table class="w3-table w3-centered w3-bordered">
 		<c:if test="${empty appList}">
 			<tr>
 				<th colspan="5">등록된 지원서가 없습니다</th>
@@ -57,35 +57,32 @@
 					<c:if test="${application.experience == 'n'}">무</c:if>
 					</td>
 					<td>
-					<a href="appContent.application?application_no=${application.application_no }&pageNum=${pageNum }">
+					<a href="appContent.application?application_no=${application.application_no }&pageNum=${pageNum }"></a>
 					${application.subject }
 					</td>
 					<td>${application.reg_date }</td>
 				</tr>
 			</c:forEach>
 		</c:if>
-	</table>
-	
+	</table><p>
+</div>
+
 	<!-- 페이징 -->
-	<p>
-	<div id="page1">
+<div id="page1">
 	<c:if test="${startPage > pagePerBlock }">
-	<button onclick="location.href='applicationList.application?pageNum=${startPage - 1 }'"><<</button>
+		<a href="applicationList.application?pageNum=${startPage - 1 }"><<</a>
 	</c:if>
-	
 	<c:forEach var="i" begin="${startPage }" end="${endPage }">
 		<c:if test="${i == currentPage }">
-			<button onclick="location.href='applicationList.application?pageNum=${i }'" disabled="disabled">${ i }</button>
+			<b>${ i }</b>
 		</c:if>
 		<c:if test="${i != currentPage }">
-			<button onclick="location.href='applicationList.application?pageNum=${i }'">${i }</button>
+			<a href="applicationList.application?pageNum=${i }">${i }</a>
 		</c:if>
 	</c:forEach>
-
 	<c:if test="${endPage < totalPage }">
-		<button onclick="location.href='applicationList.application?pageNum=${endPage + 1 }'">>></button>
+		<a href="location.href='applicationList.application?pageNum=${endPage + 1 }">>></a>
 	</c:if>
-	</div>
 </div>
 
 </body>

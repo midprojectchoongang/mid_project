@@ -62,14 +62,20 @@
 		</tr>
 	</table>
 	<p>
-
-<c:if test="${member_id == adopt.member_id }">
-	<input type="button" value="수정" onclick="location.href='updateForm.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }'">&emsp;
-	<input type="button" value="삭제" onclick="delmsg()">&emsp;
-</c:if>
-<c:if test="${not empty master_id }">
-	<input type="button" value="삭제" onclick="delmsg()">&emsp;
-</c:if>
+	<c:if test="${member_id == adopt.member_id }">
+		<a href="updateForm.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" class="btn-two mini blue rounded">수정</a>
+		<a href="delmsg()" class="btn-two mini red rounded">삭제</a>
+	</c:if>
+	<c:if test="${not empty master_id }">
+		<a href="delmsg()" class="btn-two mini red rounded">삭제</a>
+	</c:if>
+	
+		<c:if test="${not empty member_id && member_id != free.member_id}">
+		<a href="scrapChk.adoptS?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" class="btn-two mini blue rounded">스크랩</a>
+	</c:if>
+		<a href="adoptList.adopt?category=${ }pageNum=${pageNum}" class="btn-two mini charcoal rounded">목록</a>
+		
+		
 <c:if test="${not empty member_id && member_id != adopt.member_id}">
 	<input type="button" value="스크랩" onclick="location.href='scrapChk.adoptS?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }'">&emsp;
 	<input type="button" value="지원하기" onclick="location.href='writeForm.application?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }'">	

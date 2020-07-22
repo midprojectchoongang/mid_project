@@ -22,7 +22,7 @@
 <c:if test="${param.category == 'a' }">
 	<b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">입양 후기</b>
 </c:if>
-<div align="center" style="margin: 200px 100px 0 100px; position: relative; min-height: 450px">
+<div align="center" style="margin-top: 200px; position: relative; min-height: 500px">
 	<input type="hidden" name="pageNum" value="${pageNum }">
 	<table class="w3-table w3-centered w3-bordered">
 		<tr><th>번호</th><th>제목</th><th>작성자</th><th>조회수</th><th>작성일</th></tr>
