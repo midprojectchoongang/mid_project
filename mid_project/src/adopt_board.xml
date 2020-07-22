@@ -21,8 +21,8 @@
 	</resultMap>
 	<select id="list" parameterType="hashMap" resultMap="resultMap">
 		select * from (select rowNum rn, a.* from 
-		(select * from adopt_board order by adopt_no desc) a)
-		where del = 'n' and rn between #{startRow} and #{endRow}
+		(select * from adopt_board where del = 'n' order by adopt_no desc) a) 
+		where rn between #{startRow} and #{endRow}
 	</select>
 		<insert id="write" parameterType="adopt_board">
 		insert into adopt_board values (adopt_seq.nextval,#{member_id},#{largecate_id},#{smallcate_id},#{location_no},#{subject},
