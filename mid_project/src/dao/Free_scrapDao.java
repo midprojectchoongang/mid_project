@@ -43,9 +43,11 @@ public class Free_scrapDao {
 	public int scrap(Free_scrap free_scrap) {
 		return session.insert("freeScrapns.scrap", free_scrap);
 	}
-	@SuppressWarnings("unchecked")
-	public List<Free_scrap> read(String member_id) {
-		return session.selectList("freeScrapns.read", member_id);
+	public Free_scrap read(String member_id, String free_no) {
+		HashMap<String, String> hm = new HashMap<>();
+		hm.put("member_id", member_id);
+		hm.put("free_no", free_no);
+		return session.selectOne("freeScrapns.read", hm);
 	}
 	public int delete(String member_id, int free_no) {
 		HashMap<String, String> deleteKey = new HashMap<>();
@@ -53,6 +55,13 @@ public class Free_scrapDao {
 		deleteKey.put("free_no", free_no+"");
 		
 		return session.update("freeScrapns.delete", deleteKey);
+	}
+	public int reScrap(String member_id, String free_noChk) {
+		HashMap<String, String> hm = new HashMap<>();
+		hm.put("member_id", member_id);
+		hm.put("free_no", free_noChk);
+		
+		return session.update("freeScrapns.re_Scrap", hm);
 	}
 	
 	

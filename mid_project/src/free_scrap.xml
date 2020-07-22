@@ -21,12 +21,16 @@
 		insert into free_scrap values 
 		(#{member_id}, #{free_no}, #{subject}, sysdate, 'n')
 	</insert>
-	<select id="read" parameterType="string" resultMap="resultMap">
-		select * from free_scrap where member_id = #{member_id} and del = 'n'
-		order by reg_date
+	<select id="read" parameterType="hashMap" resultMap="resultMap">
+		select * from free_scrap where member_id = #{member_id} and 
+		free_no = #{free_no} order by reg_date
 	</select>
 	<update id="delete" parameterType="hashmap">
 		update free_scrap set del = 'y' where member_id = #{member_id}
 		and free_no = #{free_no}
+	</update>
+	<update id="re_Scrap" parameterType="hashmap">
+		update free_scrap set del = 'n', reg_date = sysdate
+		where member_id = #{member_id} and free_no = #{free_no}
 	</update>
 </mapper>
