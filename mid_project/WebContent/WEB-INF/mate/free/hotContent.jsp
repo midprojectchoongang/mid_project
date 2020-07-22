@@ -22,7 +22,7 @@
 <%@ include file="../mainPage/nav.jsp" %>
 
 <fmt:formatDate value="${free.reg_date }" pattern="yyyy.MM.dd  HH:mm" var="date"/>
-<div id="center" style="margin: 100px;">
+<div align="center" style="margin: 100px;">
 	<input type="hidden" name="pageNum" value="${pageNum }">
 	<table class="w3-table w3-centered w3-bordered">
 		<tr><th>카테고리</th>

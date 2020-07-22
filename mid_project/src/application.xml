@@ -23,7 +23,7 @@
 		where del = 'n' and member_id = #{member_id} order by reg_date desc) a)
 		where rn between #{startRow} and #{endRow}
 	</select>
-	<select id="total" resultType="integer">
+	<select id="total" parameterType="string" resultType="integer">
 		select count(*) from application where member_id = #{member_id} and del = 'n'
 	</select>
 	<insert id="apply" parameterType="application">
@@ -37,4 +37,13 @@
 	<update id="delete" parameterType="integer">
 		update application set del = 'y' where application_no = #{application_no}
 	</update>
+	<!-- 받은 지원서 목록 -->
+	<select id="appList" parameterType="hashMap" resultMap="resultMap">
+		select * from (select rowNum rn, a.* from (select * from application
+		where del = 'n' and adopt_no = #{adopt_no} order by reg_date desc) a)
+		where rn between #{startRow} and #{endRow}
+	</select>
+	<select id="appTotal" parameterType="integer" resultType="integer">
+		select count(*) from application where adopt_no = #{adopt_no} and del = 'n'
+	</select>
 </mapper>

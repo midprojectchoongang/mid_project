@@ -54,4 +54,14 @@ public class ApplicationDao {
 	public int delete(int application_no) {
 		return session.update("applyns.delete", application_no);
 	}
+	public List<Application> appList(int startRow, int endRow, int adopt_no) {
+		HashMap<String, Integer> hm = new HashMap<>();
+		hm.put("startRow", startRow);
+		hm.put("endRow", endRow);
+		hm.put("adopt_no", adopt_no);
+		return session.selectList("applyns.appList", hm);
+	}
+	public int appTotal(int adopt_no) {
+		return session.selectOne("applyns.appTotal", adopt_no);
+	}
 }

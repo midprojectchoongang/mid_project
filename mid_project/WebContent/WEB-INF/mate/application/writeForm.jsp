@@ -31,12 +31,12 @@ $(function() {
 	<input type="hidden" name="adopt_no" value="${adopt.adopt_no }">
 	<table class="w3-table w3-centered w3-bordered">
 		<tr><th>분류</th>
-			<td colspan="2">
+			<td>
 				<c:if test="${adopt.largecate_id == 'd'}">강아지</c:if>
 				<c:if test="${adopt.largecate_id == 'c'}">고양이</c:if>
 			</td>
 			<th>품종</th>
-			<td colspan="2">
+			<td>
 				<c:if test="${adopt.smallcate_id == 'd1'}">대형견</c:if>										
 				<c:if test="${adopt.smallcate_id == 'd2'}">중형견</c:if>										
 				<c:if test="${adopt.smallcate_id == 'd3'}">소형견</c:if>										
@@ -45,8 +45,24 @@ $(function() {
 			</td>
 		</tr>
 		<tr>
-			<th>거주지</th>
-			<td><select name="location_no">
+			<th>성별</th>
+			<td>
+			<label for="g1">남</label>
+			<input type="radio" class="gen" name="gender" value="m" id="g1" required="required">
+			<label for="g2">여</label>
+			<input type="radio" class="gen" name="gender" value="f" id="g2" required="required">
+			</td>
+			<th>반려동물 경험</th>
+			<td>
+			<label for="e1">유</label>
+			<input type="radio" class="exper" name="experience" value="y" id="e1" required="required">
+			<label for="e2">무</label>
+			<input type="radio" class="exper" name="experience" value="n" id="e2" required="required">
+			</td>
+		</tr>
+		<tr>
+			<th colspan="2">거주지</th>
+			<td colspan="2"><select name="location_no">
 				<option value="2">서울</option>
 				<option value="31">경기</option>
 				<option value="32">인천</option>
@@ -64,38 +80,25 @@ $(function() {
 				<option value="63">전북</option>
 				<option value="64">제주</option>
 			</select></td>
-			<th>성별</th>
-			<td>
-			<label for="g1">남</label>
-			<input type="radio" class="gen" name="gender" value="m" id="g1" required="required">
-			<br>
-			<label for="g2">여</label>
-			<input type="radio" class="gen" name="gender" value="f" id="g2" required="required">
-			</td>
-			<th>반려동물 경험</th>
-			<td>
-			<label for="e1">유</label>
-			<input type="radio" class="exper" name="experience" value="y" id="e1" required="required">
-			<br>
-			<label for="e2">무</label>
-			<input type="radio" class="exper" name="experience" value="n" id="e2" required="required">
+		</tr>
+		<tr>
+			<th colspan="2">이메일</th>
+			<td colspan="2">
+			<input type="text" name="email" required="required">
 			</td>
 		</tr>
 		<tr>
-			<th>이메일</th>
-			<td colspan="2">
-			<input type="text" name="email" required="required">
-			<th>전화번호</th>
+			<th colspan="2">전화번호</th>
 			<td colspan="2">
 			<input type="tel" name="tel" required="required" pattern="\d{3}-\d{3,4}-\d{4}"
 				placeholder="xxx-xxxx-xxxxx" title="전화번호 형식 xxx-xxxx-xxxx">
 			</td>
 		</tr>
-		<tr><th>제목</th>
-			<td colspan="5"><input type="text" name="subject" required="required" autofocus="autofocus"></td>
+		<tr><th colspan="2">제목</th>
+			<td colspan="4"><input type="text" name="subject" required="required" autofocus="autofocus"></td>
 		</tr>
-		<tr><th>내용</th>
-			<td colspan="5"><textarea name="content" rows="10" cols="50" required="required"></textarea></td>
+		<tr><th colspan="2">내용</th>
+			<td colspan="4"><textarea name="content" rows="10" cols="50" required="required"></textarea></td>
 		</tr>
 	</table><p>
 		<input type="submit" value="등록" onclick="location.href='write.application?adopt_no=${adopt_no }&pageNum=${pageNum}'">

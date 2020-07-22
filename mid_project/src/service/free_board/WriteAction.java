@@ -10,7 +10,7 @@ public class WriteAction implements CommandProcess {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
-		
+
 		String pageNum = request.getParameter("pageNum");
 		String member_id = request.getParameter("member_id");
 		String category = request.getParameter("category");

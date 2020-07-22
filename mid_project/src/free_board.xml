@@ -38,9 +38,6 @@
 	<update id="delete" parameterType="integer">
 		update free_board set del = 'y' where free_no = #{free_no}
 	</update>
-	<select id="search" parameterType="string" resultType="integer">
-		select max(free_no) from free_board where member_id = #{member_id}
-	</select>
 	<update id="cntUp" parameterType="integer">
 		update free_board set cnt = cnt+1 where free_no = #{free_no}
 	</update>

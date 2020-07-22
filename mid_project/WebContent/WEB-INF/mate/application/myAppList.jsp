@@ -88,20 +88,20 @@
 	<p>
 	<div id="page1">
 	<c:if test="${startPage > pagePerBlock }">
-	<button onclick="location.href='applicationList.application?pageNum=${startPage - 1 }'"><<</button>
+	<button onclick="location.href='myAppList.application?pageNum=${startPage - 1 }'"><<</button>
 	</c:if>
 	
 	<c:forEach var="i" begin="${startPage }" end="${endPage }">
 		<c:if test="${i == currentPage }">
-			<button onclick="location.href='applicationList.application?pageNum=${i }'" disabled="disabled">${ i }</button>
+			<button onclick="location.href='myAppList.application?pageNum=${i }'" disabled="disabled">${ i }</button>
 		</c:if>
 		<c:if test="${i != currentPage }">
-			<button onclick="location.href='applicationList.application?pageNum=${i }'">${i }</button>
+			<button onclick="location.href='myAppList.application?pageNum=${i }'">${i }</button>
 		</c:if>
 	</c:forEach>
 
 	<c:if test="${endPage < totalPage }">
-		<button onclick="location.href='applicationList.application?pageNum=${endPage + 1 }'">>></button>
+		<button onclick="location.href='myAppList.application?pageNum=${endPage + 1 }'">>></button>
 	</c:if>
 	</div>
 </div>
