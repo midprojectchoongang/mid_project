@@ -2,13 +2,15 @@ package service.member;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.MemberDao;
 import model.Member;
 
 public class UpdateAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
-		String member_id = request.getParameter("member_id");
+		HttpSession session = request.getSession();
+		String member_id = (String) session.getAttribute("member_id");
 		
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");

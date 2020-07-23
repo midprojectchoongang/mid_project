@@ -23,7 +23,6 @@
 
 <b style="font-size: 24px; position: absolute; margin: -100px 0 0 46%;">보호소 목록</b>
 
-
 	<!-- 리스트 -->
 <div align="center" style="margin-top: 200px; position: relative; min-height: 450px;">
 	<input type="hidden" name="pageNum" value="${pageNum }">
