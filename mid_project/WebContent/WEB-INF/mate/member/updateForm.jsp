@@ -53,7 +53,7 @@
 		</tr>
 	</table><p>
 	<input type="submit" class="btn-two small blue rounded" value="확인">
-	<button onclick="location.href='memberInfo.member'" class="btn-two small red rounded">취소</button>
+	<a href='memberInfo.member' class="btn-two small red rounded" style="border:0;">취소</a>
 </form>
 </div>
 
