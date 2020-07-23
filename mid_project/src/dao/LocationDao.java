@@ -32,10 +32,7 @@ public class LocationDao {
 			System.out.println("초기화 에러 : "+e.getMessage());
 		}
 	}
-	public Location select(int i) {
+	public String select(int i) {
 		return session.selectOne("locatens.select", i);
 	}
-
-	
-
 }

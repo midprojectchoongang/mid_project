@@ -18,8 +18,7 @@ public class ViewInfo implements CommandProcess {
 		
 		LocationDao ld = LocationDao.getInstance();
 		
-		Location location = ld.select(member.getLocation_no());
-		System.out.println("location 전");
+		String location = ld.select(member.getLocation_no());
 		
 		request.setAttribute("location", location);
 		request.setAttribute("member", member);

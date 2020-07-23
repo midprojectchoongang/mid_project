@@ -69,7 +69,7 @@
 	<c:if test="${not empty master_id }">
 		<a href="delmsg()" class="btn-two mini red rounded">삭제</a>
 	</c:if>
-		<c:if test="${not empty member_id && member_id != free.member_id}">
+	<c:if test="${not empty member_id && member_id != adopt.member_id}">
 		<a href="scrapChk.adoptS?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" class="btn-two mini blue rounded">스크랩</a>
 		<a href="writeForm.application?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" class="btn-two mini blue rounded">지원하기	</a>
 	</c:if>

@@ -5,19 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="../js/jquery.js"></script>
-<script type="text/javascript">
-	$(function() {
-		$('#dog').click(function() {
-			$(this).next().toggle('slow', function() {
-			}); // toggle : show + hide
-		});
-		$('#cat').click(function() {
-			$(this).next().toggle('slow', function() {
-			}); // toggle : show + hide
-		});
-	});
-</script>
 </head>
 <body>
 	<div id="mysidenav" class="sidenav">

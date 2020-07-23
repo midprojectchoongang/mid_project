@@ -37,12 +37,16 @@
 	<update id="delete" parameterType="int">
 		update member set del='y' where member_id=#{member_id}
 	</update>
-	<select id="list" resultMap="resultMap">
-		select * from member order by member_id
-	</select>
 	
 	<!-- master -->
+	<select id="list" parameterType="hashmap" resultMap="resultMap">
+		select * from (select rowNum rn, a.* from (select * from member order by sysdate desc) a) 
+		where rn between #{startRow} and #{endRow}
+	</select>
 	<update id="delMaster" parameterType="hashMap">
 		update member set del = #{del} where member_id=#{member_id}
 	</update>
+	<select id="total" resultType="int">
+		select count(*) from member
+	</select>
 </mapper>

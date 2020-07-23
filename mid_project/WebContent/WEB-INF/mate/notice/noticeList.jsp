@@ -22,7 +22,7 @@
 </c:if>
 
 	<!-- 리스트 -->
-<div align="center" style="margin-top: 200px; position: relative; min-height: 500px">
+<div align="center" style="margin-top: 200px; position: relative; min-height: 450px">
 	<table class="w3-table w3-centered w3-bordered">
 		<tr><th>번호</th><th style="width: 60%;">제목</th><th>등록일</th></tr>
 		<c:if test="${empty list }">
@@ -32,7 +32,9 @@
 		<c:forEach items="${list }" var="notice">
 			<fmt:formatDate value="${notice.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
 			<tr><td>${notice.notice_no }</td>
-				<td style="text-align: left;"><a href="noticeContent.notice?notice_no=${notice.notice_no }&pageNum=${pageNum }">${notice.subject }</a></td>
+				<td style="text-align: left;">
+					<a href="noticeContent.notice?notice_no=${notice.notice_no }&pageNum=${pageNum }" style="margin-left: 20px">${notice.subject }</a>
+				</td>
 				<c:if test="${nowDate > pastDate }">
 				<td><fmt:formatDate value="${notice.reg_date }" type="date" pattern="yyyy/MM/dd"/></td>
 				</c:if>

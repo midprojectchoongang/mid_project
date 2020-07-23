@@ -34,7 +34,7 @@
 			<th>분류</th>
 			<th>품종</th>
 			<th>지역</th>
-			<th>제목</th>
+			<th style="width: 40%">제목</th>
 			<th>작성일</th>
 			<th>신청취소</th>
 		</tr>
@@ -76,9 +76,9 @@
 					<c:if test="${application.location_no == 63}">전북</c:if>
 					<c:if test="${application.location_no == 64}">제주</c:if>
 					</td>
-					<td>
-					<a href="appContent.application?application_no=${application.application_no }&pageNum=${pageNum }"></a>
-					${application.subject }
+					<td style="text-align: left;">
+					<a href="appContent.application?application_no=${application.application_no }&pageNum=${pageNum }" style="margin-left: 20px">
+					${application.subject }</a>
 					</td>
 					<td>${application.reg_date }</td>
 					<td><button onclick="delmsg(${application.application_no})">취소</button></td>

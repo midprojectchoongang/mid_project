@@ -19,13 +19,13 @@
 	<insert id="insert" parameterType="shelter">
 		insert into shelter values(shelter_seq.nextval, #{location_no}, #{name}, #{tel}, 'n')
 	</insert>
-	<select id="select" resultType="shelter">
-		select * from shelter where shelter_no = #{shelter_no}
-	</select>
 	<update id="update" parameterType="shelter">
 		update shelter set location_no = #{location_no}, name = #{name}, tel = #{tel} where shelter_no = #{shelter_no}
 	</update>
 	<update id="delete" parameterType="integer">
 		update shelter set del = 'y' where shelter_no = #{shelter_no}
 	</update>
+	<select id="select" parameterType="integer" resultType="shelter">
+		select * from shelter where shelter_no = #{shelter_id}
+	</select>
 </mapper>

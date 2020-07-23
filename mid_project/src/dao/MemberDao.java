@@ -55,13 +55,19 @@ public class MemberDao {
 	public int delete(String member_id) {
 		return session.update("memberns.delete", member_id);
 	}
-	public List<Member> list() {
-		return session.selectList("memberns.list");
+	public List<Member> list(int startRow, int endRow) {
+		HashMap<String, Integer> hm = new HashMap<>();
+		hm.put("startRow", startRow);
+		hm.put("endRow", endRow);
+		return session.selectList("memberns.list", hm);
 	}
 	public int delMaster(String member_id, String del_be) {
 		HashMap<String, String> hm = new HashMap<>();
 		hm.put("member_id", member_id);
 		hm.put("del", del_be);
 		return session.update("memberns.delMaster", hm);
+	}
+	public int total() {
+		return session.selectOne("memberns.total");
 	}
 }

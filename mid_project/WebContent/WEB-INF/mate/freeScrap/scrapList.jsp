@@ -38,14 +38,17 @@
 			<c:if test="${free_scrap.member_id == member_id }">
 				<tr>
 					<td>${free_scrap.free_no }</td>
-					<td><a href="freeContent.free?free_no=${free_scrap.free_no }&pageNum=${pageNum }">${free_scrap.subject }</a></td>
+					<td style="text-align: left">
+						<a href="freeContent.free?free_no=${free_scrap.free_no }&pageNum=${pageNum }" style="margin-left: 20px">${free_scrap.subject }</a>
+					</td>
 					<td>${free_scrap.reg_date }</td>
 					<td><button onclick="location.href='scrapDel.freeS?free_no=${free_scrap.free_no}&&pageNum=${pageNum }'">삭제</button></td>
 			</c:if>
 			</c:forEach>
 		</c:if>
 	</table><p>
-	
+</div>
+
 	<!-- 페이징 -->
 <div id="page1">
 	<c:if test="${startPage > pagePerBlock }">

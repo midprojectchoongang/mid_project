@@ -10,8 +10,8 @@
 <!-- Header, NavBar -->
 <%@ include file="../mainPage/nav.jsp" %>
 
-<div align="center" style="margin: 100px;">
-	<h2>관리자 메뉴</h2>
+	<!-- 리스트 -->
+<div align="center" style="margin-top: 200px; position: relative; min-height: 500px">
 	<a href="memberList.master" class="btn-two charcoal rounded"><i class="fa fa-pencil"></i> 회원 관리</a><br>
 	<a href="#" class="btn-two charcoal rounded"><i class="fa fa-pencil"></i> 삭제된 게시물 관리</a><br>
 	<a href="#" class="btn-two charcoal rounded"><i class="fa fa-pencil"></i> 관리자 비밀번호 수정</a><br>

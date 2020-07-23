@@ -26,7 +26,7 @@
 		
 		<tr><th>이메일</th><td>${member.email}</td></tr>
 		<tr><th>전화</th><td>${member.tel}</td></tr>
-		<tr><th>거주 지역</th><td>${location.local_name}</td></tr>
+		<tr><th>거주 지역</th><td>${location}</td></tr>
 		
 		<tr><th>경험</th>
 			<td><c:if test="${member.experience=='y' }">유</c:if>

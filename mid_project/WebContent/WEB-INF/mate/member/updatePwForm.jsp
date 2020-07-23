@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ include file="../sessions/memberSession.jsp" %>
 <!DOCTYPE html><html><head><meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
@@ -16,13 +14,14 @@
 </script>
 </head>
 <body>
+<!-- Header, NavBar -->
+<%@ include file="../mainPage/nav.jsp" %>
+
 <c:if test="${empty member_id }">
 	<script type="text/javascript">
 		location.href="main.main";
 	</script>
 </c:if>
-<!-- Header, NavBar -->
-<%@ include file="../mainPage/nav.jsp" %>
 
 <div align="center" style="margin: 100px;">
 <form action="updatePw.member" method="post" name="frm" onsubmit="return chk()">

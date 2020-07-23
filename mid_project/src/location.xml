@@ -6,7 +6,7 @@
 		<result property="location_no" 	column="location_no"/>
 		<result property="local_name"  	column="local_name"/>
 	</resultMap>
- 	<select id="select" parameterType="integer" resultType="location">
+ 	<select id="select" parameterType="integer" resultType="String">
 		select local_name from location where location_no = #{location_no}
 	</select>
 </mapper>

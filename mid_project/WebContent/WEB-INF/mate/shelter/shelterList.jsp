@@ -11,17 +11,13 @@
 <!-- Header, NavBar -->
 <%@ include file="../mainPage/nav.jsp" %>
 
-<b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">내 주변 보호소 목록</b>
+<b style="font-size: 24px; position: absolute; margin: -100px 0 0 43%;">보호소 목록</b>
 
-<!-- 관리자용 작성버튼 -->
-<c:if test="${not empty master_id }">
-	<a href="insertForm.shelter" class="btn-two small charcoal rounded" style="position: absolute; margin-top: -50px; margin-left: 70%">공지 작성</a>
-</c:if>
 
 	<!-- 리스트 -->
-<div align="center" style="margin-top: 200px; position: relative; min-height: 500px">
+<div align="center" style="margin-top: 200px; position: relative; min-height: 450px;">
 	<input type="hidden" name="pageNum" value="${pageNum }">
-		<table class="w3-table w3-centered w3-bordered">
+		<table class="w3-table w3-centered w3-bordered"  style="max-width: 750px">
 			<tr>
 				<th>지역</th><th>보호소 이름</th><th>전화번호</th>
 			</tr>
@@ -51,15 +47,12 @@
 					<c:if test="${shelter.location_no == 63}">전북</c:if>
 					<c:if test="${shelter.location_no == 64}">제주</c:if>
 				</td>
-				
 				<td>
 					${shelter.name}
 				</td>
-				
 				<td>
 					${shelter.tel}
 				</td>
-				
 				<td>
 					<c:if test="${not empty master_id }">
 					<button onclick="location.href='updateForm.shelter?shelter_no=${shelter.shelter_no}&pageNum=${pageNum }'">수정</button>
@@ -74,7 +67,11 @@
 		</c:forEach>
 		</c:if>	
 	</table><p>
-</p>
+	
+	<!-- 관리자용 작성버튼 -->
+	<c:if test="${not empty master_id }">
+		<a href="insertForm.shelter" class="btn-two small charcoal rounded">보호소 입력</a>
+	</c:if>
 </div>
 
 	<!-- 페이지 -->

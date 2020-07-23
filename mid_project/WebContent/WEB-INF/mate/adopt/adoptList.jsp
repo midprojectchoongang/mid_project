@@ -6,7 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">@import url("temp.css");</style>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+
+</script>
 </head>
 <body>
 <jsp:useBean id="now" class="java.util.Date"/>
@@ -40,24 +43,7 @@
 			<c:forEach var="adopt" items="${list }">
 				<tr>
 					<td>${adopt.adopt_no }</td>
-					<td>
-					<c:if test="${adopt.location_no == 2}">서울</c:if>
-					<c:if test="${adopt.location_no == 31}">경기</c:if>
-					<c:if test="${adopt.location_no == 32}">인천</c:if>
-					<c:if test="${adopt.location_no == 41}">충남</c:if>
-					<c:if test="${adopt.location_no == 42}">대전</c:if>
-					<c:if test="${adopt.location_no == 43}">충북</c:if>
-					<c:if test="${adopt.location_no == 44}">세종</c:if>
-					<c:if test="${adopt.location_no == 51}">부산</c:if>
-					<c:if test="${adopt.location_no == 52}">울산</c:if>
-					<c:if test="${adopt.location_no == 53}">대구</c:if>
-					<c:if test="${adopt.location_no == 54}">경북</c:if>
-					<c:if test="${adopt.location_no == 55}">경남</c:if>
-					<c:if test="${adopt.location_no == 61}">전남</c:if>
-					<c:if test="${adopt.location_no == 62}">광주</c:if>
-					<c:if test="${adopt.location_no == 63}">전북</c:if>
-					<c:if test="${adopt.location_no == 64}">제주</c:if>
-					</td>
+					<td>${adopt.location_name }</td>
 					<td>
 					<c:if test="${adopt.largecate_id == 'd'}">강아지</c:if>
 					<c:if test="${adopt.largecate_id == 'c'}">고양이</c:if>
@@ -69,7 +55,9 @@
 					<c:if test="${adopt.smallcate_id == 'c1'}">장모</c:if>										
 					<c:if test="${adopt.smallcate_id == 'c2'}">단모</c:if>										
 					</td>
-					<td><a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }">${adopt.subject }</a></td>
+					<td style="text-align: left;">
+						<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px">${adopt.subject }</a>
+					</td>
 					<fmt:formatDate value="${adopt.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
 					<c:if test="${nowDate > pastDate }">
 						<td><fmt:formatDate value="${adopt.reg_date }" type="date" pattern="yyyy/MM/dd"/></td>
@@ -87,24 +75,7 @@
 				<c:if test="${adopt.largecate_id == 'd' }">
 				<tr>
 					<td>${adopt.adopt_no }</td>
-					<td>
-					<c:if test="${adopt.location_no == 2}">서울</c:if>
-					<c:if test="${adopt.location_no == 31}">경기</c:if>
-					<c:if test="${adopt.location_no == 32}">인천</c:if>
-					<c:if test="${adopt.location_no == 41}">충남</c:if>
-					<c:if test="${adopt.location_no == 42}">대전</c:if>
-					<c:if test="${adopt.location_no == 43}">충북</c:if>
-					<c:if test="${adopt.location_no == 44}">세종</c:if>
-					<c:if test="${adopt.location_no == 51}">부산</c:if>
-					<c:if test="${adopt.location_no == 52}">울산</c:if>
-					<c:if test="${adopt.location_no == 53}">대구</c:if>
-					<c:if test="${adopt.location_no == 54}">경북</c:if>
-					<c:if test="${adopt.location_no == 55}">경남</c:if>
-					<c:if test="${adopt.location_no == 61}">전남</c:if>
-					<c:if test="${adopt.location_no == 62}">광주</c:if>
-					<c:if test="${adopt.location_no == 63}">전북</c:if>
-					<c:if test="${adopt.location_no == 64}">제주</c:if>
-					</td>
+					<td>${adopt.location_name }</td>
 					<td>
 					<c:if test="${adopt.largecate_id == 'd'}">강아지</c:if>
 					<c:if test="${adopt.largecate_id == 'c'}">고양이</c:if>
@@ -116,7 +87,9 @@
 					<c:if test="${adopt.smallcate_id == 'c1'}">장모</c:if>										
 					<c:if test="${adopt.smallcate_id == 'c2'}">단모</c:if>										
 					</td>
-					<td><a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }">${adopt.subject }</a></td>
+					<td style="text-align: left;">
+						<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px">${adopt.subject }</a>
+					</td>
 					<fmt:formatDate value="${adopt.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
 					<c:if test="${nowDate > pastDate }">
 						<td><fmt:formatDate value="${adopt.reg_date }" type="date" pattern="yyyy/MM/dd"/></td>
@@ -134,24 +107,7 @@
 				<c:if test="${adopt.smallcate_id == 'd1' }">
 				<tr>
 					<td>${adopt.adopt_no }</td>
-					<td>
-					<c:if test="${adopt.location_no == 2}">서울</c:if>
-					<c:if test="${adopt.location_no == 31}">경기</c:if>
-					<c:if test="${adopt.location_no == 32}">인천</c:if>
-					<c:if test="${adopt.location_no == 41}">충남</c:if>
-					<c:if test="${adopt.location_no == 42}">대전</c:if>
-					<c:if test="${adopt.location_no == 43}">충북</c:if>
-					<c:if test="${adopt.location_no == 44}">세종</c:if>
-					<c:if test="${adopt.location_no == 51}">부산</c:if>
-					<c:if test="${adopt.location_no == 52}">울산</c:if>
-					<c:if test="${adopt.location_no == 53}">대구</c:if>
-					<c:if test="${adopt.location_no == 54}">경북</c:if>
-					<c:if test="${adopt.location_no == 55}">경남</c:if>
-					<c:if test="${adopt.location_no == 61}">전남</c:if>
-					<c:if test="${adopt.location_no == 62}">광주</c:if>
-					<c:if test="${adopt.location_no == 63}">전북</c:if>
-					<c:if test="${adopt.location_no == 64}">제주</c:if>
-					</td>
+					<td>${adopt.location_name }</td>
 					<td>
 					<c:if test="${adopt.largecate_id == 'd'}">강아지</c:if>
 					<c:if test="${adopt.largecate_id == 'c'}">고양이</c:if>
@@ -163,7 +119,73 @@
 					<c:if test="${adopt.smallcate_id == 'c1'}">장모</c:if>										
 					<c:if test="${adopt.smallcate_id == 'c2'}">단모</c:if>										
 					</td>
-					<td><a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }">${adopt.subject }</a></td>
+					<td style="text-align: left;">
+						<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px">${adopt.subject }</a>
+							</td>
+					<fmt:formatDate value="${adopt.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
+					<c:if test="${nowDate > pastDate }">
+						<td><fmt:formatDate value="${adopt.reg_date }" type="date" pattern="yyyy/MM/dd"/></td>
+					</c:if>
+					<c:if test="${nowDate == pastDate }">
+						<td><fmt:formatDate value="${adopt.reg_date }" type="time" pattern="HH:mm"/></td>
+					</c:if>
+				</tr>
+				</c:if>
+			</c:forEach>
+			</c:if>
+			
+			<c:if test="${param.category == 'd2' }">
+			<c:forEach var="adopt" items="${list }">
+				<c:if test="${adopt.smallcate_id == 'd2' }">
+				<tr>
+					<td>${adopt.adopt_no }</td>
+					<td>${adopt.location_name }</td>
+					<td>
+					<c:if test="${adopt.largecate_id == 'd'}">강아지</c:if>
+					<c:if test="${adopt.largecate_id == 'c'}">고양이</c:if>
+					</td>
+					<td>
+					<c:if test="${adopt.smallcate_id == 'd1'}">대형견</c:if>										
+					<c:if test="${adopt.smallcate_id == 'd2'}">중형견</c:if>										
+					<c:if test="${adopt.smallcate_id == 'd3'}">소형견</c:if>										
+					<c:if test="${adopt.smallcate_id == 'c1'}">장모</c:if>										
+					<c:if test="${adopt.smallcate_id == 'c2'}">단모</c:if>										
+					</td>
+					<td style="text-align: left;">
+						<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px">${adopt.subject }</a>
+							</td>
+					<fmt:formatDate value="${adopt.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
+					<c:if test="${nowDate > pastDate }">
+						<td><fmt:formatDate value="${adopt.reg_date }" type="date" pattern="yyyy/MM/dd"/></td>
+					</c:if>
+					<c:if test="${nowDate == pastDate }">
+						<td><fmt:formatDate value="${adopt.reg_date }" type="time" pattern="HH:mm"/></td>
+					</c:if>
+				</tr>
+				</c:if>
+			</c:forEach>
+			</c:if>
+			
+			<c:if test="${param.category == 'd3' }">
+			<c:forEach var="adopt" items="${list }">
+				<c:if test="${adopt.smallcate_id == 'd3' }">
+				<tr>
+					<td>${adopt.adopt_no }</td>
+					<td>${adopt.location_name }</td>
+					<td>
+					<c:if test="${adopt.largecate_id == 'd'}">강아지</c:if>
+					<c:if test="${adopt.largecate_id == 'c'}">고양이</c:if>
+					</td>
+					<td>
+					<c:if test="${adopt.smallcate_id == 'd1'}">대형견</c:if>										
+					<c:if test="${adopt.smallcate_id == 'd2'}">중형견</c:if>										
+					<c:if test="${adopt.smallcate_id == 'd3'}">소형견</c:if>										
+					<c:if test="${adopt.smallcate_id == 'c1'}">장모</c:if>										
+					<c:if test="${adopt.smallcate_id == 'c2'}">단모</c:if>										
+					</td>
+					<td style="text-align: left;">
+						<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px">${adopt.subject }</a>
+							</td>
 					<fmt:formatDate value="${adopt.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
 					<c:if test="${nowDate > pastDate }">
 						<td><fmt:formatDate value="${adopt.reg_date }" type="date" pattern="yyyy/MM/dd"/></td>
@@ -182,24 +204,7 @@
 				<c:if test="${adopt.largecate_id == 'c' }">
 				<tr>
 					<td>${adopt.adopt_no }</td>
-					<td>
-					<c:if test="${adopt.location_no == 2}">서울</c:if>
-					<c:if test="${adopt.location_no == 31}">경기</c:if>
-					<c:if test="${adopt.location_no == 32}">인천</c:if>
-					<c:if test="${adopt.location_no == 41}">충남</c:if>
-					<c:if test="${adopt.location_no == 42}">대전</c:if>
-					<c:if test="${adopt.location_no == 43}">충북</c:if>
-					<c:if test="${adopt.location_no == 44}">세종</c:if>
-					<c:if test="${adopt.location_no == 51}">부산</c:if>
-					<c:if test="${adopt.location_no == 52}">울산</c:if>
-					<c:if test="${adopt.location_no == 53}">대구</c:if>
-					<c:if test="${adopt.location_no == 54}">경북</c:if>
-					<c:if test="${adopt.location_no == 55}">경남</c:if>
-					<c:if test="${adopt.location_no == 61}">전남</c:if>
-					<c:if test="${adopt.location_no == 62}">광주</c:if>
-					<c:if test="${adopt.location_no == 63}">전북</c:if>
-					<c:if test="${adopt.location_no == 64}">제주</c:if>
-					</td>
+					<td>${adopt.location_name }</td>
 					<td>
 					<c:if test="${adopt.largecate_id == 'd'}">강아지</c:if>
 					<c:if test="${adopt.largecate_id == 'c'}">고양이</c:if>
@@ -211,7 +216,73 @@
 					<c:if test="${adopt.smallcate_id == 'c1'}">장모</c:if>										
 					<c:if test="${adopt.smallcate_id == 'c2'}">단모</c:if>										
 					</td>
-					<td><a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }">${adopt.subject }</a></td>
+					<td style="text-align: left;">
+						<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px">${adopt.subject }</a>
+					</td>
+					<fmt:formatDate value="${adopt.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
+					<c:if test="${nowDate > pastDate }">
+						<td><fmt:formatDate value="${adopt.reg_date }" type="date" pattern="yyyy/MM/dd"/></td>
+					</c:if>
+					<c:if test="${nowDate == pastDate }">
+						<td><fmt:formatDate value="${adopt.reg_date }" type="time" pattern="HH:mm"/></td>
+					</c:if>
+				</tr>
+				</c:if>
+			</c:forEach>
+			</c:if>
+			
+			<c:if test="${param.category == 'c1' }">
+			<c:forEach var="adopt" items="${list }">
+				<c:if test="${adopt.smallcate_id == 'c1' }">
+				<tr>
+					<td>${adopt.adopt_no }</td>
+					<td>${adopt.location_name }</td>
+					<td>
+					<c:if test="${adopt.largecate_id == 'd'}">강아지</c:if>
+					<c:if test="${adopt.largecate_id == 'c'}">고양이</c:if>
+					</td>
+					<td>
+					<c:if test="${adopt.smallcate_id == 'd1'}">대형견</c:if>										
+					<c:if test="${adopt.smallcate_id == 'd2'}">중형견</c:if>										
+					<c:if test="${adopt.smallcate_id == 'd3'}">소형견</c:if>										
+					<c:if test="${adopt.smallcate_id == 'c1'}">장모</c:if>										
+					<c:if test="${adopt.smallcate_id == 'c2'}">단모</c:if>										
+					</td>
+					<td style="text-align: left;">
+						<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px">${adopt.subject }</a>
+					</td>
+					<fmt:formatDate value="${adopt.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
+					<c:if test="${nowDate > pastDate }">
+						<td><fmt:formatDate value="${adopt.reg_date }" type="date" pattern="yyyy/MM/dd"/></td>
+					</c:if>
+					<c:if test="${nowDate == pastDate }">
+						<td><fmt:formatDate value="${adopt.reg_date }" type="time" pattern="HH:mm"/></td>
+					</c:if>
+				</tr>
+				</c:if>
+			</c:forEach>
+			</c:if>
+			
+			<c:if test="${param.category == 'c2' }">
+			<c:forEach var="adopt" items="${list }">
+				<c:if test="${adopt.smallcate_id == 'c2' }">
+				<tr>
+					<td>${adopt.adopt_no }</td>
+					<td>${adopt.location_name }</td>
+					<td>
+					<c:if test="${adopt.largecate_id == 'd'}">강아지</c:if>
+					<c:if test="${adopt.largecate_id == 'c'}">고양이</c:if>
+					</td>
+					<td>
+					<c:if test="${adopt.smallcate_id == 'd1'}">대형견</c:if>										
+					<c:if test="${adopt.smallcate_id == 'd2'}">중형견</c:if>										
+					<c:if test="${adopt.smallcate_id == 'd3'}">소형견</c:if>										
+					<c:if test="${adopt.smallcate_id == 'c1'}">장모</c:if>										
+					<c:if test="${adopt.smallcate_id == 'c2'}">단모</c:if>										
+					</td>
+					<td style="text-align: left;">
+						<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px">${adopt.subject }</a>
+					</td>
 					<fmt:formatDate value="${adopt.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
 					<c:if test="${nowDate > pastDate }">
 						<td><fmt:formatDate value="${adopt.reg_date }" type="date" pattern="yyyy/MM/dd"/></td>

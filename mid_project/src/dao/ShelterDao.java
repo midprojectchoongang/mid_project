@@ -33,13 +33,13 @@ public class ShelterDao {
 	public int insert(Shelter shelter) {
 		return session.insert("shelterns.insert", shelter);
 	}
-	public Shelter select(int shelter_no) {
-		return session.selectOne("shelterns.select", shelter_no);
-	}
 	public int delete(int shelter_no) {
 		return session.update("shelterns.delete", shelter_no);
 	}
 	public int update(Shelter shelter) {
 		return session.update("shelterns.update", shelter);
+	}
+	public Shelter select(int shelter_no) {
+		return session.selectOne("shelterns.select", shelter_no);
 	}
 }

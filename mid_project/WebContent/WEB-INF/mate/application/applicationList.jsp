@@ -57,9 +57,9 @@
 					<c:if test="${application.experience == 'y'}">유</c:if>
 					<c:if test="${application.experience == 'n'}">무</c:if>
 					</td>
-					<td>
-					<a href="appContent.application?application_no=${application.application_no }&pageNum=${pageNum }"></a>
-					${application.subject }
+					<td style="text-align: left">
+					<a href="appContent.application?application_no=${application.application_no }&pageNum=${pageNum }" style="margin-left: 20px">
+					${application.subject }</a>
 					</td>
 					<td>${application.reg_date }</td>
 				</tr>
