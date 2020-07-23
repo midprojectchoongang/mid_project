@@ -28,8 +28,10 @@
 		<a class="w3-button w3-large w3-teal" href="javascript:void(0)" title="Google +"><i class="fa fa-instagram"></i></a>
 	</p>
 	<div style="position:relative;bottom:100px;z-index:1;" class="w3-tooltip w3-right"> 
-		<a class="w3-button w3-theme" href="#Top"><span class="w3-xlarge">
-		<i class="fa fa-chevron-circle-up"></i></span></a>
+		<a class="w3-button w3-theme" href="#Top"><span class="w3-xlarge"><i class="fa fa-chevron-circle-up"></i></span></a>
+	</div>
+	<div style="position:relative;bottom:10px;z-index:2;">
+		<a href="loginForm.master" style="font-size: 10px; margin-left: 50px">관리자 로그인</a>
 	</div>
 </footer>
 </body>

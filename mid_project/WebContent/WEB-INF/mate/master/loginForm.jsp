@@ -16,13 +16,13 @@
 	</script>
 </c:if>
 
-<div align="center" style="margin: 100px;">
+<div align="center" style="margin-top: 15%; margin-bottom: 15%;">
 <form action="login.master" method="post">
-<table class="w3-table w3-centered w3-bordered"><caption>관리자 로그인</caption>
-	<tr><th>관리자 계정</th><td><input type="text" name="master_id" autofocus="autofocus" required="required"></td></tr>
-	<tr><th>비밀번호</th><td><input type="password" name="password" required="required"></td></tr>
-	<tr><th colspan="2"><input type="submit" value="로그인"></th></tr>
-</table>
+	<table class="w3-table w3-centered" style="max-width:400px"><caption style="font-size: 25px; font-weight: 900;">관리자 로그인</caption>
+		<tr><th>관리자 계정</th><td><input type="text" name="master_id" autofocus="autofocus" required="required"></td></tr>
+		<tr><th>비밀번호</th><td><input type="password" name="password" required="required"></td></tr>
+		<tr><th colspan="2"><input type="submit" class="btn-two small charcoal rounded" value="로그인"></th></tr>
+	</table>
 </form>
 </div>
 

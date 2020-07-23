@@ -6,18 +6,28 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	function deleteChk() {
+		var msg = "삭제하시겠습니까?";
+		if (confirm(msg)) {
+			location.href="delete.shelter?shelter_no=${shelter.shelter_no}&pageNum=${pageNum }";
+		} else {
+			return;
+		}
+	}
+</script>
 </head>
 <body>
 <!-- Header, NavBar -->
 <%@ include file="../mainPage/nav.jsp" %>
 
-<b style="font-size: 24px; position: absolute; margin: -100px 0 0 43%;">보호소 목록</b>
+<b style="font-size: 24px; position: absolute; margin: -100px 0 0 46%;">보호소 목록</b>
 
 
 	<!-- 리스트 -->
 <div align="center" style="margin-top: 200px; position: relative; min-height: 450px;">
 	<input type="hidden" name="pageNum" value="${pageNum }">
-		<table class="w3-table w3-centered w3-bordered"  style="max-width: 750px">
+		<table class="w3-table w3-centered w3-bordered"  style="max-width: 700px">
 			<tr>
 				<th>지역</th><th>보호소 이름</th><th>전화번호</th>
 			</tr>
@@ -55,11 +65,11 @@
 				</td>
 				<td>
 					<c:if test="${not empty master_id }">
-					<button onclick="location.href='updateForm.shelter?shelter_no=${shelter.shelter_no}&pageNum=${pageNum }'">수정</button>
+					<a href="updateForm.shelter?shelter_no=${shelter.shelter_no}&pageNum=${pageNum }" style="font-size:16px; font-weight: 900;">수정</a>
 					</c:if>	
 					
 					<c:if test="${not empty master_id }">
-					<button onclick="location.href='delete.shelter?shelter_no=${shelter.shelter_no}&pageNum=${pageNum }'">삭제</button>
+					<a href="#" onclick="deleteChk()" style="font-size:16px; font-weight: 900; margin-left: 20px; color: red">삭제</a>
 					</c:if>
 				</td>
 							

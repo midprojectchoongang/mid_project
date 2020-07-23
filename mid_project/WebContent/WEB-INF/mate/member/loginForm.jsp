@@ -10,20 +10,18 @@
 <!-- Header, NavBar -->
 <%@ include file="../mainPage/nav.jsp" %>
 
-<div align="center" style="margin: 100px;">
+<div align="center" style="margin-top: 15%; margin-bottom: 15%;">
 <form action="login.member">
-	<table class="w3-table w3-centered w3-bordered">
-		<caption>로그인</caption>
+	<table class="w3-table w3-centered" style="max-width:400px">
+		<caption style="font-size: 25px; font-weight: 900;">로그인</caption>
 		<tr><th>아이디</th>
 			<td><input type="text" name="member_id" required="required" autofocus="autofocus"></td></tr>
 		<tr><th>암호</th>
 			<td><input type="password" name="password" required="required"></td></tr>
-		<tr><th colspan="2"><input type="submit"></th></tr>
+		<tr><th colspan="2"><input type="submit" class="btn-two small charcoal rounded" value="로그인">
+			<button onclick="location.href='joinForm.member'" class="btn-two small charcoal rounded">회원가입</button></th></tr>
 	</table>
 </form>
-	<a href="joinForm.member">회원가입</a>&emsp;
-	
-	<a href="loginForm.master">관리자 로그인</a>
 </div>
 
 <!-- Footer -->

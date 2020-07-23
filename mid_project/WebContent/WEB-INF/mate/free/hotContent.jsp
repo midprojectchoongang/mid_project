@@ -40,7 +40,6 @@
 			<th>작성자</th><td>${free.member_id }</td>
 		<tr height="300"><td colspan="6" style="text-align: left; padding: 50px;"><pre>${free.content }</pre></td></tr>
 	</table><p>
-	<span id="left">
 		<c:if test="${member_id == free.member_id }">
 			<a href="location.href='updateForm.free?free_no=${free.free_no }&pageNum=${pageNum }" class="btn-two mini blue rounded">수정</a>
 			<a href="delmsg()" class="btn-two mini red rounded">삭제</a>
@@ -51,10 +50,8 @@
 		<c:if test="${not empty member_id && member_id != free.member_id}">
 			<a href="location.href='scrapChk.freeS?free_no=${free.free_no }&pageNum=${pageNum }" class="btn-two mini blue rounded">스크랩</a>
 		</c:if>
-	</span>
-	<span id="right">
 		<a href="hotList.free?pageNum=${pageNum}" class="btn-two mini charcoal rounded">목록</a>
-	</span>
+
 </div>
 
 <!-- Footer -->

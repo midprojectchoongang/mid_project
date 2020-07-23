@@ -19,11 +19,11 @@
 <!-- Header, NavBar -->
 <%@ include file="../mainPage/nav.jsp" %>
 
-<div align="center" style="margin: 100px;">
+<div align="center" style="margin-top: 200px; position: relative; min-height: 450px">
 <form action="update.shelter" method="post">
 	<input type="hidden" name="shelter_no" value="${shelter.shelter_no }">
 	<input type="hidden" name="pageNum" value="${pageNum }">
-	<table class="w3-table w3-centered w3-bordered">
+	<table class="w3-table w3-centered w3-bordered" style="max-width: 400px">
 	
 		<tr><th>지역</th>
 			<td>
@@ -43,8 +43,8 @@
 		<input type="tel" name="tel" required="required" pattern="\d{2,3}-\d{3,4}-\d{4}" value="${shelter.tel }"></td></tr>
 		
 	</table><p>
-	<input type="submit" value="확인">&emsp;
-	<button onclick="location.href='shelterList.shelter?pageNum=${pageNum }'">취소</button>
+	<input type="submit" class="btn-two small blue rounded" value="확인">
+	<button onclick="location.href='shelterList.shelter?pageNum=${pageNum }'" class="btn-two small red rounded">취소</button>
 </form>
 </div>
 

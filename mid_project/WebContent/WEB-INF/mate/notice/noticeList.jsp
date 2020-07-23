@@ -16,10 +16,6 @@
 
 <b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">공지사항</b>
 
-<!-- 관리자용 작성버튼 -->
-<c:if test="${not empty master_id }">
-	<a href="insertForm.notice" class="btn-two small charcoal rounded" style="position: absolute; margin-top: -50px; margin-left: 70%">공지 작성</a>
-</c:if>
 
 	<!-- 리스트 -->
 <div align="center" style="margin-top: 200px; position: relative; min-height: 450px">
@@ -44,7 +40,13 @@
 			</c:forEach>
 		</c:if>
 	</table><p>
+	
+	<!-- 관리자용 작성버튼 -->
+	<c:if test="${not empty master_id }">
+		<a href="insertForm.notice" class="btn-two small charcoal rounded" style="position: relative;">공지 작성</a>
+	</c:if>
 </div>
+
 
 	<!-- 페이지 -->
 <div id="page1">

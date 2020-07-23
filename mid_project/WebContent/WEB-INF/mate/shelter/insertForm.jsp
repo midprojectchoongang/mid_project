@@ -10,9 +10,9 @@
 <!-- Header, NavBar -->
 <%@ include file="../mainPage/nav.jsp" %>
 
-<div align="center" style="margin: 100px;">
+<div align="center" style="margin-top: 200px; position: relative; min-height: 450px">
 <form action="insert.shelter" method="post">
-	<table class="w3-table w3-centered w3-bordered">
+	<table class="w3-table w3-centered w3-bordered" style="max-width: 400px">
 		<tr><th>지역</th>
 		<td><select name="location_no">
 			<option value="2">서울<option value="31">경기
@@ -28,8 +28,8 @@
 		<tr><th>전화번호</th><td>
 		<input type="tel" name="tel" required="required" pattern="\d{2,3}-\d{3,4}-\d{4}"></td></tr>
 	</table><p>
-	<input type="submit" value="확인">&emsp;
-	<button onclick="location.href='shelterList.shelter'">취소</button>
+		<input type="submit" class="btn-two small blue rounded" value="확인">
+	<button onclick="location.href='shelterList.shelter'" class="btn-two small red rounded">취소</button>
 </form>
 </div>
 
