@@ -8,38 +8,29 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript">
-$("#enterComm").click(function(){
-    var no = ${free.free_no};
-    var id = "${member_id}";
-	if($("#comm_content").val().trim() == ""){
-		alert("댓글을 입력하세요.");
-		$("#comm_content").val("").focus();
-	}else{
-		$.ajax({
-			url: "writeComm.comm?free_no=${free.free_no}",
-            type: "POST",
-            data: {
-	        	free_no : no,
-	        	member_id : id,
-	        	comm_content : $("#comm_content").val()
-            },
-            success: function () {
-            	alert("댓글 등록 완료");
-            	$("#comm_content").val("");
-            	//getComm();
-            }
+	$(function() {
+	    
+	    var fno = "${free.free_no}";
+		// $('#writeArea').load('writeComm.comm');
+		function getComm() {
+		    $('#commListDisp').load('commList.comm?free_no='+fno);
+		}
+		getComm();
+		
+		$('#cInsert').click(function() {
+			if ($('#comm_content').val() == "") {
+				alert("댓글을 입력하세요");
+				$('#comm_content').focus(); 
+				return false; 
+			}
+			var sendData = $('#frm').serialize();
+			$.post('writeComm.comm',sendData, function(data) {
+				alert("댓글이 작성되었습니다");
+				getComm();
+				$('#comm_content').val("");
+			});
 		});
-	}
-});
-
-function delmsg() {
-    var msg = "게시물을 삭제합니다";
-	if (confirm(msg)) {
-	    location.href = 'delete.free?category=${free.category}&free_no=${free.free_no}&pageNum=${pageNum}';
-	} else {
-		return;
-	}
-}
+	});
 </script>
 </head>
 <body>
@@ -60,7 +51,6 @@ function delmsg() {
 	<!-- 리스트 -->
 <div align="center" style="margin-top: 200px; position: relative; min-height: 500px">
 	<input type="hidden" name="pageNum" value="${pageNum }">
-	<input type="hidden" name="free_no" value="${free.free_no }">
 	<table class="w3-table w3-centered w3-bordered">
 		<tr><th>카테고리</th>
 			<td><c:if test="${free.category == 'f'}">잡담</c:if>
@@ -72,18 +62,26 @@ function delmsg() {
 			<th>제목</th><td>${free.subject }</td>
 			<th>작성자</th><td>${free.member_id }</td>
 		<tr height="300"><td colspan="4" style="text-align: left; padding: 50px;"><pre>${free.content }</pre></td></tr>	
-		<!-- 댓글  작성 -->
-		<c:if test="${not empty member_id }">
-		<tr>
-		<td colspan="2">
-		<textarea rows="4" cols="50" name="comm_content" id="comm_content"></textarea>
-		<td>
-		<td>
-		<input type="button" class="btn-two mini charcoal rounded" id="enterComm" value="댓글등록">
-		</td>
-		</tr>
-		</c:if>
-	</table><p>
+	</table>
+	
+	<!-- 댓글 목록 -->
+	<div id="commListDisp" align="center" style="margin-top: 10px; position: relative"></div>
+	<!-- 댓글  작성 -->
+	<div id="writeArea" align="center" style="margin-top: 10px; position: relative">
+	<form id="frm">
+	<input type="hidden" name="member_id" id="member_id" value="${member_id}">
+	<input type="hidden" name="free_no" id="free_no" value="${free.free_no}">
+	<c:if test="${not empty member_id }">
+		<table class="w3-table w3-centered w3-bordered">
+			<tr>
+				<td><textarea rows="3" cols="50" name="comm_content" id="comm_content"></textarea></td>
+				<td><input type="button" value="댓글입력" id="cInsert" class="btn-two mini charcoal rounded"></td>
+			</tr>
+		</table>
+	</c:if>
+	</form>
+	</div>
+	<p>
 	<c:if test="${member_id == free.member_id }">
 		<a href="updateForm.free?free_no=${free.free_no }&pageNum=${pageNum }" class="btn-two mini blue rounded">수정</a>
 		<a href="delmsg()" class="btn-two mini red rounded">삭제</a>
