@@ -32,7 +32,7 @@ $(document).ready(function() {
 <form action="login.member" method="post">
 	<div class="textbox">
 		<label for="id_input">아이디</label>
-		<input type="text" name="member_id" required="required" autofocus="autofocus" id="id_input">
+		<input type="text" name="member_id" required="required" id="id_input">
 	</div>
 	<div class="textbox">
 		<label for="pw_input">비밀번호</label>

@@ -72,9 +72,9 @@
 </div>
 
   	<!-- 댓글 목록 -->
-	<div id="commListDisp" align="center" style="margin-top: 10px; position: relative;"></div>
+<div id="commListDisp" align="center" style="margin-top: 10px; position: relative;"></div>
 	<!-- 댓글  작성 -->
-	<div id="writeArea" align="center" style="margin-top: 10px; position: relative; margin-bottpm:100px">
+<div id="writeArea" align="center" style="margin-top: 10px; position: relative;">
 	<form id="frm">
 	<input type="hidden" name="member_id" id="member_id" value="${member_id}">
 	<input type="hidden" name="free_no" id="free_no" value="${free.free_no}">
@@ -87,11 +87,10 @@
 		</table>
 	</c:if>
 	</form>
-	</div><p>
 </div>
+<div style="margin-bottom:100px"></div>
 
 <!-- Footer -->
 <%@ include file="../mainPage/footer.jsp" %>
 </body>
->>>>>>> branch 'master' of http://github.com/midprojectchoongang/mid_project.git
 </html>
