@@ -13,5 +13,17 @@
 		<result property="reg_date" column="reg_date" />
 		<result property="del" column="del" />
 	</resultMap>
+
+	<insert id="write" parameterType="comments">
+		insert into comments values (comments_seq.nextval, #{member_id},
+		#{free_no}, #{comm_content}, #{ref}, #{re_step}, #{re_level},
+		sysdate, 'n')
+	</insert>
+	<update id="updateRef">
+		update comments set ref = comment_no;
+	</update>
 	
+	<select id="list" parameterType="integer" resultType="comments">
+		select * from comments where free_no = #{free_no}
+	</select>
 </mapper>

@@ -1,7 +1,12 @@
 package dao;
 import java.io.Reader;
+import java.util.HashMap;
+import java.util.List;
+
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.*;
+
+import model.Comments;
 public class CommentsDao {
 	private static CommentsDao instance = new CommentsDao();
 	private CommentsDao() {	}
@@ -18,4 +23,14 @@ public class CommentsDao {
 			System.out.println("초기화 에러 : " + e.getMessage());
 		}
 	}
+	public int write(Comments comm) {
+		return session.insert("commentsns.write", comm);
+	}
+	public List<Comments> list(int free_no) {
+		return session.selectList("commentsns.list", free_no);
+	}
+	public void updateRef() {
+		session.update("commentsns.updateRef");
+	}
+
 }
