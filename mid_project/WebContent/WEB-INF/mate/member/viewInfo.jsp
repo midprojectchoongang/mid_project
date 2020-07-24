@@ -12,7 +12,7 @@
 
 <b style="font-size: 24px; position: absolute; margin: -100px 0 0 47%;">회원정보</b>
 
-<div align="center" style="margin-top: 200px; position: relative; min-height: 450px">
+<div align="center" style="margin-top: 200px; position: relative; min-height: 450px; margin-bottom: 100px">
 	<table class="w3-table w3-centered w3-bordered" style="max-width: 300px">
 		<tr><th>아이디</th><td>${member.member_id}</td></tr>
 		<tr><th>이름</th><td>${member.name}</td></tr>
