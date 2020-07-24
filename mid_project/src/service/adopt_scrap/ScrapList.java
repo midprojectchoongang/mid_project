@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.Adopt_scrapDao;
+import dao.LocationDao;
+import model.Adopt_board;
 import model.Adopt_scrap;
 
 public class ScrapList implements CommandProcess {
@@ -16,6 +18,7 @@ public class ScrapList implements CommandProcess {
 		HttpSession session = request.getSession();
 		String member_id = (String) session.getAttribute("member_id");
 		Adopt_scrapDao asd = Adopt_scrapDao.getInstance();
+		LocationDao ld = LocationDao.getInstance();
 		
 		// page
 		int rowPerPage = 10;
@@ -34,7 +37,14 @@ public class ScrapList implements CommandProcess {
 		int endPage = startPage + pagePerBlock - 1;
 		if (endPage > totalPage) endPage = totalPage;
 		
+		int location_no = 0;
+		String location = null;
 		List<Adopt_scrap> list = asd.list(startRow, endRow, member_id);
+		for (Adopt_scrap as : list) {
+			location_no = as.getLocation_no();
+			location = ld.select(location_no);
+			as.setLocation_name(location);
+		}
 		
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);

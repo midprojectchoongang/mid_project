@@ -63,11 +63,6 @@ public class ApplicationController extends HttpServlet {
 			command = command.substring(request.getContextPath().length() + 1);
 			com = (CommandProcess) commandMap.get(command);
 			view = com.requestPro(request, response);
-			
-			System.out.println("com : " + com);
-			System.out.println("view : " + view);
-			
-		
 		} catch (Throwable e) {
 			throw new ServletException(e);
 		}

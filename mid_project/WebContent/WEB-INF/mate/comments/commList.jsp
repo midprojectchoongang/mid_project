@@ -46,6 +46,7 @@
 <c:if test="${not empty commList }">
 	<table class="w3-table w3-centered w3-bordered">
 	<c:forEach var="comments" items="${commList }">
+		<tr>
 		<td style="text-align: left; margin-right: 10px;">${comments.member_id }</td>
 		<td style="text-align: left; margin-left: 10px; margin-right: 10px;">${comments.comm_content }</td>
 		<td style="text-align: right; margin-left: 10px;">${comments.reg_date }</td>

@@ -26,9 +26,9 @@
 	<table class="w3-table w3-centered w3-bordered">
 		<tr>
 			<th>번호</th>
-			<th>지역</th>
+			<th style="background: #eee">지역</th>
 			<th>대분류</th>
-			<th>소분류</th>	
+			<th style="background: #eee">소분류</th>	
 			<th style="width: 50%">제목</th>
 			<th>작성일</th>
 		</tr>
@@ -43,12 +43,12 @@
 			<c:forEach var="adopt" items="${list }">
 				<tr>
 					<td>${adopt.adopt_no }</td>
-					<td>${adopt.location_name }</td>
+					<td style="background: #eee">${adopt.location_name }</td>
 					<td>
 					<c:if test="${adopt.largecate_id == 'd'}">강아지</c:if>
 					<c:if test="${adopt.largecate_id == 'c'}">고양이</c:if>
 					</td>
-					<td>
+					<td style="background: #eee">
 					<c:if test="${adopt.smallcate_id == 'd1'}">대형견</c:if>										
 					<c:if test="${adopt.smallcate_id == 'd2'}">중형견</c:if>										
 					<c:if test="${adopt.smallcate_id == 'd3'}">소형견</c:if>										

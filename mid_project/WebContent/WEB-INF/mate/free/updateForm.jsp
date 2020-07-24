@@ -6,13 +6,32 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">@import url("temp.css");</style>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+
+	$(function() {
+		var cate = "${free.category }";
+		$('select>option[value="'+cate+'"]').attr('selected','selected');
+	});
+
+</script>
 </head>
 <body>
 <!-- Header, NavBar -->
 <%@ include file="../mainPage/nav.jsp" %>
 
-<div align="center" style="margin: 100px;">
+<c:if test="${free.category == 'f' }">
+	<b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">자유 게시판</b>
+</c:if>
+<c:if test="${free.category == 'i' }">
+	<b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">정보 게시판</b>
+</c:if>
+<c:if test="${free.category == 'a' }">
+	<b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">입양 후기</b>
+</c:if>
+
+	<!-- 리스트 -->
+<div align="center" style="margin-top: 200px; position: relative; min-height: 400px;">
 <form action="update.free" method="post">
 	<input type="hidden" name="pageNum" value="${pageNum}">
 	<input type="hidden" name="free_no" value="${free.free_no}">
@@ -20,14 +39,9 @@
 		<tr>
 			<th>카테고리</th>
 			<td><select size="1" name="category">
-				<c:if test="${free.category == 'f'}"><option value="f" selected="selected">잡담</option></c:if>
-				<c:if test="${free.category == 'i'}"><option value="i" selected="selected">정보</option></c:if>
-				<c:if test="${free.category == 'a'}"><option value="a" selected="selected">후기</option></c:if>
-				<c:if test="${free.category != 'f'}"><option value="f">잡담</option></c:if>
-				<c:if test="${free.category != 'i'}"><option value="i">정보</option></c:if>
-				<c:if test="${free.category != 'a'}"><option value="a">후기</option></c:if>
-					
-					
+				<option value="f">자유</option>
+				<option value="i">정보</option>
+				<option value="a">후기</option>	
 			</select></td>
 		</tr>
 		<tr>
