@@ -5,22 +5,41 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  var placeholderTarget = $('.textbox input[type="text"], .textbox input[type="password"]');
+  
+  //포커스시
+  placeholderTarget.on('focus', function(){
+    $(this).siblings('label').fadeOut('fast');
+  });
+
+  //포커스아웃시
+  placeholderTarget.on('focusout', function(){
+    if($(this).val() == ''){
+      $(this).siblings('label').fadeIn('fast');
+    }
+  });
+});
+</script>
 </head>
 <body>
 <!-- Header, NavBar -->
 <%@ include file="../mainPage/nav.jsp" %>
 
 <div align="center" style="margin-top: 15%; margin-bottom: 15%;">
-<form action="login.member">
-	<table class="w3-table w3-centered" style="max-width:400px">
-		<caption style="font-size: 25px; font-weight: 900;">로그인</caption>
-		<tr><th>아이디</th>
-			<td><input type="text" name="member_id" required="required" autofocus="autofocus"></td></tr>
-		<tr><th>암호</th>
-			<td><input type="password" name="password" required="required"></td></tr>
-		<tr><th colspan="2"><input type="submit" class="btn-two small charcoal rounded" value="로그인">
-			<button onclick="location.href='joinForm.member'" class="btn-two small charcoal rounded">회원가입</button></th></tr>
-	</table>
+<form action="login.member" method="post">
+	<div class="textbox">
+		<label for="id_input">아이디</label>
+		<input type="text" name="member_id" required="required" autofocus="autofocus" id="id_input">
+	</div>
+	<div class="textbox">
+		<label for="pw_input">비밀번호</label>
+		<input type="password" name="password" required="required" id="pw_input">
+	</div>
+	<input type="submit" class="btn-two small charcoal rounded" value="로그인">
+	<button onclick="location.href='joinForm.member'" class="btn-two small charcoal rounded">회원가입</button>
 </form>
 </div>
 

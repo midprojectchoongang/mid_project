@@ -81,7 +81,9 @@
 					${application.subject }</a>
 					</td>
 					<td>${application.reg_date }</td>
-					<td><button onclick="delmsg(${application.application_no})">취소</button></td>
+					<td>
+						<a href="#" onclick="delmsg(${application.application_no})" style="font-size:16px; font-weight: 900; color: red">삭제</a>
+					</td>
 				</tr>
 			</c:forEach>
 		</c:if>

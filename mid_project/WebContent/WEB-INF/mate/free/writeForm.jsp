@@ -7,44 +7,46 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript">
+
+	$(function() {
+		var cate = "${category }";
+		$('select>option[value="'+cate+'"]').attr('selected','selected');
+	});
+	
 	$("#image").on("change", function() {
 	    if($("#image")[0].files.length > 5) {
 	    	alert("업로드 개수를 초과했습니다");
 	    }
 	});
+	
 </script>
 </head>
 <body>
 <!-- Header, NavBar -->
 <%@ include file="../mainPage/nav.jsp" %>
 
-<div align="center" style="margin: 100px;">
+<c:if test="${category == 'f' }">
+	<b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">자유 게시판</b>
+</c:if>
+<c:if test="${category == 'i' }">
+	<b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">정보 게시판</b>
+</c:if>
+<c:if test="${category == 'a' }">
+	<b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">입양 후기</b>
+</c:if>
+
+	<!-- 리스트 -->
+<div align="center" style="margin-top: 200px; position: relative; min-height: 400px; margin-bottom: 100px">
 <form action="write.free" method="post">
 	<input type="hidden" name="pageNum" value="${pageNum }">
 	<input type="hidden" name="member_id" value="${member_id }">
 	<table class="w3-table w3-centered w3-bordered">
 		<tr><th>카테고리</th>
-			<c:if test="${category == 'f' }">
 			<td><select size="1" name="category">
-					<option value="f" selected="selected">잡담</option>
+					<option value="f">자유</option>
 					<option value="i">정보</option>
 					<option value="a">후기</option>
 			</select></td>
-			</c:if>
-			<c:if test="${category == 'i' }">
-			<td><select size="1" name="category">
-					<option value="f">잡담</option>
-					<option value="i" selected="selected">정보</option>
-					<option value="a">후기</option>
-			</select></td>
-			</c:if>
-			<c:if test="${category == 'a' }">
-			<td><select size="1" name="category">
-					<option value="f">잡담</option>
-					<option value="i">정보</option>
-					<option value="a" selected="selected">후기</option>
-			</select></td>
-			</c:if>
 		</tr>
 		<tr><th>제목</th>
 			<td><input type="text" name="subject" required="required" autofocus="autofocus"></td>
@@ -57,7 +59,7 @@
 		</tr>
 	</table><p>
 		<input type="submit" value="등록" onclick="location.href='write.free?category=${category}'">
-		<input type="button" value="취소" onclick="location.href='freeList.free'">
+		<input type="button" value="취소" onclick="location.href='freeList.free?category=${category}'">
 </form>
 </div>
 
