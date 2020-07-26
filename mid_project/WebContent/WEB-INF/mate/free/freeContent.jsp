@@ -11,7 +11,8 @@
 	$(function() {
 	    
 	    var fno = "${free.free_no}";
-		// $('#writeArea').load('writeComm.comm');
+		var cno = $('#cno').val();
+
 		function getComm() {
 		    $('#commListDisp').load('commList.comm?free_no='+fno);
 		}
@@ -25,11 +26,12 @@
 			}
 			var sendData = $('#frm').serialize();
 			$.post('writeComm.comm',sendData, function(data) {
-				alert("댓글이 작성되었습니다");
+			    alert("댓글이 작성되었습니다");
 				getComm();
 				$('#comm_content').val("");
 			});
 		});
+		
 	});
 </script>
 </head>
@@ -70,9 +72,8 @@
 	</c:if>
 		<a href="freeList.free?category=${free.category }&pageNum=${pageNum}" class="btn-two mini charcoal rounded">목록</a>
 </div>
-
   	<!-- 댓글 목록 -->
-<div id="commListDisp" align="center" style="margin-top: 10px; position: relative;"></div>
+<div id="commListDisp" align="center" style="margin-top: 50px; position: relative;"></div>
 	<!-- 댓글  작성 -->
 <div id="writeArea" align="center" style="margin-top: 10px; position: relative;">
 	<form id="frm">

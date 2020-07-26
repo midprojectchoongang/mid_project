@@ -29,8 +29,14 @@ public class CommentsDao {
 	public List<Comments> list(int free_no) {
 		return session.selectList("commentsns.list", free_no);
 	}
-	public void updateRef() {
-		session.update("commentsns.updateRef");
+	public Comments orig(int find) {
+		return session.selectOne("commentsns.orig", find);
+	}
+	public int update(Comments comm) {
+		return session.update("commentsns.update", comm);
+	}
+	public int delete(int comment_no) {
+		return session.update("commentsns.delete", comment_no);
 	}
 
 }
