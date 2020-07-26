@@ -61,4 +61,10 @@ public class Free_boardDao {
 	public int hotTotal(int cnt) {
 		return session.selectOne("freens.hotTotal", cnt);
 	}
+	public int cntComm(int free_no, int cntNum) {
+		HashMap<String, Integer> hm = new HashMap<>();
+		hm.put("free_no", free_no);
+		hm.put("comm", cntNum);
+		return session.update("freens.cntComm", hm);
+	}
 }

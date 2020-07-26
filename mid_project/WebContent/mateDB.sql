@@ -101,10 +101,14 @@ free_image5 varchar2(50),
 content varchar2(2000) not null,
 reg_date date not null,
 del char(1) default 'n'
+cnt number default 0,
+comm number default 0,
 ); 
 
 select*from FREE_BOARD;
 alter table free_board add (cnt number);
+alter table free_board add (comm number);
+update free_board f set comm = (select count(*) from comments c where c.free_no = f.free_no);
 
 create table free_scrap (
 member_id varchar2(20) references member(member_id),

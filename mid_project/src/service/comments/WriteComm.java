@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.CommentsDao;
+import dao.Free_boardDao;
 import model.Comments;
 
 public class WriteComm implements CommandProcess {
@@ -44,9 +45,14 @@ public class WriteComm implements CommandProcess {
 		
 		int result = cd.write(comm);
 		
+		// 댓글수 업데이트 free_board.xml 에서 서브쿼리로 가능?
+		Free_boardDao fd = Free_boardDao.getInstance();
+		int cntNum = cd.cntNum(free_no);
+		int upFree = fd.cntComm(free_no, cntNum);
 		
 		request.setAttribute("free_no", free_no);
 		request.setAttribute("result", result);
+		request.setAttribute("upFree", upFree);
 		return "writeComm";
 	}
 }

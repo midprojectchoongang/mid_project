@@ -6,7 +6,34 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript">
+	$(function() {
+	    
+	    var fno = "${free.free_no}";
+		var cno = $('#cno').val();
+
+		function getComm() {
+		    $('#commListDisp').load('commList.comm?free_no='+fno);
+		}
+		getComm();
+		
+		$('#cInsert').click(function() {
+			if ($('#comm_content').val() == "") {
+				alert("댓글을 입력하세요");
+				$('#comm_content').focus(); 
+				return false; 
+			}
+			var sendData = $('#frm').serialize();
+			$.post('writeComm.comm',sendData, function(data) {
+			    alert("댓글이 작성되었습니다");
+				getComm();
+				$('#comm_content').val("");
+			});
+		});
+		
+	});
+	
 	function delmsg() {
 	    var msg = "게시물을 삭제합니다";
 		if (confirm(msg)) {
@@ -53,8 +80,22 @@
 		<a href="hotList.free?pageNum=${pageNum}" class="btn-two mini charcoal rounded">목록</a>
 </div>
 
-		<!-- 댓글  작성 -->
-<div style="margin-bottom: 100px">
+  	<!-- 댓글 목록 -->
+<div id="commListDisp" align="center" style="margin-top: 50px; position: relative;"></div>
+	<!-- 댓글  작성 -->
+<div id="writeArea" align="center" style="margin-top: 10px; margin-bottom: 50px; position: relative;">
+	<form id="frm">
+	<input type="hidden" name="member_id" id="member_id" value="${member_id}">
+	<input type="hidden" name="free_no" id="free_no" value="${free.free_no}">
+	<c:if test="${not empty member_id }">
+		<table class="w3-table w3-centered w3-bordered">
+			<tr>
+				<td><textarea rows="3" cols="50" name="comm_content" id="comm_content"></textarea></td>
+				<td><input type="button" value="댓글입력" id="cInsert" class="btn-two mini charcoal rounded"></td>
+			</tr>
+		</table>
+	</c:if>
+	</form>
 </div>
 
 <!-- Footer -->

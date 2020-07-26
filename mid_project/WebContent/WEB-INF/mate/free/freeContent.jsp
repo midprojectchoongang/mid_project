@@ -75,7 +75,7 @@
   	<!-- 댓글 목록 -->
 <div id="commListDisp" align="center" style="margin-top: 50px; position: relative;"></div>
 	<!-- 댓글  작성 -->
-<div id="writeArea" align="center" style="margin-top: 10px; position: relative;">
+<div id="writeArea" align="center" style="margin-top: 10px; margin-bottom: 50px; position: relative;">
 	<form id="frm">
 	<input type="hidden" name="member_id" id="member_id" value="${member_id}">
 	<input type="hidden" name="free_no" id="free_no" value="${free.free_no}">

@@ -90,29 +90,6 @@
 		</c:if>
 		</td>
 		</tr>
-		<tr class="w3-comment">
-		<td id="cno">${comments.comment_no }</td>
-		<td style="text-align: left; margin-right: 10px;">${comments.member_id }</td>
-		<td id="td_${comments.comment_no }" style="text-align: left; width:55%;">
-		<c:if test="${comments.re_level > 0 }">
-		<img src="images/level.gif" width="${comments.re_level * 10}">
-		</c:if>
-		<c:if test="${comments.del == 'n' }">
-		${comments.comm_content }
-		</c:if>
-		<c:if test="${comments.del == 'y' }">
-		<font style="color: #999; font-style: italic;">삭제한 댓글입니다</font>
-		</c:if>
-		</td>
-		<fmt:formatDate value="${comments.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
-		<c:if test="${nowDate > pastDate }">
-			<td style="text-align: right; margin-left: 10px;">
-			<fmt:formatDate value="${comments.reg_date }" type="date" pattern="yyyy/MM/dd"/></td>
-		</c:if>
-		<c:if test="${nowDate == pastDate }">
-			<td style="text-align: right; margin-left: 10px;"><fmt:formatDate value="${comments.reg_date }" type="time" pattern="HH:mm"/></td>
-		</c:if>
-		</tr>
 	</c:forEach>
 	</table>
 </c:if>

@@ -38,5 +38,8 @@ public class CommentsDao {
 	public int delete(int comment_no) {
 		return session.update("commentsns.delete", comment_no);
 	}
+	public int cntNum(int free_no) {
+		return session.selectOne("commentsns.cntNum", free_no);
+	}
 
 }
