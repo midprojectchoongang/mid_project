@@ -11,7 +11,8 @@
 	$(function() {
 	    
 	    var fno = "${free.free_no}";
-		// $('#writeArea').load('writeComm.comm');
+		var cno = $('#cno').val();
+
 		function getComm() {
 		    $('#commListDisp').load('commList.comm?free_no='+fno);
 		}
@@ -25,11 +26,12 @@
 			}
 			var sendData = $('#frm').serialize();
 			$.post('writeComm.comm',sendData, function(data) {
-				alert("댓글이 작성되었습니다");
-				getComm();
+			    alert("댓글이 작성되었습니다");
 				$('#comm_content').val("");
+				getComm();
 			});
 		});
+		
 	});
 </script>
 </head>
