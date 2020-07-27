@@ -58,4 +58,7 @@ public class ApplicationDao {
 	public int appTotal(int adopt_no) {
 		return session.selectOne("applyns.appTotal", adopt_no);
 	}
+	public int update(Application app) {
+		return session.update("applyns.update", app);
+	}
 }
