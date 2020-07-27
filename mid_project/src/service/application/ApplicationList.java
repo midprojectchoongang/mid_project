@@ -55,6 +55,7 @@ public class ApplicationList implements CommandProcess {
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("member_id", member_id);
+		request.setAttribute("location_name", location_name);
 		request.setAttribute("appList", appList);
 		
 		return "applicationList";

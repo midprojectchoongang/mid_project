@@ -61,7 +61,7 @@
 <form action="update.free" method="post">
 	<input type="hidden" name="pageNum" value="${pageNum}">
 	<input type="hidden" name="free_no" value="${free.free_no}">
-	<table class="w3-table w3-centered" style="masx-width: 900px">
+	<table class="w3-table w3-centered" style="max-width: 900px">
 		<tr>
 		<tr><th>카테고리&emsp;
 				<select size="1" name="category">

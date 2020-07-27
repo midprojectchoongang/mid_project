@@ -51,7 +51,7 @@
 
 <input type="hidden" id="free_no" value="${free_no }">
 <c:if test="${not empty commList }">
-	<table class="w3-table w3-centered">
+	<table class="w3-table w3-centered" style="max-width: 1000px">
 	<c:forEach var="comments" items="${commList }">
 		<tr id="tr_${comments.comment_no }">
 		<td id="cno"><a href="#cTab" onclick="reComm(${comments.comment_no})">${comments.comment_no }</a></td>
