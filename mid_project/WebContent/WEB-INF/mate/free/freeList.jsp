@@ -23,7 +23,7 @@
 <c:if test="${param.category == 'a' }">
 	<b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">입양 후기</b>
 </c:if>
-<div align="center" style="margin-top: 200px; position: relative; min-height: 500px">
+<div align="center" style="margin-top: 200px; position: relative; min-height: 450px">
 	<input type="hidden" name="pageNum" value="${pageNum }">
 	<table class="w3-table w3-centered w3-bordered">
 		<tr><th>번호</th><th style="width: 50%">제목</th><th>작성자</th><th>조회수</th><th>작성일</th></tr>
@@ -102,15 +102,13 @@
 			</c:if>
 		</c:if>
 	</table><p>
+	<c:if test="${not empty member_id }">
+		<div style="text-align: right; margin-right: 18%">
+			<a href="writeForm.free?category=${param.category }" class="btn-two small charcoal rounded">글쓰기</a>
+		</div>
+	</c:if>
 </div>
 
-<c:if test="${not empty member_id }">
-	<div style="text-align: center; height: 80px">
-		<span style="float: right; margin-right: 20%">
-			<a href="writeForm.free?category=${param.category }" class="btn-two small charcoal rounded">글쓰기</a>
-		</span>
-	</div>
-</c:if>
 
 <div id="page1">
 	<c:if test="${startPage > pagePerBlock }">

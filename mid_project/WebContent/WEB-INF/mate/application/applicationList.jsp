@@ -12,7 +12,7 @@
 <jsp:useBean id="now" class="java.util.Date"/>
 <fmt:formatDate value="${now }" pattern="yyyyMMdd" var="nowDate"/>
 
-<div align="center" style="margin-top: 200px; position: relative; min-height: 500px">
+<div align="center" style="margin-top: 100px; position: relative;">
 	<input type="hidden" name="pageNum" value="${pageNum }">
 	<table class="w3-table w3-centered w3-bordered">
 		<c:if test="${empty appList}">

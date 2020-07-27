@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,18 +15,54 @@
 		    return;
 		}
 	}
-	
 </script>
 </head>
 <body>
 <!-- Header, NavBar -->
 <%@ include file="../mainPage/nav.jsp" %>
 
-<div align="center" style="margin: 100px;">
+<fmt:formatDate value="${apply.reg_date }" pattern="yyyy.MM.dd  HH:mm" var="date"/>
+<c:if test="${member_id == apply.member_id }">
+	<div style=" position: absolute; margin-left: 25%; margin-top: -100px">
+		<b style="font-size: 24px; margin-right: 20px">내 지원서</b>
+		<span style="font-weight: 900; color: grey;	">
+			${location_name }
+			&emsp;-&emsp;
+			<c:if test="${apply.largecate_id == 'd'}">강아지</c:if>
+			<c:if test="${apply.largecate_id == 'c'}">고양이</c:if>
+			&emsp;-&emsp;
+			<c:if test="${apply.smallcate_id == 'd1'}">대형견</c:if>										
+			<c:if test="${apply.smallcate_id == 'd2'}">중형견</c:if>										
+			<c:if test="${apply.smallcate_id == 'd3'}">소형견</c:if>										
+			<c:if test="${apply.smallcate_id == 'c1'}">장모종</c:if>										
+			<c:if test="${apply.smallcate_id == 'c2'}">단모종</c:if>
+		</span>
+	</div>
+</c:if>
+<c:if test="${member_id != apply.member_id }">
+	<div style=" position: absolute; margin-left: 25%; margin-top: -100px">
+		<b style="font-size: 24px; margin-right: 20px">지원서 보기</b>
+		<span style="font-weight: 900; color: grey;	">
+			${location_name }
+			&emsp;-&emsp;
+			<c:if test="${apply.largecate_id == 'd'}">강아지</c:if>
+			<c:if test="${apply.largecate_id == 'c'}">고양이</c:if>
+			&emsp;-&emsp;
+			<c:if test="${apply.smallcate_id == 'd1'}">대형견</c:if>										
+			<c:if test="${apply.smallcate_id == 'd2'}">중형견</c:if>										
+			<c:if test="${apply.smallcate_id == 'd3'}">소형견</c:if>										
+			<c:if test="${apply.smallcate_id == 'c1'}">장모종</c:if>										
+			<c:if test="${apply.smallcate_id == 'c2'}">단모종</c:if>
+		</span>
+	</div>
+</c:if>
+
+	<!-- 리스트 -->
+<div align="center" style="margin-top: 200px; position: relative; min-height: 400px;">
 		<input type="hidden" name="pageNum" value="${pageNum }">
 		<input type="hidden" name="application_no" value="${apply.application_no }">
-	<table class="w3-table w3-centered w3-bordered">
-		<tr>
+	<table class="w3-table w3-centered w3-bordered"> 	
+    <tr>
 			<th>분류</th>
 			<td>
 				<c:if test="${apply.largecate_id == 'd'}">강아지</c:if>
@@ -44,23 +81,22 @@
 			</td>
 		</tr>
 		<tr>
-			<th>제목</th>
-			<td colspan="2">${apply.subject }</td>
-			<th>작성일</th>
-			<td colspan="2">${apply.reg_date }</td>
+			<th width="100">제목</th>
+			<td style="text-align:left">${apply.subject }</td>
+			<td width="150">${apply.member_id }<br>${date }</td>
 		</tr>
-		<tr>
-			<td colspan="6">${apply.content }</td>
+		<tr height="300">
+			<td colspan="3" style="text-align: left; padding: 50px"><pre>${apply.content }</pre></td>
 		</tr>
 	</table>
 	<p>
 
 <c:if test="${member_id == apply.member_id }">
-	<input type="button" value="수정" onclick="location.href='updateForm.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }'"  class="btn-two mini blue rounded">&emsp;
-	<input type="button" value="신청취소" onclick="delmsg()"  class="btn-two mini red rounded">&emsp;
+	<a href="updateForm.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" class="btn-two mini blue rounded">수정</a>
+	<a href="delmsg()" class="btn-two mini red rounded">신청 취소</a>
 </c:if>
 <c:if test="${not empty master_id }">
-	<input type="button" value="삭제" onclick="delmsg()" class="btn-two mini red rounded">&emsp;
+	<a href="delmsg()" class="btn-two mini red rounded">삭제</a>
 </c:if>
 	<a href="#" onclick="history.back()" class="btn-two mini charcoal rounded">목록</a>
 </div>

@@ -1,7 +1,6 @@
 .textbox {
 	position: relative;
-	max-width: 300px;
-	margin: 10px 20px 10px 0;
+	margin: 10px 0 10px 0;
 }
 
 .textbox label {
@@ -32,6 +31,10 @@ input[class*="btn"],
 button[class*="btn"] {border: 0; cursor: pointer;}
 
 /* Here you can change the button sizes */
+.btn-two.fixed {
+	width: 100px;
+}
+
 .btn-two.large {
   padding: 20px 40px; 
   font-size: 22px;
@@ -95,18 +98,6 @@ button[class*="btn"] {border: 0; cursor: pointer;}
 				      0 3px 13px -1px rgba(0,0,0,0.21);
 }
 
-.btn-one {
-	color: black;	
-	padding: 15px 25px;
-	display: inline-block;
-	border: 1px solid rgba(0,0,0,0.21);
-	border-bottom-color: rgba(0,0,0,0.34);
-	text-shadow:0 1px 0 rgba(0,0,0,0.15);
-	box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
-				      0 2px 0 -1px rgba(0,0,0,0.13), 
-				      0 3px 0 -1px rgba(0,0,0,0.08), 
-				      0 3px 13px -1px rgba(0,0,0,0.21);
-}
 .btn-two:active {
 	top: 1px;
 	border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);

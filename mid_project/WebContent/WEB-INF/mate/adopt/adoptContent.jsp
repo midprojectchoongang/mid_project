@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,42 +22,60 @@
 	    var loginId = "${member_id}";  
 	    if (writer == loginId) {
 			$('#showList').load('applicationList.application?adopt_no=${adopt.adopt_no}');
+	    } else if (writer != loginId) {
+	    	$('#showList').css('margin-bottom','100px');
 	    }
 	});
 </script>
 </head>
 <body>
+<fmt:formatDate value="${adopt.reg_date }" pattern="yyyy.MM.dd  HH:mm" var="date"/>
 <!-- Header, NavBar -->
 <%@ include file="../mainPage/nav.jsp" %>
+<%@ include file="../mainPage/sideNav.jsp" %>
 
-<div align="center" style="margin: 100px;">
+<div style=" position: absolute; margin-left: 25%; margin-top: -100px">
+	<b style="font-size: 24px; margin-right: 20px">공고 게시판</b>
+	<span style="font-weight: 900; color: grey;	">
+		<c:if test="${adopt.location_no == 2}">서울</c:if>
+		<c:if test="${adopt.location_no == 31}">경기</c:if>
+		<c:if test="${adopt.location_no == 32}">인천</c:if>
+		<c:if test="${adopt.location_no == 41}">충남</c:if>
+		<c:if test="${adopt.location_no == 42}">대전</c:if>
+		<c:if test="${adopt.location_no == 43}">충북</c:if>
+		<c:if test="${adopt.location_no == 44}">세종</c:if>
+		<c:if test="${adopt.location_no == 51}">부산</c:if>
+		<c:if test="${adopt.location_no == 52}">울산</c:if>
+		<c:if test="${adopt.location_no == 53}">대구</c:if>
+		<c:if test="${adopt.location_no == 54}">경북</c:if>
+		<c:if test="${adopt.location_no == 55}">경남</c:if>
+		<c:if test="${adopt.location_no == 61}">전남</c:if>
+		<c:if test="${adopt.location_no == 62}">광주</c:if>
+		<c:if test="${adopt.location_no == 63}">전북</c:if>
+		<c:if test="${adopt.location_no == 64}">제주</c:if>
+		&emsp;-&emsp;
+		<c:if test="${adopt.largecate_id == 'd'}">강아지</c:if>
+		<c:if test="${adopt.largecate_id == 'c'}">고양이</c:if>
+		&emsp;-&emsp;
+		<c:if test="${adopt.smallcate_id == 'd1'}">대형견</c:if>										
+		<c:if test="${adopt.smallcate_id == 'd2'}">중형견</c:if>										
+		<c:if test="${adopt.smallcate_id == 'd3'}">소형견</c:if>										
+		<c:if test="${adopt.smallcate_id == 'c1'}">장모종</c:if>										
+		<c:if test="${adopt.smallcate_id == 'c2'}">단모종</c:if>
+	</span>
+</div>
+
+<div align="center" style="margin-top: 200px; position: relative; min-height: 450px">
 		<input type="hidden" name="pageNum" value="${pageNum }">
 		<input type="hidden" name="adopt_no" value="${adopt.adopt_no }">
 	<table class="w3-table w3-centered w3-bordered">
 		<tr>
-			<th>카테고리</th>
-			<td>
-				<c:if test="${adopt.largecate_id == 'd'}">강아지</c:if>
-				<c:if test="${adopt.largecate_id == 'c'}">고양이</c:if>
-			</td>
-			<td>
-				<c:if test="${adopt.smallcate_id == 'd1'}">대형견</c:if>										
-				<c:if test="${adopt.smallcate_id == 'd2'}">중형견</c:if>										
-				<c:if test="${adopt.smallcate_id == 'd3'}">소형견</c:if>										
-				<c:if test="${adopt.smallcate_id == 'c1'}">장모</c:if>										
-				<c:if test="${adopt.smallcate_id == 'c2'}">단모</c:if>										
-			</td>
-			<th>제목</th>
-			<td>${adopt.subject }</td>
+			<th width="100">제목</th>
+			<td style="text-align:left">${adopt.subject }</td>
+			<td width="150">${adopt.member_id }<br>${date }</td>
 		</tr>
-		<tr>
-			<th>작성자</th>
-			<td colspan="2">${adopt.member_id }</td>
-			<th>작성일</th>
-			<td>${adopt.reg_date }</td>
-		</tr>
-		<tr>
-			<td colspan="5">${adopt.content }</td>
+		<tr height="300">
+			<td colspan="3" style="text-align: left; padding: 50px"><pre>${adopt.content }</pre></td>
 		</tr>
 	</table>
 	<p>
