@@ -48,4 +48,9 @@
 	<update id="count" parameterType="integer">
 		update adopt_board set applier_count = applier_count+1 where adopt_no = #{adopt_no}
 	</update>
+	<select id="myList" parameterType="hashMap" resultMap="resultMap">
+		select * from (select rowNum rn, a.* from 
+		(select * from adopt_board where del = 'n' and member_id = #{member_id}
+		order by adopt_no desc) a) where rn between #{startRow} and #{endRow}
+	</select>
 </mapper>

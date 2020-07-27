@@ -17,8 +17,15 @@ public class Free_board {
 	private Date reg_date;
 	private String del;
 	private int cnt;
+	private int comm;
 	
 	
+	public int getComm() {
+		return comm;
+	}
+	public void setComm(int comm) {
+		this.comm = comm;
+	}
 	public int getCnt() {
 		return cnt;
 	}

@@ -50,6 +50,12 @@ button[class*="btn"] {border: 0; cursor: pointer;}
   font-size: 12px;
 }
 
+.btn-two.comm {
+  padding: 4px 12px;  
+  font-size: 10px;
+  margin: 0px;
+}
+
 .btn-two.page {
   padding: 2px 8px;  
   font-size: 8px;

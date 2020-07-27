@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MATE</title>
 <script type="text/javascript">
 	function delmsg(appNo) {
 	    var msg = "지원서를 삭제합니다";

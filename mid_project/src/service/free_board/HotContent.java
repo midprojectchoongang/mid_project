@@ -13,13 +13,19 @@ public class HotContent implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
 		String member_id = (String) session.getAttribute("member_id");
+		String master_id = (String)session.getAttribute("master_id");
 		String pageNum = request.getParameter("pageNum");
 		int free_no = Integer.parseInt(request.getParameter("free_no"));
 		
 		Free_boardDao fd = Free_boardDao.getInstance();
 		Free_board free = fd.read(free_no);
 		
-		if(member_id != free.getMember_id()) { 
+		if (member_id == null) {
+			if (master_id == null) {				
+				fd.cntUp(free_no);
+			} else {}
+		} else if (member_id.equals(free.getMember_id())) {	
+		} else {
 			fd.cntUp(free_no);
 		}
 		

@@ -16,6 +16,7 @@
 		<result property="reg_date" column="reg_date" />
 		<result property="del" column="del" />
 		<result property="cnt" column="cnt" />
+		<result property="comm" column="comm" />
 	</resultMap>
 	<select id="list" parameterType="hashMap" resultMap="resultMap">
 		select * from (select rowNum rn, a.* from (select * from free_board where del = 'n' and category = #{category} order by free_no desc) a)
@@ -23,7 +24,7 @@
 	</select>
 	<insert id="write" parameterType="free_board">
 		insert into free_board values (free_seq.nextval, #{member_id}, #{category}, #{subject},
-		'test', 'test', 'test', 'test', 'test', #{content}, sysdate, 'n', 0)
+		'test', 'test', 'test', 'test', 'test', #{content}, sysdate, 'n', 0, 0)
 	</insert>
 	<select id="total" parameterType="string" resultType="integer">
 		select count(*) from free_board where category = #{category} and del = 'n'
@@ -43,8 +44,8 @@
 	</update>
 	<!-- hot List -->
 	<select id="hotList" parameterType="hashmap" resultMap="resultMap">
-		select * from (select rowNum rn, a.* from (select * from free_board where cnt > #{cnt} and del = 'n' order by free_no desc) a) 
-		where rn between #{startRow} and #{endRow}
+		select * from (select rowNum rn, a.* from (select * from free_board where cnt > #{cnt} 
+		and del = 'n' order by free_no desc) a) where rn between #{startRow} and #{endRow}
 	</select>
 	<select id="hotTotal" parameterType="integer" resultType="integer">
 		select count(*) from free_board where cnt > #{cnt} and del = 'n'
@@ -52,4 +53,7 @@
 	<select id="search" parameterType="string" resultType="integer">
 		select max(free_no) from free_board where member_id = #{member_id}
 	</select>
+	<update id="cntComm" parameterType="hashMap">
+		update free_board set comm = #{comm} where free_no = #{free_no}
+	</update>
 </mapper>

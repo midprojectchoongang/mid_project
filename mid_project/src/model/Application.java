@@ -10,6 +10,7 @@ public class Application {
 	private String largecate_id;
 	private String smallcate_id;
 	private int location_no;
+	private String location_name;
 	private String subject;
 	private String gender;
 	private String email;
@@ -54,6 +55,12 @@ public class Application {
 	}
 	public void setLocation_no(int location_no) {
 		this.location_no = location_no;
+	}
+	public String getLocation_name() {
+		return location_name;
+	}
+	public void setLocation_name(String location_name) {
+		this.location_name = location_name;
 	}
 	public String getSubject() {
 		return subject;

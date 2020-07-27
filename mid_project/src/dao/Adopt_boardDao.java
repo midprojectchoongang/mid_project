@@ -11,7 +11,7 @@ public class Adopt_boardDao {
 		return instance;
 	}	
 	private static SqlSession session;
-	static { // 클래스변수 초기화 블럭
+	static {
 		try {
 			Reader reader = Resources.getResourceAsReader("configuration.xml");
 			SqlSessionFactory ssf = new SqlSessionFactoryBuilder().build(reader);
@@ -47,5 +47,13 @@ public class Adopt_boardDao {
 	}
 	public int count(int adopt_no) {
 		return session.update("adoptns.count", adopt_no);
+	}
+	public List<Adopt_board> myList(int startRow, int endRow, String member_id) {
+		HashMap<String, String> hm = new HashMap<>();
+		hm.put("startRow", startRow+"");
+		hm.put("endRow", endRow+"");
+		hm.put("member_id", member_id);
+		
+		return session.selectList("adoptns.myList", hm);
 	}
 }

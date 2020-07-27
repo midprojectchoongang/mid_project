@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MATE</title>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {

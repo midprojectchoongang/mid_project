@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MATE</title>
 <script type="text/javascript">
 	function delmsg(num) {
 	    var msg = "스크랩 목록에서 지우시겠습니까?";

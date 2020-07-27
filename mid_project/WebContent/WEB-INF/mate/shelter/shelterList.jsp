@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MATE</title>
 <script type="text/javascript">
 	function deleteChk() {
 		var msg = "삭제하시겠습니까?";

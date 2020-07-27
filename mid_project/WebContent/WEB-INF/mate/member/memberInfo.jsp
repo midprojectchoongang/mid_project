@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MATE</title>
 </head>
 <body>
 <!-- Header, NavBar -->
@@ -13,7 +13,7 @@
 
 <div align="center" style="margin: 15% 100px 15% 100px;">
 	<h2>${member.name}님 환영합니다</h2>
-	<a href="#" class="btn-two charcoal rounded fixed">내 공고</a>
+	<a href="myAdoptList.adopt" class="btn-two charcoal rounded fixed">내 공고</a>
 	<a href="myAppList.application" class="btn-two charcoal rounded fixed">내 지원서</a>
 	<a href="scrapList.adoptS" class="btn-two charcoal rounded fixed">공고스크랩</a>
 	<a href="scrapList.freeS" class="btn-two charcoal rounded fixed">자유스크랩</a><br>

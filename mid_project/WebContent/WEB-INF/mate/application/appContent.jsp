@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MATE</title>
 <script type="text/javascript">
 	function delmsg() {
 	    var msg = "지원서를 삭제합니다";
@@ -26,22 +26,7 @@
 	<div style=" position: absolute; margin-left: 25%; margin-top: -100px">
 		<b style="font-size: 24px; margin-right: 20px">내 지원서</b>
 		<span style="font-weight: 900; color: grey;	">
-			<c:if test="${apply.location_no == 2}">서울</c:if>
-			<c:if test="${apply.location_no == 31}">경기</c:if>
-			<c:if test="${apply.location_no == 32}">인천</c:if>
-			<c:if test="${apply.location_no == 41}">충남</c:if>
-			<c:if test="${apply.location_no == 42}">대전</c:if>
-			<c:if test="${apply.location_no == 43}">충북</c:if>
-			<c:if test="${apply.location_no == 44}">세종</c:if>
-			<c:if test="${apply.location_no == 51}">부산</c:if>
-			<c:if test="${apply.location_no == 52}">울산</c:if>
-			<c:if test="${apply.location_no == 53}">대구</c:if>
-			<c:if test="${apply.location_no == 54}">경북</c:if>
-			<c:if test="${apply.location_no == 55}">경남</c:if>
-			<c:if test="${apply.location_no == 61}">전남</c:if>
-			<c:if test="${apply.location_no == 62}">광주</c:if>
-			<c:if test="${apply.location_no == 63}">전북</c:if>
-			<c:if test="${apply.location_no == 64}">제주</c:if>
+			${location_name }
 			&emsp;-&emsp;
 			<c:if test="${apply.largecate_id == 'd'}">강아지</c:if>
 			<c:if test="${apply.largecate_id == 'c'}">고양이</c:if>
@@ -58,22 +43,7 @@
 	<div style=" position: absolute; margin-left: 25%; margin-top: -100px">
 		<b style="font-size: 24px; margin-right: 20px">지원서 보기</b>
 		<span style="font-weight: 900; color: grey;	">
-			<c:if test="${apply.location_no == 2}">서울</c:if>
-			<c:if test="${apply.location_no == 31}">경기</c:if>
-			<c:if test="${apply.location_no == 32}">인천</c:if>
-			<c:if test="${apply.location_no == 41}">충남</c:if>
-			<c:if test="${apply.location_no == 42}">대전</c:if>
-			<c:if test="${apply.location_no == 43}">충북</c:if>
-			<c:if test="${apply.location_no == 44}">세종</c:if>
-			<c:if test="${apply.location_no == 51}">부산</c:if>
-			<c:if test="${apply.location_no == 52}">울산</c:if>
-			<c:if test="${apply.location_no == 53}">대구</c:if>
-			<c:if test="${apply.location_no == 54}">경북</c:if>
-			<c:if test="${apply.location_no == 55}">경남</c:if>
-			<c:if test="${apply.location_no == 61}">전남</c:if>
-			<c:if test="${apply.location_no == 62}">광주</c:if>
-			<c:if test="${apply.location_no == 63}">전북</c:if>
-			<c:if test="${apply.location_no == 64}">제주</c:if>
+			${location_name }
 			&emsp;-&emsp;
 			<c:if test="${apply.largecate_id == 'd'}">강아지</c:if>
 			<c:if test="${apply.largecate_id == 'c'}">고양이</c:if>
@@ -92,6 +62,24 @@
 		<input type="hidden" name="pageNum" value="${pageNum }">
 		<input type="hidden" name="application_no" value="${apply.application_no }">
 	<table class="w3-table w3-centered w3-bordered"> 	
+    <tr>
+			<th>분류</th>
+			<td>
+				<c:if test="${apply.largecate_id == 'd'}">강아지</c:if>
+				<c:if test="${apply.largecate_id == 'c'}">고양이</c:if>
+			</td>
+			<th>품종</th>
+			<td>
+				<c:if test="${apply.smallcate_id == 'd1'}">대형견</c:if>										
+				<c:if test="${apply.smallcate_id == 'd2'}">중형견</c:if>										
+				<c:if test="${apply.smallcate_id == 'd3'}">소형견</c:if>										
+				<c:if test="${apply.smallcate_id == 'c1'}">장모</c:if>										
+				<c:if test="${apply.smallcate_id == 'c2'}">단모</c:if>										
+			</td>
+			<th>지역</th>
+			<td>${location_name }
+			</td>
+		</tr>
 		<tr>
 			<th width="100">제목</th>
 			<td style="text-align:left">${apply.subject }</td>

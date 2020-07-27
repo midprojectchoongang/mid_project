@@ -4,9 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-
-<!-- include libraries(jQuery, bootstrap) -->
+<title>MATE</title>
+  <!-- include libraries(jQuery, bootstrap) -->
 <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
@@ -17,7 +16,9 @@
 
 <!-- include summernote-ko-KR -->
 <script src="js/summernote-ko-KR.js"></script>
-<script>
+  
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
 
 	$(document).ready(function() {
 		$('#summernote').summernote({
@@ -54,12 +55,6 @@
 	$(function() {
 		var cate = "${category }";
 		$('select>option[value="'+cate+'"]').attr('selected','selected');
-	});
-	
-	$("#image").on("change", function() {
-	    if($("#image")[0].files.length > 5) {
-	    	alert("업로드 개수를 초과했습니다");
-	    }
 	});
 	
 </script>
