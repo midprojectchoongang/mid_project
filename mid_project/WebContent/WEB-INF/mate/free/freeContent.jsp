@@ -12,7 +12,11 @@
 	    
 	    var fno = "${free.free_no}";
 		var cno = $('#cno').val();
-
+		
+		function getForm() {
+		    $('#writeArea').load('writeCommForm.comm');
+		}
+		
 		function getComm() {
 		    $('#commListDisp').load('commList.comm?free_no='+fno);
 		}
@@ -28,7 +32,8 @@
 			$.post('writeComm.comm',sendData, function(data) {
 			    alert("댓글이 작성되었습니다");
 				getComm();
-				$('#comm_content').val("");
+				getForm();
+				// $('#comm_content').val("");
 			});
 		});
 		
@@ -76,18 +81,7 @@
 <div id="commListDisp" align="center" style="margin-top: 50px; position: relative;"></div>
 	<!-- 댓글  작성 -->
 <div id="writeArea" align="center" style="margin-top: 10px; margin-bottom: 50px; position: relative;">
-	<form id="frm">
-	<input type="hidden" name="member_id" id="member_id" value="${member_id}">
-	<input type="hidden" name="free_no" id="free_no" value="${free.free_no}">
-	<c:if test="${not empty member_id }">
-		<table class="w3-table w3-centered w3-bordered">
-			<tr>
-				<td><textarea rows="3" cols="50" name="comm_content" id="comm_content"></textarea></td>
-				<td><input type="button" value="댓글입력" id="cInsert" class="btn-two mini charcoal rounded"></td>
-			</tr>
-		</table>
-	</c:if>
-	</form>
+<%@ include file="../comments/writeCommForm.jsp" %>
 </div>
 <div style="margin-bottom:100px"></div>
 

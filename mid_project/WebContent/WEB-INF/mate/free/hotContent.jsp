@@ -5,12 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<<<<<<< HEAD
 <title>MATE</title>
-=======
-<title>Insert title here</title>
 <script type="text/javascript" src="js/jquery.js"></script>
->>>>>>> branch 'creSento' of http://github.com/midprojectchoongang/mid_project.git
 <script type="text/javascript">
 	$(function() {
 	    

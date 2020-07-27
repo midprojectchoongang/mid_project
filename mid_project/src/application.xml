@@ -34,6 +34,11 @@
 	<select id="read" parameterType="integer" resultType="application">
 		select * from application where application_no = #{application_no}
 	</select>
+	<update id="update" parameterType="application">
+		update application set location_no = #{location_no}, subject = #{subject},
+		email = #{email}, tel = #{tel}, experience = #{experience}, 
+		content = #{content} where application_no = #{application_no}
+	</update>
 	<update id="delete" parameterType="integer">
 		update application set del = 'y' where application_no = #{application_no}
 	</update>

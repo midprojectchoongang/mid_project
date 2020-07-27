@@ -52,7 +52,7 @@
 <c:if test="${not empty commList }">
 	<table class="w3-table w3-centered">
 	<c:forEach var="comments" items="${commList }">
-		<tr>
+		<tr id="tr_${comments.comment_no }">
 		<td id="cno"><a href="#cTab" onclick="reComm(${comments.comment_no})">${comments.comment_no }</a></td>
 		<td style="text-align: left; margin-right: 10px;">${comments.member_id }</td>
 		<td id="td_${comments.comment_no }" style="text-align: left; width:55%;">

@@ -9,10 +9,10 @@
 <script type="text/javascript">
 
 $(function() {
-	var loc = ${member.location_no};
+	var loc = "${apply.location_no}";
 	$('select>option[value="'+loc+'"]').attr('selected','selected');
-
-	var exper = "${member.experience}";
+	
+	var exper = "${apply.experience}";
 	$('.exper[value="'+exper+'"]').attr('checked','checked');
 });
 
@@ -23,28 +23,28 @@ $(function() {
 <%@ include file="../mainPage/nav.jsp" %>
 
 <div align="center" style="margin: 100px;">
-<form action="write.application" method="post">
+<form action="update.application" method="post">
 	<input type="hidden" name="pageNum" value="${pageNum }">
-	<input type="hidden" name="adopt_no" value="${adopt.adopt_no }">
+	<input type="hidden" name="application_no" value="${apply.application_no }">
 	<table class="w3-table w3-centered w3-bordered">
 		<tr><th>분류</th>
 			<td>
-				<c:if test="${adopt.largecate_id == 'd'}">강아지</c:if>
-				<c:if test="${adopt.largecate_id == 'c'}">고양이</c:if>
+				<c:if test="${apply.largecate_id == 'd'}">강아지</c:if>
+				<c:if test="${apply.largecate_id == 'c'}">고양이</c:if>
 			</td>
 			<th>품종</th>
 			<td>
-				<c:if test="${adopt.smallcate_id == 'd1'}">대형견</c:if>										
-				<c:if test="${adopt.smallcate_id == 'd2'}">중형견</c:if>										
-				<c:if test="${adopt.smallcate_id == 'd3'}">소형견</c:if>										
-				<c:if test="${adopt.smallcate_id == 'c1'}">장모</c:if>										
-				<c:if test="${adopt.smallcate_id == 'c2'}">단모</c:if>										
+				<c:if test="${apply.smallcate_id == 'd1'}">대형견</c:if>										
+				<c:if test="${apply.smallcate_id == 'd2'}">중형견</c:if>										
+				<c:if test="${apply.smallcate_id == 'd3'}">소형견</c:if>										
+				<c:if test="${apply.smallcate_id == 'c1'}">장모</c:if>										
+				<c:if test="${apply.smallcate_id == 'c2'}">단모</c:if>										
 			</td>
 		</tr>
 		<tr>
 			<th>성별</th>
 			<td>
-			${member.gender }
+			${apply.gender }
 			</td>
 			<th>반려동물 경험</th>
 			<td>
@@ -78,25 +78,27 @@ $(function() {
 		<tr>
 			<th colspan="2">이메일</th>
 			<td colspan="2">
-			<input type="text" name="email" required="required">
+			<input type="text" name="email" required="required" value="${apply.email }">
 			</td>
 		</tr>
 		<tr>
 			<th colspan="2">전화번호</th>
 			<td colspan="2">
 			<input type="tel" name="tel" required="required" pattern="\d{3}-\d{3,4}-\d{4}"
-				placeholder="xxx-xxxx-xxxxx" title="전화번호 형식 xxx-xxxx-xxxx">
+				value="${apply.tel }" title="전화번호 형식 xxx-xxxx-xxxx">
 			</td>
 		</tr>
 		<tr><th colspan="2">제목</th>
-			<td colspan="4"><input type="text" name="subject" required="required" autofocus="autofocus"></td>
+			<td colspan="4"><input type="text" name="subject" required="required" autofocus="autofocus" value="${apply.subject }"></td>
 		</tr>
 		<tr><th colspan="2">내용</th>
-			<td colspan="4"><textarea name="content" rows="10" cols="50" required="required"></textarea></td>
+			<td colspan="4"><textarea name="content" rows="10" cols="50" required="required">${apply.content }</textarea></td>
 		</tr>
 	</table><p>
-		<input type="submit" value="등록" onclick="location.href='write.application?adopt_no=${adopt_no }&pageNum=${pageNum}'">
-		<input type="button" value="취소" onclick="location.href='adoptList.adopt?pageNum=${pageNum}'">
+		<input type="submit" value="등록" class="btn-two mini blue rounded"
+		onclick="location.href='update.application?application_no=${apply.application_no }&pageNum=${pageNum}'">
+		<input type="button" value="취소" class="btn-two mini red rounded" 
+		onclick="location.href='appContent.application?application_no=${apply.application_no }&pageNum=${pageNum}'">
 </form>
 </div>
 

@@ -82,7 +82,7 @@
 		</tr>
 		<tr>
 			<th width="100">제목</th>
-			<td style="text-align:left">${apply.subject }</td>
+			<td style="text-align:left" colspan="4">${apply.subject }</td>
 			<td width="150">${apply.member_id }<br>${date }</td>
 		</tr>
 		<tr height="300">
@@ -92,7 +92,7 @@
 	<p>
 
 <c:if test="${member_id == apply.member_id }">
-	<a href="updateForm.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" class="btn-two mini blue rounded">수정</a>
+	<a href="updateForm.application?application_no=${apply.application_no }&pageNum=${pageNum }" class="btn-two mini blue rounded">수정</a>
 	<a href="delmsg()" class="btn-two mini red rounded">신청 취소</a>
 </c:if>
 <c:if test="${not empty master_id }">
