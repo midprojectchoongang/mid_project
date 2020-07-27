@@ -37,7 +37,11 @@
 				<fmt:formatDate value="${free.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
 					<tr><td>${free.free_no }</td>
 						<td style="text-align: left;">
-							<a href="freeContent.free?free_no=${free.free_no }&pageNum=${pageNum }" style="margin-left: 20px">${free.subject }</a>
+							<a href="freeContent.free?free_no=${free.free_no }&pageNum=${pageNum }" style="margin-left: 20px">${free.subject }
+							<c:if test="${free.comm > 0 }">
+							<span style="margin-left: 5px; font-size: 11px;">[${free.comm }]</span>
+							</c:if>
+							</a>
 						</td>
 						<td>${free.member_id }</td>
 						<td>${free.cnt }</td>
@@ -56,7 +60,11 @@
 				<fmt:formatDate value="${free.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
 					<tr><td>${free.free_no }</td>
 						<td style="text-align: left;">
-							<a href="freeContent.free?free_no=${free.free_no }&pageNum=${pageNum }" style="margin-left: 20px">${free.subject }</a>
+							<a href="freeContent.free?free_no=${free.free_no }&pageNum=${pageNum }" style="margin-left: 20px">${free.subject }
+							<c:if test="${free.comm > 0 }">
+							<span style="margin-left: 5px; font-size: 11px;">[${free.comm }]</span>
+							</c:if>
+							</a>
 						</td>
 						<td>${free.member_id }</td>
 						<td>${free.cnt }</td>
@@ -75,7 +83,11 @@
 				<fmt:formatDate value="${free.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
 					<tr><td>${free.free_no }</td>
 						<td style="text-align: left;">
-							<a href="freeContent.free?free_no=${free.free_no }&pageNum=${pageNum }" style="margin-left: 20px">${free.subject }</a>
+							<a href="freeContent.free?free_no=${free.free_no }&pageNum=${pageNum }" style="margin-left: 20px">${free.subject }
+							<c:if test="${free.comm > 0 }">
+							<span style="margin-left: 5px; font-size: 11px;">[${free.comm }]</span>
+							</c:if>
+							</a>
 						</td>
 						<td>${free.member_id }</td>
 						<td>${free.cnt }</td>
