@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MATE</title>
 <script type="text/javascript">
 	function delmsg() {
 	    var msg = "게시물을 삭제합니다";

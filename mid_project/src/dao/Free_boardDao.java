@@ -11,7 +11,7 @@ public class Free_boardDao {
 		return instance;
 	}
 	private static SqlSession session;
-	static { // 클래스변수 초기화 블럭
+	static {
 		try {
 			Reader reader = Resources.getResourceAsReader("configuration.xml");
 			SqlSessionFactory ssf = new SqlSessionFactoryBuilder().build(reader);
@@ -43,11 +43,6 @@ public class Free_boardDao {
 	public int delete(int free_no) {
 		return session.update("freens.delete", free_no);
 	}
-
-	/*
-	 * public int search(String member_id) { return
-	 * session.selectOne("freens.search", member_id); }
-	 */
 	public void cntUp(int free_no) {
 		session.update("freens.cntUp", free_no);
 	}

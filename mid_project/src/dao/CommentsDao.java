@@ -14,7 +14,7 @@ public class CommentsDao {
 		return instance;
 	}	
 	private static SqlSession session;
-	static { // 클래스변수 초기화 블럭
+	static {
 		try {
 			Reader reader = Resources.getResourceAsReader("configuration.xml");
 			SqlSessionFactory ssf = new SqlSessionFactoryBuilder().build(reader);

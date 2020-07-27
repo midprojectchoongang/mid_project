@@ -19,7 +19,7 @@ public class ApplicationDao {
 	}
 	
 	private static SqlSession session;
-	static { // 클래스변수 초기화 블럭
+	static {
 		try {
 			Reader reader = Resources.getResourceAsReader("configuration.xml");
 			SqlSessionFactory ssf = new SqlSessionFactoryBuilder().build(reader);
@@ -35,13 +35,7 @@ public class ApplicationDao {
 		hm.put("member_id", member_id);
 		
 		return session.selectList("applyns.list", hm);
-	}/*
-		 * public Free select(int deptno) { return (Free)
-		 * session.selectOne("deptns.select", deptno); } public int insert(Free dept) {
-		 * return session.insert("deptns.insert", dept); } public int update(Dept dept)
-		 * { return session.update("deptns.update", dept); } public int delete(int
-		 * deptno) { return session.delete("deptns.delete", deptno); }
-		 */
+	}
 	public int total(String member_id) {
 		return session.selectOne("applyns.total", member_id);
 	}

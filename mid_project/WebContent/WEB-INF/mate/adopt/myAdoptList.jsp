@@ -13,9 +13,8 @@
 
 <!-- Header, NavBar -->
 <%@ include file="../mainPage/nav.jsp" %>
-<%@ include file="../mainPage/sideNav.jsp" %>
 
-<b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">공고 게시판</b>
+<b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">내가 쓴 공고</b>
 
 <div align="center" style="margin-top: 200px; position: relative; min-height: 500px">
 	<input type="hidden" name="pageNum" value="${pageNum }">

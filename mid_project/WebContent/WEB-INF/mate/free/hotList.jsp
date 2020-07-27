@@ -5,8 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<style type="text/css">@import url("temp.css");</style>
+<title>MATE</title>
 </head>
 <body>
 <jsp:useBean id="now" class="java.util.Date"/>

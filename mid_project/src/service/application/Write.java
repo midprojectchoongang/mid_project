@@ -19,8 +19,6 @@ public class Write implements CommandProcess {
 		String member_id = (String)session.getAttribute("member_id");
 		int adopt_no = Integer.parseInt(request.getParameter("adopt_no"));
 		
-		System.out.println("a " + adopt_no);
-		
 		int location_no = Integer.parseInt(request.getParameter("location_no"));
 		String subject = request.getParameter("subject");
 		String gender = request.getParameter("gender");

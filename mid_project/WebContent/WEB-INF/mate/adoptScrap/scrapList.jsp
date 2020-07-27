@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MATE</title>
 </head>
 <body>
 <jsp:useBean id="now" class="java.util.Date"/>
