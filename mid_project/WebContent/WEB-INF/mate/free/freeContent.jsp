@@ -50,10 +50,9 @@
 	<b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">입양 후기</b>
 </c:if>
 
-	<!-- 리스트 -->
 <div align="center" style="margin-top: 200px; position: relative; min-height: 400px;">
 	<input type="hidden" name="pageNum" value="${pageNum }">
-	<table class="w3-table w3-centered w3-bordered">
+	<table class="w3-table w3-centered w3-bordered" style="max-width: 1000px">
 		<tr>
 			<th width="100">제목</th><td style="left-margin: 50px; text-align: left">${free.subject }</td>
 			<td width="150">${free.member_id }<br>${date }</td></tr>
@@ -72,8 +71,10 @@
 	</c:if>
 		<a href="freeList.free?category=${free.category }&pageNum=${pageNum}" class="btn-two mini charcoal rounded">목록</a>
 </div>
+
   	<!-- 댓글 목록 -->
 <div id="commListDisp" align="center" style="margin-top: 50px; position: relative;"></div>
+
 	<!-- 댓글  작성 -->
 <div id="writeArea" align="center" style="margin-top: 10px; margin-bottom: 50px; position: relative;">
 	<form id="frm">

@@ -14,8 +14,9 @@
 	var cno = $('#cno').val();
 	
 	function reComm(cno) {
-		$('#comm_content').text('@'+cno+' ');
+		$('#comm_content').innerHTML('<a href="#">@' +cno+ " ");
 	}
+	
 	function cDelete(cno) {
 		var sendData="comment_no="+cno;
 		$.post('deleteComm.comm', sendData, function(data) {

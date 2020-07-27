@@ -26,11 +26,11 @@
 <b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">공지사항</b>
 
 <div align="center" style="margin-top: 200px; position: relative; min-height: 450px; margin-bottom: 100px;">
-	<table class="w3-table w3-centered w3-bordered">
+	<table class="w3-table w3-centered w3-bordered" style="max-width: 1000px">
 		<tr><th width="100">제목</th>
 			<td style="left-margin: 50px; text-align: left">${notice.subject }</td>
 			<td width="150">${date }</td></tr>
-		<tr height="300"><td colspan="3" style="text-align: left; padding: 50px;"><pre>${notice.content }</pre></td></tr>	
+		<tr height="300"><td colspan="3" style="text-align: left; padding: 50px;">${notice.content }</td></tr>	
 	</table><p>
 	
 	<!-- 관리자용 수정 및 삭제 버튼 -->

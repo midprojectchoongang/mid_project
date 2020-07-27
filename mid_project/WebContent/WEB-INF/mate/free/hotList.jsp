@@ -5,11 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<<<<<<< HEAD
 <title>MATE</title>
-=======
-<title>Insert title here</title>
->>>>>>> branch 'creSento' of http://github.com/midprojectchoongang/mid_project.git
 </head>
 <body>
 <jsp:useBean id="now" class="java.util.Date"/>
@@ -36,7 +32,7 @@
 						<c:if test="${hotList.category == 'i' }"><td>정보</td></c:if>
 						<c:if test="${hotList.category == 'a' }"><td>후기</td></c:if>
 						<td style="width: 50%; text-align: left;">
-							<a href="hotContent.free?free_no=${hotList.free_no }&pageNum=${pageNum }" style="margin-left: 20px">${hotList.subject }
+							<a href="hotContent.free?free_no=${hotList.free_no }&pageNum=${pageNum }" style="margin-left: 20px">${hotList.subject }</a>
 							<c:if test="${hotList.comm > 0 }">
 							<span style="margin-left: 5px; font-size: 11px;">[${hotList.comm }]</span>
 							</c:if>

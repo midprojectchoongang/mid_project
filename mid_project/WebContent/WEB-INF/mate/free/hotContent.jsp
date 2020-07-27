@@ -5,12 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<<<<<<< HEAD
 <title>MATE</title>
-=======
-<title>Insert title here</title>
 <script type="text/javascript" src="js/jquery.js"></script>
->>>>>>> branch 'creSento' of http://github.com/midprojectchoongang/mid_project.git
 <script type="text/javascript">
 	$(function() {
 	    
@@ -62,10 +58,9 @@
 	</span>
 </div>
 
-	<!-- 리스트 -->
 <div align="center" style="margin-top: 200px; position: relative; min-height: 400px;">
 	<input type="hidden" name="pageNum" value="${pageNum }">
-	<table class="w3-table w3-centered w3-bordered">
+	<table class="w3-table w3-centered w3-bordered" style="max-width: 1000px">
 		<tr><th width="100">제목</th>
 			<td style="left-margin: 50px; text-align: left">${free.subject }</td>
 			<td width="150">${free.member_id }<br>${date }</td></tr>

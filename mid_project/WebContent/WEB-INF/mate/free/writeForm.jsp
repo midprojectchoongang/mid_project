@@ -16,8 +16,6 @@
 
 <!-- include summernote-ko-KR -->
 <script src="js/summernote-ko-KR.js"></script>
-  
-<script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript">
 
 	$(document).ready(function() {
