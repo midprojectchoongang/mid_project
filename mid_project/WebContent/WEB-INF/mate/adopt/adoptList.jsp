@@ -75,12 +75,12 @@
 				<c:if test="${adopt.largecate_id == 'd' }">
 				<tr>
 					<td>${adopt.adopt_no }</td>
-					<td>${adopt.location_name }</td>
+					<td style="background: #eee">${adopt.location_name }</td>
 					<td>
 					<c:if test="${adopt.largecate_id == 'd'}">강아지</c:if>
 					<c:if test="${adopt.largecate_id == 'c'}">고양이</c:if>
 					</td>
-					<td>
+					<td style="background: #eee">
 					<c:if test="${adopt.smallcate_id == 'd1'}">대형견</c:if>										
 					<c:if test="${adopt.smallcate_id == 'd2'}">중형견</c:if>										
 					<c:if test="${adopt.smallcate_id == 'd3'}">소형견</c:if>										
@@ -107,12 +107,12 @@
 				<c:if test="${adopt.smallcate_id == 'd1' }">
 				<tr>
 					<td>${adopt.adopt_no }</td>
-					<td>${adopt.location_name }</td>
+					<td style="background: #eee">${adopt.location_name }</td>
 					<td>
 					<c:if test="${adopt.largecate_id == 'd'}">강아지</c:if>
 					<c:if test="${adopt.largecate_id == 'c'}">고양이</c:if>
 					</td>
-					<td>
+					<td style="background: #eee">
 					<c:if test="${adopt.smallcate_id == 'd1'}">대형견</c:if>										
 					<c:if test="${adopt.smallcate_id == 'd2'}">중형견</c:if>										
 					<c:if test="${adopt.smallcate_id == 'd3'}">소형견</c:if>										
@@ -139,12 +139,12 @@
 				<c:if test="${adopt.smallcate_id == 'd2' }">
 				<tr>
 					<td>${adopt.adopt_no }</td>
-					<td>${adopt.location_name }</td>
+					<td style="background: #eee">${adopt.location_name }</td>
 					<td>
 					<c:if test="${adopt.largecate_id == 'd'}">강아지</c:if>
 					<c:if test="${adopt.largecate_id == 'c'}">고양이</c:if>
 					</td>
-					<td>
+					<td style="background: #eee">
 					<c:if test="${adopt.smallcate_id == 'd1'}">대형견</c:if>										
 					<c:if test="${adopt.smallcate_id == 'd2'}">중형견</c:if>										
 					<c:if test="${adopt.smallcate_id == 'd3'}">소형견</c:if>										
@@ -171,12 +171,12 @@
 				<c:if test="${adopt.smallcate_id == 'd3' }">
 				<tr>
 					<td>${adopt.adopt_no }</td>
-					<td>${adopt.location_name }</td>
+					<td style="background: #eee">${adopt.location_name }</td>
 					<td>
 					<c:if test="${adopt.largecate_id == 'd'}">강아지</c:if>
 					<c:if test="${adopt.largecate_id == 'c'}">고양이</c:if>
 					</td>
-					<td>
+					<td style="background: #eee">
 					<c:if test="${adopt.smallcate_id == 'd1'}">대형견</c:if>										
 					<c:if test="${adopt.smallcate_id == 'd2'}">중형견</c:if>										
 					<c:if test="${adopt.smallcate_id == 'd3'}">소형견</c:if>										
@@ -204,12 +204,12 @@
 				<c:if test="${adopt.largecate_id == 'c' }">
 				<tr>
 					<td>${adopt.adopt_no }</td>
-					<td>${adopt.location_name }</td>
+					<td style="background: #eee">${adopt.location_name }</td>
 					<td>
 					<c:if test="${adopt.largecate_id == 'd'}">강아지</c:if>
 					<c:if test="${adopt.largecate_id == 'c'}">고양이</c:if>
 					</td>
-					<td>
+					<td style="background: #eee">
 					<c:if test="${adopt.smallcate_id == 'd1'}">대형견</c:if>										
 					<c:if test="${adopt.smallcate_id == 'd2'}">중형견</c:if>										
 					<c:if test="${adopt.smallcate_id == 'd3'}">소형견</c:if>										
@@ -236,12 +236,12 @@
 				<c:if test="${adopt.smallcate_id == 'c1' }">
 				<tr>
 					<td>${adopt.adopt_no }</td>
-					<td>${adopt.location_name }</td>
+					<td style="background: #eee">${adopt.location_name }</td>
 					<td>
 					<c:if test="${adopt.largecate_id == 'd'}">강아지</c:if>
 					<c:if test="${adopt.largecate_id == 'c'}">고양이</c:if>
 					</td>
-					<td>
+					<td style="background: #eee">
 					<c:if test="${adopt.smallcate_id == 'd1'}">대형견</c:if>										
 					<c:if test="${adopt.smallcate_id == 'd2'}">중형견</c:if>										
 					<c:if test="${adopt.smallcate_id == 'd3'}">소형견</c:if>										
@@ -268,12 +268,12 @@
 				<c:if test="${adopt.smallcate_id == 'c2' }">
 				<tr>
 					<td>${adopt.adopt_no }</td>
-					<td>${adopt.location_name }</td>
+					<td style="background: #eee">${adopt.location_name }</td>
 					<td>
 					<c:if test="${adopt.largecate_id == 'd'}">강아지</c:if>
 					<c:if test="${adopt.largecate_id == 'c'}">고양이</c:if>
 					</td>
-					<td>
+					<td style="background: #eee">
 					<c:if test="${adopt.smallcate_id == 'd1'}">대형견</c:if>										
 					<c:if test="${adopt.smallcate_id == 'd2'}">중형견</c:if>										
 					<c:if test="${adopt.smallcate_id == 'd3'}">소형견</c:if>										
