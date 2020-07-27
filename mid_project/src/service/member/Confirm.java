@@ -8,8 +8,13 @@ public class Confirm implements CommandProcess {
 		String member_id = request.getParameter("member_id");
 		MemberDao md = MemberDao.getInstance();
 		Member member = md.idChk(member_id);
-		request.setAttribute("member_id", member_id);
-		request.setAttribute("member", member);
+		int result = 0;
+		if (member != null) {
+			result = 1;
+		} else {
+			result = 0;
+		}
+		request.setAttribute("result", result);
 		return "confirm";
 	}
 }

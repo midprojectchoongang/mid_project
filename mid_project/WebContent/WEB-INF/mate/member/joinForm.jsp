@@ -5,16 +5,25 @@
 <head>
 <meta charset="UTF-8">
 <title>MATE</title>
+<script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript">
+    
 	function confirm() {
 		if (!frm.member_id.value) {
 			alert("아이디 입력한 후에 체크하시오");
 			frm.member_id.focus();
 			return false;
+		} else {
+			idChk();
 		}
-		window.open("confirm.member?member_id="+frm.member_id.value,"",
-				"width=350 height=150");
 	}
+	
+	function idChk() {
+	    $.post('confirm.member', 'member_id='+frm.member_id.value, function(data) {
+		    $('#msg').html(data);
+		});
+	}
+	
 	function chk() {
 		if (frm.password.value != frm.confirmPass.value) {
 			alert("암호와 암호확인이 다릅니다");
@@ -47,7 +56,9 @@
 						type="text" name="member_id" required="required"
 						autofocus="autofocus"> <a href="#" onclick="confirm()"
 						style="margin-left: 10px; font-size: 14px; font-weight: 900; color: gray;">중복
-							확인</a></td>
+							확인</a>
+					<div id="msg" style="margin: 0px; padding: 5px;"></div>
+							</td>
 				</tr>
 				<tr>
 					<th>암호</th>

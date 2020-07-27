@@ -4,29 +4,17 @@
 <!DOCTYPE html><html><head><meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">@import url("btn.css");</style>
-<script type="text/javascript">
-	function cl() {
-		opener.frm.member_id.value="${member_id}";
-		window.close();
-	}
-</script>
 </head>
 <body>
-<div align="center">
-<c:if test="${not empty member}">
-	<h2>이미 사용중인 아이디입니다</h2>
-	<form action="">
-	<table>
-		<tr><th>새로운 아이디: </th><td><input type="text" name="member_id"
-			required="required" autofocus="autofocus"></td></tr>
-		<tr><th colspan="2"><input type="submit" class="btn-two charcoal mini rounded">
-	</table>
-	</form>
+<c:if test="${result == 1 }">
+<font color="red">
+사용 중인 아이디입니다
+</font>
 </c:if>
-<c:if test="${empty member}">
-	<h2>사용 가능한 아이디입니다</h2>
-	<button onclick="cl()">닫기</button>
+<c:if test="${result == 0 }">
+<font color="#555">
+사용 가능한 아이디입니다
+</font>
 </c:if>
-</div>
 </body>
 </html>
