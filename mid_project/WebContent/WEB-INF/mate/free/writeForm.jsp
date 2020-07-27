@@ -81,10 +81,9 @@
 					<option value="f">자유</option>
 					<option value="i">정보</option>
 					<option value="a">후기</option>
-			</select></th>
-		</tr>
+			</select></th></tr>
 		<tr><td><div class="textbox"><label for="sj_input">제목</label>
-			<input type="text" name="subject" required="required" id="sj_input" style="width: 100%"></div></td>
+			<input type="text" name="subject" required="required" id="sj_input"></div></td>
 		</tr>
 		<tr><td style="text-align: justify;"><textarea id="summernote" name="content"></textarea></td></tr>
 	</table><p>

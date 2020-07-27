@@ -16,7 +16,7 @@
 
 <b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">HOT 게시판</b>
 
-<div align="center" style="margin-top: 200px; position: relative; min-height: 500px">
+<div align="center" style="margin-top: 200px; position: relative; min-height: 450px">
 	<input type="hidden" name="pageNum" value="${pageNum }">
 	<table class="w3-table w3-centered w3-bordered">
 			<tr><th>번호</th><th>카테고리</th><th style="width: 50%">제목</th><th>작성자</th><th>조회수</th><th>작성일</th></tr>

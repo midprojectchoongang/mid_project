@@ -57,7 +57,7 @@
 </c:if>
 
 	<!-- 리스트 -->
-<div align="center" style="margin-top: 200px; position: relative; min-height: 400px;">
+<div align="center" style="margin-top: 200px; position: relative; min-height: 400px; margin-bottom: 100px">
 <form action="update.free" method="post">
 	<input type="hidden" name="pageNum" value="${pageNum}">
 	<input type="hidden" name="free_no" value="${free.free_no}">
@@ -69,14 +69,13 @@
 					<option value="i">정보</option>
 					<option value="a">후기</option>
 			</select></th>
-		</tr>
 		<tr><td><div class="textbox">
-			<input type="text" name="subject" required="required" ${free.subject } style="width: 100%"></div></td>
+			<input type="text" name="subject" required="required" value="${free.subject }"></div></td>
 		</tr>
 		<tr><td style="text-align: justify;"><textarea id="summernote" name="content">${free.content }</textarea></td></tr>
 	</table><p>
-		<input type="submit" value="수정" onclick="location.href='update.free?free_no=${free.free_no}'">
-		<input type="button" value="취소" onclick="location.href='freeContent.free?free_no=${free.free_no }&pageNum=${pageNum}'">
+	<input type="submit" class="btn-two small blue rounded" value="확인">
+	<button onclick="location.href='freeContent.free?free_no=${free.free_no }&pageNum=${pageNum}'" class="btn-two small red rounded">취소</button>
 </form>
 </div>
 
