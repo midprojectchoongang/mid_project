@@ -5,12 +5,38 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>MATE</title>re</title>
-<script type="text/javascript" src="js/jquery.js"></script>
+<title>MATE</title>
+  <!-- include libraries(jQuery, bootstrap) -->
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
+
+<!-- include summernote css/js-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
+
+<!-- include summernote-ko-KR -->
+<script src="js/summernote-ko-KR.js"></script>
 <script type="text/javascript">
 
+	$(document).ready(function() {
+		$('#summernote').summernote({
+			height: 300,
+			minHeight: null,
+			maxHeight: null,
+			focus: true,
+			callbacks: {
+				onImageUpload: function(files, editor, welEditable) {
+					for (var i = files.length - 1; i >= 0; i--) {
+						sendFile(files[i], this);
+					}
+				}
+			}
+		});
+	});
+
 	$(function() {
-		var cate = "${free.category }";
+		var cate = "${category }";
 		$('select>option[value="'+cate+'"]').attr('selected','selected');
 	});
 
@@ -35,32 +61,20 @@
 <form action="update.free" method="post">
 	<input type="hidden" name="pageNum" value="${pageNum}">
 	<input type="hidden" name="free_no" value="${free.free_no}">
-	<table class="w3-table w3-centered w3-bordered">
+	<table class="w3-table w3-centered" style="masx-width: 900px">
 		<tr>
-			<th>카테고리</th>
-			<td><select size="1" name="category">
-				<option value="f">자유</option>
-				<option value="i">정보</option>
-				<option value="a">후기</option>	
-			</select></td>
+		<tr><th>카테고리&emsp;
+				<select size="1" name="category">
+					<option value="f">자유</option>
+					<option value="i">정보</option>
+					<option value="a">후기</option>
+			</select></th>
 		</tr>
-		<tr>
-			<th>제목</th>
-			<td><input type="text" name="subject" value="${free.subject }" required="required" autofocus="autofocus"></td>
+		<tr><td><div class="textbox">
+			<input type="text" name="subject" required="required" ${free.subject } style="width: 100%"></div></td>
 		</tr>
-		<tr>
-			<th>사진</th>
-			<td><input type="file" name="free_image1"></td>
-		</tr>
-		<tr>
-			<th>내용</th>
-			<td><textarea name="content" rows="10" cols="50" required="required">${free.content }
-			</textarea>
-			</td>
-		</tr>
-	</table>
-
-	<p>
+		<tr><td style="text-align: justify;"><textarea id="summernote" name="content">${free.content }</textarea></td></tr>
+	</table><p>
 		<input type="submit" value="수정" onclick="location.href='update.free?free_no=${free.free_no}'">
 		<input type="button" value="취소" onclick="location.href='freeContent.free?free_no=${free.free_no }&pageNum=${pageNum}'">
 </form>

@@ -61,7 +61,7 @@
 
 <div align="center" style="margin-top: 200px; position: relative; min-height: 400px; margin-bottom: 100px">
 <form action="insert.notice" method="post">
-	<table class="w3-table w3-centered style="max-width: 900px">
+	<table class="w3-table w3-centered" style="max-width: 900px">
 		<tr><td><div class="textbox"><label for="sj_input">제목</label>
 			<input type="text" name="subject" required="required" id="sj_input"></div></td>
 		</tr>
