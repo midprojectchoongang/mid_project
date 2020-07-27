@@ -1,6 +1,6 @@
 /build/
 configuration.xml
 db.properties
-/.sql
-/.classpath
-/.project
+*.sql
+*.classpath
+*.project
