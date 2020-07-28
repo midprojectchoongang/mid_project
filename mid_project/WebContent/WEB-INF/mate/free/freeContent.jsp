@@ -38,6 +38,15 @@
 		});
 		
 	});
+	
+	function delmsg() {
+	    var msg = "게시물을 삭제합니다";
+		if (confirm(msg)) {
+		    location.href = 'delete.free?free_no=${free.free_no}&category=${free.category}&pageNum=${pageNum}';
+		} else {
+		    return;
+		}
+	}
 </script>
 </head>
 <body>
@@ -66,10 +75,10 @@
 	<p>
 	<c:if test="${member_id == free.member_id }">
 		<a href="updateForm.free?free_no=${free.free_no }&pageNum=${pageNum }" class="btn-two mini blue rounded">수정</a>
-		<a href="delmsg()" class="btn-two mini red rounded">삭제</a>
+		<a href="#" onclick="delmsg()" class="btn-two mini red rounded">삭제</a>
 	</c:if>
 	<c:if test="${not empty master_id }">
-		<a href="delmsg()" class="btn-two mini red rounded">삭제</a>
+		<a href="#" onclick="delmsg()" class="btn-two mini red rounded">삭제</a>
 	</c:if>
 	<c:if test="${not empty member_id && member_id != free.member_id}">
 		<a href="scrapChk.freeS?free_no=${free.free_no }&pageNum=${pageNum }" class="btn-two mini blue rounded">스크랩</a>

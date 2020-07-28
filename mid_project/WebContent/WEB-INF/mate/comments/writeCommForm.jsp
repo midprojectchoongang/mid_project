@@ -12,7 +12,7 @@
 	<input type="hidden" name="member_id" id="member_id" value="${member_id}">
 	<input type="hidden" name="free_no" id="free_no" value="${free.free_no}">
 	<c:if test="${not empty member_id }">
-		<table class="w3-table w3-centered w3-bordered">
+		<table class="w3-table w3-centered w3-bordered" style="max-width: 1000px">
 			<tr>
 				<td><textarea rows="3" cols="50" name="comm_content" id="comm_content"></textarea></td>
 				<td><input type="button" value="댓글입력" id="cInsert" class="btn-two mini charcoal rounded"></td>

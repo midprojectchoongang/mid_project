@@ -32,10 +32,18 @@
 <fmt:formatDate value="${adopt.reg_date }" pattern="yyyy.MM.dd  HH:mm" var="date"/>
 <!-- Header, NavBar -->
 <%@ include file="../mainPage/nav.jsp" %>
-<%@ include file="../mainPage/sideNav.jsp" %>
+
+<c:if test="${member_id != adopt.member_id }">
+	<%@ include file="../mainPage/sideNav.jsp" %>
+</c:if>
 
 <div style=" position: absolute; margin-left: 25%; margin-top: -100px">
-	<b style="font-size: 24px; margin-right: 20px">공고 게시판</b>
+	<c:if test="${member_id != adopt.member_id }">
+			<b style="font-size: 24px; margin-right: 20px">공고 게시판</b>
+	</c:if>
+	<c:if test="${member_id == adopt.member_id }">
+		<b style="font-size: 24px; margin-right: 20px">내가 쓴 공고</b>
+	</c:if>
 	<span style="font-weight: 900; color: grey;	">
 		<c:if test="${adopt.location_no == 2}">서울</c:if>
 		<c:if test="${adopt.location_no == 31}">경기</c:if>
@@ -68,7 +76,7 @@
 <div align="center" style="margin-top: 200px; position: relative; min-height: 450px">
 		<input type="hidden" name="pageNum" value="${pageNum }">
 		<input type="hidden" name="adopt_no" value="${adopt.adopt_no }">
-	<table class="w3-table w3-centered w3-bordered">
+	<table class="w3-table w3-centered w3-bordered" style="max-width: 1000px;">
 		<tr>
 			<th width="100">제목</th>
 			<td style="text-align:left">${adopt.subject }</td>

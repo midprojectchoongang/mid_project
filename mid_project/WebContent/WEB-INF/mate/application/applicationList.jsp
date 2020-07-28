@@ -12,9 +12,9 @@
 <jsp:useBean id="now" class="java.util.Date"/>
 <fmt:formatDate value="${now }" pattern="yyyyMMdd" var="nowDate"/>
 
-<div align="center" style="margin-top: 100px; position: relative;">
+<div align="center" style=" position: relative;">
 	<input type="hidden" name="pageNum" value="${pageNum }">
-	<table class="w3-table w3-centered w3-bordered">
+	<table class="w3-table w3-centered w3-bordered" style="max-width: 1000px">
 		<c:if test="${empty appList}">
 			<tr>
 				<th colspan="5">등록된 지원서가 없습니다</th>
@@ -23,15 +23,15 @@
 		
 		<c:if test="${not empty appList}">
 		<tr>
-			<th>지역</th>
+			<th>거주 지역</th>
 			<th>성별</th>
 			<th>반려동물 경험</th>
 			<th style="width: 50%">제목</th>
-			<th>작성일</th>
+			<th>지원일</th>
 		</tr>
 			<c:forEach var="application" items="${appList }">
 				<tr>
-					<td>${appList.location_name }</td>
+					<td>${location_name }</td>
 					<td>
 					<c:if test="${application.gender == 'm'}">남</c:if>
 					<c:if test="${application.gender == 'f'}">여</c:if>

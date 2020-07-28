@@ -71,7 +71,7 @@
 <input type="hidden" id="free_no" value="${free_no }">
 <input type="hidden" id="c_pageNum" value="${c_pageNum }">
 <c:if test="${not empty commList }">
-	<table class="w3-table w3-centered">
+	<table class="w3-table w3-centered" style="max-width: 1000px">
 	<c:forEach var="comments" items="${commList }">
 		<tr id="tr_${comments.comment_no }">
 		<td id="cno">${comments.comment_no }</td>
