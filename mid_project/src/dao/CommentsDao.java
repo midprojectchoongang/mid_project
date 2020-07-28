@@ -26,8 +26,12 @@ public class CommentsDao {
 	public int write(Comments comm) {
 		return session.insert("commentsns.write", comm);
 	}
-	public List<Comments> list(int free_no) {
-		return session.selectList("commentsns.list", free_no);
+	public List<Comments> list(int startRow, int endRow, int free_no) {
+		HashMap<String, Integer> hm = new HashMap<>();
+		hm.put("startRow", startRow);
+		hm.put("endRow", endRow);
+		hm.put("free_no", free_no);
+		return session.selectList("commentsns.list", hm);
 	}
 	public Comments orig(int find) {
 		return session.selectOne("commentsns.orig", find);
@@ -40,6 +44,9 @@ public class CommentsDao {
 	}
 	public int cntNum(int free_no) {
 		return session.selectOne("commentsns.cntNum", free_no);
+	}
+	public int total(int free_no) {
+		return session.selectOne("commentsns.total", free_no);
 	}
 
 }

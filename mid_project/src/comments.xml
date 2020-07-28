@@ -14,9 +14,13 @@
 		<result property="del" column="del" />
 	</resultMap>
 
-	<select id="list" parameterType="integer" resultMap="resultMap">
-		select * from comments where free_no = #{free_no}
-		order by ref, re_level, reg_date
+	<select id="list" parameterType="hashMap" resultMap="resultMap">
+		select * from (select rowNum rn, a.* from (select * from comments 
+		where free_no = #{free_no} order by ref, re_level, reg_date) a)
+		where rn between #{startRow} and #{endRow}
+	</select>
+	<select id="total" parameterType="integer" resultType="integer">
+		select count(*) from comments where free_no = #{free_no}
 	</select>
 	<insert id="write" parameterType="comments">
 		insert into comments values (comments_seq.nextval, #{member_id},

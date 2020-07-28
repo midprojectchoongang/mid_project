@@ -15,6 +15,7 @@
 	
 	function reComm(cno) {
 		$('#comm_content').text('@' +cno+ " ");
+		location.herf="#cTab";
 	}
 	
 	function cDelete(cno) {
@@ -43,6 +44,24 @@
 	function lst(fno) {
 	    $('#commListDisp').load('commList.comm?free_no='+fno);
 	}
+	
+	// paging
+	function forword(cPage) {
+	    $('#commListDisp').load('commList.comm?free_no='+fno+'&c_pageNum='+cPage);
+	    return false;
+	}
+	
+	function backword(cPage) {
+	    $('#commListDisp').load('commList.comm?free_no='+fno+'&c_pageNum='+cPage);
+	    return false;
+	}
+	
+	function pageN(sp, ep) {
+	    for (i=sp; i<=ep; i++) {
+			$('#commListDisp').load('commList.comm?free_no='+fno+'&c_pageNum='+i);
+	    }
+	    return false;
+	}
 </script>
 </head>
 <body>
@@ -50,11 +69,12 @@
 <fmt:formatDate value="${now }" pattern="yyyyMMdd" var="nowDate"/>
 
 <input type="hidden" id="free_no" value="${free_no }">
+<input type="hidden" id="c_pageNum" value="${c_pageNum }">
 <c:if test="${not empty commList }">
 	<table class="w3-table w3-centered">
 	<c:forEach var="comments" items="${commList }">
 		<tr id="tr_${comments.comment_no }">
-		<td id="cno"><a href="#cTab" onclick="reComm(${comments.comment_no})">${comments.comment_no }</a></td>
+		<td id="cno">${comments.comment_no }</td>
 		<td style="text-align: left; margin-right: 10px;">${comments.member_id }</td>
 		<td id="td_${comments.comment_no }" style="text-align: left; width:55%;">
 		<c:if test="${comments.re_level > 0 }">
@@ -94,6 +114,24 @@
 	</c:forEach>
 	</table>
 </c:if>
+
+<div id="commPage" style="margin-top:10px">
+	<c:if test="${startPage > pagePerBlock }">
+		<a href="#" onclick="return forword(${startPage - 1 })"><<</a>
+	</c:if>
+	<c:forEach var="i" begin="${startPage }" end="${endPage }">
+		<c:if test="${i == currentPage }">
+			<b>${ i }</b>
+		</c:if>
+		<c:if test="${i != currentPage }">
+			<a href="#" onclick="return pageN(${startPage},${endPage})">${i }</a>
+		</c:if>
+	</c:forEach>
+	<c:if test="${endPage < totalPage }">
+		<a href="#" onclick="return backword(${endPage+1})">>></a>
+	</c:if>
+</div>
+
 <div id="cTab"></div>
 </body>
 </html>
