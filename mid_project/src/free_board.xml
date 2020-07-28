@@ -7,11 +7,6 @@
 		<result property="member_id" column="member_id" />
 		<result property="category" column="category" />
 		<result property="subject" column="subject" />
-		<result property="free_image1" column="free_image1" />
-		<result property="free_image2" column="free_image2" />
-		<result property="free_image3" column="free_image3" />
-		<result property="free_image4" column="free_image4" />
-		<result property="free_image5" column="free_image5" />
 		<result property="content" column="content" />
 		<result property="reg_date" column="reg_date" />
 		<result property="del" column="del" />
@@ -24,8 +19,11 @@
 	</select>
 	<insert id="write" parameterType="free_board">
 		insert into free_board values (free_seq.nextval, #{member_id}, #{category}, #{subject},
-		'test', 'test', 'test', 'test', 'test', #{content}, sysdate, 'n', 0, 0)
+		sysdate, 'n', 0, 0, EMPTY_CLOB())
 	</insert>
+	<update id="writeImg" parameterType="hashMap">
+		update free_board set content = #{content} where free_no = #{free_no}
+	</update>
 	<select id="total" parameterType="string" resultType="integer">
 		select count(*) from free_board where category = #{category} and del = 'n'
 	</select>
@@ -33,8 +31,9 @@
 		select * from free_board where free_no = #{free_no}
 	</select>
 	<update id="update" parameterType="free_board">
-		update free_board set category = #{category}, subject = #{subject},
-		content = #{content} where free_no = #{free_no} 
+		update free_board set member_id = #{member_id}, 
+		category = #{category},	subject = #{subject}, content = EMPTY_CLOB()
+		where free_no = #{free_no}
 	</update>
 	<update id="delete" parameterType="integer">
 		update free_board set del = 'y' where free_no = #{free_no}

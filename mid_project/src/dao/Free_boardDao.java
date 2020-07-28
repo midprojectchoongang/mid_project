@@ -38,7 +38,7 @@ public class Free_boardDao {
 		return session.selectOne("freens.read", free_no);
 	}
 	public int update(Free_board free_board) {
-		return session.update("freens.update", free_board);
+		return session.insert("freens.update", free_board);
 	}
 	public int delete(int free_no) {
 		return session.update("freens.delete", free_no);
@@ -61,5 +61,14 @@ public class Free_boardDao {
 		hm.put("free_no", free_no);
 		hm.put("comm", cntNum);
 		return session.update("freens.cntComm", hm);
+	}
+	public int search(String member_id) {
+		return session.selectOne("freens.search", member_id);
+	}
+	public void writeImg(String content, int free_no) {
+		HashMap<String, String> hm = new HashMap<>();
+		hm.put("content", content);
+		hm.put("free_no", free_no+"");
+		session.update("freens.writeImg", hm);	
 	}
 }
