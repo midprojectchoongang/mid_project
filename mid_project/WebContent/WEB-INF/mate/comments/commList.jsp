@@ -56,10 +56,8 @@
 	    return false;
 	}
 	
-	function pageN(sp, ep) {
-	    for (i=sp; i<=ep; i++) {
-			$('#commListDisp').load('commList.comm?free_no='+fno+'&c_pageNum='+i);
-	    }
+	function pageN(page) {
+		$('#commListDisp').load('commList.comm?free_no='+fno+'&c_pageNum='+page);
 	    return false;
 	}
 </script>
@@ -124,7 +122,7 @@
 			<b>${ i }</b>
 		</c:if>
 		<c:if test="${i != currentPage }">
-			<a href="#" onclick="return pageN(${startPage},${endPage})">${i }</a>
+			<a href="#" onclick="return pageN(${i})">${i }</a>
 		</c:if>
 	</c:forEach>
 	<c:if test="${endPage < totalPage }">
