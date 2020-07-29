@@ -2,7 +2,7 @@ create table master (
 master_id varchar2(10) primary key,
 password varchar2(14)
 );
-
+select * from shelter;
 insert into master values('master', '1234');
 
 create sequence notice_seq;

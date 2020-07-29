@@ -22,7 +22,7 @@ public class MemberDao {
 				new SqlSessionFactoryBuilder().build(reader);
 			session = ssf.openSession(true);
 		} catch (Exception e) {
-			System.out.println("초기화 에러 : "+e.getMessage());
+			System.out.println("초기화 에러 : " + e.getMessage());
 		}
 	}
 	public Member select(String member_id) {

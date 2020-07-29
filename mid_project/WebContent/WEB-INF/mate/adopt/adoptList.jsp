@@ -54,7 +54,7 @@
 						</td>
 						<td style="text-align: left;">
 						<c:if test="${adopt.del == 'n' }">
-							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px">${adopt.subject }</a>
+							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }&category=${param.category}" style="margin-left: 20px">${adopt.subject }</a>
 						</c:if>
 						<c:if test="${adopt.del == 'y' }">
 							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px; text-decoration: line-through; color: #555">${adopt.subject }</a>
@@ -93,7 +93,7 @@
 						</td>
 						<td style="text-align: left;">
 						<c:if test="${adopt.del == 'n' }">
-							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px">${adopt.subject }</a>
+							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }&category=${param.category}" style="margin-left: 20px">${adopt.subject }</a>
 						</c:if>
 						<c:if test="${adopt.del == 'y' }">
 							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px; text-decoration: line-through; color: #555">${adopt.subject }</a>
@@ -132,7 +132,7 @@
 						</td>
 						<td style="text-align: left;">
 						<c:if test="${adopt.del == 'n' }">
-							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px">${adopt.subject }</a>
+							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }&category=${param.category}" style="margin-left: 20px">${adopt.subject }</a>
 						</c:if>
 						<c:if test="${adopt.del == 'y' }">
 							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px; text-decoration: line-through; color: #555">${adopt.subject }</a>
@@ -171,7 +171,7 @@
 						</td>
 						<td style="text-align: left;">
 						<c:if test="${adopt.del == 'n' }">
-							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px">${adopt.subject }</a>
+							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }&category=${param.category}" style="margin-left: 20px">${adopt.subject }</a>
 						</c:if>
 						<c:if test="${adopt.del == 'y' }">
 							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px; text-decoration: line-through; color: #555">${adopt.subject }</a>
@@ -210,7 +210,7 @@
 						</td>
 						<td style="text-align: left;">
 						<c:if test="${adopt.del == 'n' }">
-							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px">${adopt.subject }</a>
+							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }&category=${param.category}" style="margin-left: 20px">${adopt.subject }</a>
 						</c:if>
 						<c:if test="${adopt.del == 'y' }">
 							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px; text-decoration: line-through; color: #555">${adopt.subject }</a>
@@ -250,7 +250,7 @@
 						</td>
 						<td style="text-align: left;">
 						<c:if test="${adopt.del == 'n' }">
-							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px">${adopt.subject }</a>
+							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }&category=${param.category}" style="margin-left: 20px">${adopt.subject }</a>
 						</c:if>
 						<c:if test="${adopt.del == 'y' }">
 							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px; text-decoration: line-through; color: #555">${adopt.subject }</a>
@@ -289,7 +289,7 @@
 						</td>
 						<td style="text-align: left;">
 						<c:if test="${adopt.del == 'n' }">
-							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px">${adopt.subject }</a>
+							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }&category=${param.category}" style="margin-left: 20px">${adopt.subject }</a>
 						</c:if>
 						<c:if test="${adopt.del == 'y' }">
 							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px; text-decoration: line-through; color: #555">${adopt.subject }</a>
@@ -328,7 +328,7 @@
 						</td>
 						<td style="text-align: left;">
 						<c:if test="${adopt.del == 'n' }">
-							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px">${adopt.subject }</a>
+							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }&category=${param.category}" style="margin-left: 20px">${adopt.subject }</a>
 						</c:if>
 						<c:if test="${adopt.del == 'y' }">
 							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px; text-decoration: line-through; color: #555">${adopt.subject }</a>
