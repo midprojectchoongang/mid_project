@@ -5,8 +5,24 @@
 <head>
 <meta charset="UTF-8">
 <title>MATE</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript">
+$(document).ready(function() {
+	  var placeholderTarget = $('.textbox input[type="text"], .textbox input[type="password"]');
+	  
+	  //포커스시
+	  placeholderTarget.on('focus', function(){
+	    $(this).siblings('label').fadeOut('fast');
+	  });
+	
+	  //포커스아웃시
+	  placeholderTarget.on('focusout', function(){
+	    if($(this).val() == ''){
+	      $(this).siblings('label').fadeIn('fast');
+	    }
+	  });
+	});
     
 	function confirm() {
 		if (!frm.member_id.value) {
@@ -35,7 +51,7 @@
 			alert("성별을 체크해 주세요");
 			return false;
 		}
-	}
+	}z
 </script>
 </head>
 <body>
@@ -44,58 +60,41 @@
 
 	<b style="font-size: 24px; position: absolute; margin: -100px 0 0 47%;">회원가입</b>
 
-	<div align="center"
-		style="margin-top: 200px; position: relative; min-height: 450px; margin-bottom: 100px">
-		<form action="join.member" method="post" name="frm"
-			onsubmit="return chk()">
-			<table class="w3-table w3-centered w3-bordered"
-				style="max-width: 450px">
-				<tr>
-					<th style="min-width: 125px">아이디</th>
-					<td style="text-align: left; margin-left: 20px"><input
-						type="text" name="member_id" required="required"
-						autofocus="autofocus"> <a href="#" onclick="confirm()"
-						style="margin-left: 10px; font-size: 14px; font-weight: 900; color: gray;">중복
-							확인</a>
-					<div id="msg" style="margin: 0px; padding: 5px;"></div>
-							</td>
-				</tr>
-				<tr>
-					<th>암호</th>
-					<td style="text-align: left; margin-left: 20px"><input
-						type="password" name="password" required="required"></td>
-				</tr>
-				<tr>
-					<th>암호 확인</th>
-					<td style="text-align: left; margin-left: 20px"><input
-						type="password" name="confrimPass" required="required"></td>
-				</tr>
-				<tr>
-					<th>이름</th>
-					<td style="text-align: left; margin-left: 20px"><input
-						type="text" name="name" required="required"></td>
-				</tr>
-				<tr>
-					<th>성별</th>
-					<td style="text-align: left; margin-left: 20px"><label
-						for="g1">남자</label> <input type="radio" name="gender" value="m"
-						id="g1" required="required"> <label for="g2">여자</label> <input
-						type="radio" name="gender" value="f" id="g2" required="required"></td>
-				</tr>
-				<tr>
-					<th>이메일</th>
-					<td style="text-align: left; margin-left: 20px"><input
-						type="text" name="email" required="required">
-				<tr>
-					<th>전화번호</th>
-					<td style="text-align: left; margin-left: 20px"><input
-						type="tel" name="tel" required="required"
-						pattern="\d{3}-\d{3,4}-\d{4}" placeholder="xxx-xxxx-xxxxx"
-						title="전화번호 형식 xxx-xxxx-xxxx">
-				<tr>
-					<th>주소</th>
-					<td style="text-align: left; margin-left: 20px"><select
-						name="location_no">
+	<div align="center" style="margin-top: 200px; position: relative; min-height: 450px; margin-bottom: 100px">
+		<form action="join.member" method="post" name="frm" onsubmit="return chk()">
+			<div class="textbox" style="max-width: 300px;">
+				<label for="id_input">아이디</label>
+				<input type="text" name="member_id" required="required" id="id_input">
+				<a href="#" onclick="confirm()" style="margin-left: 10px; font-size: 14px; font-weight: 900; color: gray;">중복확인</a>
+				<div id="msg" style="margin: 0px; padding: 5px;"></div>
+			</div>
+			<div class="textbox" style="max-width: 300px;">
+				<label for="pw_input">비밀번호</label>
+				<input type="password" name="password" required="required" id="pw_input">
+			</div>
+			<div class="textbox" style="max-width: 300px; margin-bottom: 30px">
+				<label for="pw_input">암호 확인</label>
+				<input type="password" name="confrimPass" required="required" id="pw_input">
+			</div>
+			<div class="textbox" style="max-width: 300px;">
+				<label for="id_input">이름</label>
+				<input type="text" name="name" required="required" id="id_input">
+			</div>
+			<div class="textbox" style="max-width: 300px;">
+				<label for="id_input">이메일</label>
+				<input type="text" name="email" required="required" id="id_input">
+			</div>
+			<div class="textbox" style="max-width: 300px;">
+				<label for="id_input">연락처 ex) 010-0000-0000</label>
+				<input type="text" name="tel" required="required" id="id_input">
+			</div>
+			<table style="max-width: 300px; text-align: center;">
+				<tr><th>성별</th><td><label for="g1">MALE&nbsp;</label><input type="radio" name="gender" checked="checked" value="m" id="g1"/>
+				&emsp;<label for="g2">FEMALE&nbsp;</label><input type="radio" name="gender" value="f" id="g2"/></td></tr>
+				<tr><th>반려동물 입양 경험</th><td><label for="e1">유&nbsp;</label><input type="radio" name="experience" checked="checked" value="y"	id="e1">
+				&emsp;<label for="e2">무&nbsp;</label><input type="radio" name="experience" value="n" id="e2"></td></tr>
+				<tr><th>거주 지역</th><td>
+						<select name="location_no">
 							<option value="2">서울
 							<option value="31">경기
 							<option value="32">인천
@@ -112,17 +111,11 @@
 							<option value="62">광주
 							<option value="63">전북
 							<option value="64">제주
-					</select></td>
-				</tr>
-				<tr>
-					<th>경험</th>
-					<td style="text-align: left; margin-left: 20px"><label
-						for="e1">유</label> <input type="radio" name="experience" value="y"
-						id="e1" required="required"> <label for="e2">무</label> <input
-						type="radio" name="experience" value="n" id="e2"
-						required="required"></td>
+					</select></td></tr>
 			</table>
-			<p>
+			
+			
+			<p><p>
 				<input type="submit" value="회원가입"
 					class="btn-two rounded charcoal small">
 		</form>

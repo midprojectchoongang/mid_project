@@ -27,8 +27,7 @@
 }
 
 a[class*="btn"] {text-decoration: none;}
-input[class*="btn"], 
-button[class*="btn"] {border: 0; cursor: pointer;}
+input[class*="btn"], button[class*="btn"] {border: 0; cursor: pointer;}
 
 /* Here you can change the button sizes */
 .btn-two.fixed {
