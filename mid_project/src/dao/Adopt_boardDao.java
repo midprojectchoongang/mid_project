@@ -56,4 +56,13 @@ public class Adopt_boardDao {
 		
 		return session.selectList("adoptns.myList", hm);
 	}
+	public void writeImg(String content, int adopt_no) {
+		HashMap<String, String> hm = new HashMap<>();
+		hm.put("content", content);
+		hm.put("adopt_no", adopt_no+"");
+		session.update("adoptns.writeImg", hm);
+	}
+	public int myTotal(String member_id) {
+		return session.selectOne("adoptns.myTotal", member_id);
+	}
 }

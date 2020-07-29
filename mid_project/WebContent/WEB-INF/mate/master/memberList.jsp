@@ -15,7 +15,7 @@
 	<!-- 리스트 -->
 <div align="center" style="margin-top: 200px; position: relative; min-height: 450px">
 	<table class="w3-table w3-centered w3-bordered" style="max-width: 500px">
-		<tr><th>ID</th><th>가입일</th><th>탈퇴 여부</th></tr>
+		<tr><th>ID</th><th>가입일</th><th colspan="2">탈퇴 여부</th></tr>
 		<c:forEach items="${list }" var="member">
 			<tr><td>${member.member_id }</td>
 				<td>${member.reg_date }</td><td>${member.del }</td>
