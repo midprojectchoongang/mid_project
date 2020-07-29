@@ -98,7 +98,12 @@
 		<a href="scrapChk.adoptS?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" class="btn-two mini blue rounded">스크랩</a>
 		<a href="writeForm.application?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" class="btn-two mini blue rounded">지원하기	</a>
 	</c:if>
-		<a href="#" onclick="history.back()" class="btn-two mini charcoal rounded">목록</a>
+	<c:if test="${empty param.fromApp }">
+		<a href="adoptList.adopt?pageNum=${pageNum }&category=${category}" class="btn-two mini charcoal rounded">목록</a>
+	</c:if>
+	<c:if test="${not empty param.fromApp}">
+		<a href="#" onclick="history.back()" class="btn-two mini charcoal rounded">내 지원서</a>
+	</c:if>
 </div>
 
 <div id="showList">

@@ -53,7 +53,7 @@
 						<c:if test="${adopt.smallcate_id == 'c2'}">단모</c:if>										
 						</td>
 						<td style="text-align: left;">
-							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px">${adopt.subject }</a>
+							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }&category=${param.category}" style="margin-left: 20px">${adopt.subject }</a>
 						</td>
 						<fmt:formatDate value="${adopt.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
 						<c:if test="${nowDate > pastDate }">
@@ -87,7 +87,7 @@
 						<c:if test="${adopt.smallcate_id == 'c2'}">단모</c:if>										
 						</td>
 						<td style="text-align: left;">
-							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px">${adopt.subject }</a>
+							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }&category=${param.category}" style="margin-left: 20px">${adopt.subject }</a>
 						</td>
 						<fmt:formatDate value="${adopt.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
 						<c:if test="${nowDate > pastDate }">
@@ -121,7 +121,7 @@
 						<c:if test="${adopt.smallcate_id == 'c2'}">단모</c:if>										
 						</td>
 						<td style="text-align: left;">
-							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px">${adopt.subject }</a>
+							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }&category=${param.category}" style="margin-left: 20px">${adopt.subject }</a>
 								</td>
 						<fmt:formatDate value="${adopt.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
 						<c:if test="${nowDate > pastDate }">
@@ -155,7 +155,7 @@
 						<c:if test="${adopt.smallcate_id == 'c2'}">단모</c:if>										
 						</td>
 						<td style="text-align: left;">
-							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px">${adopt.subject }</a>
+							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }&category=${param.category}" style="margin-left: 20px">${adopt.subject }</a>
 								</td>
 						<fmt:formatDate value="${adopt.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
 						<c:if test="${nowDate > pastDate }">
@@ -189,7 +189,7 @@
 						<c:if test="${adopt.smallcate_id == 'c2'}">단모</c:if>										
 						</td>
 						<td style="text-align: left;">
-							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px">${adopt.subject }</a>
+							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }&category=${param.category}" style="margin-left: 20px">${adopt.subject }</a>
 								</td>
 						<fmt:formatDate value="${adopt.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
 						<c:if test="${nowDate > pastDate }">
@@ -224,7 +224,7 @@
 						<c:if test="${adopt.smallcate_id == 'c2'}">단모</c:if>										
 						</td>
 						<td style="text-align: left;">
-							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px">${adopt.subject }</a>
+							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }&category=${param.category}" style="margin-left: 20px">${adopt.subject }</a>
 						</td>
 						<fmt:formatDate value="${adopt.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
 						<c:if test="${nowDate > pastDate }">
@@ -258,7 +258,7 @@
 						<c:if test="${adopt.smallcate_id == 'c2'}">단모</c:if>										
 						</td>
 						<td style="text-align: left;">
-							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px">${adopt.subject }</a>
+							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }&category=${param.category}" style="margin-left: 20px">${adopt.subject }</a>
 						</td>
 						<fmt:formatDate value="${adopt.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
 						<c:if test="${nowDate > pastDate }">
@@ -292,7 +292,7 @@
 						<c:if test="${adopt.smallcate_id == 'c2'}">단모</c:if>										
 						</td>
 						<td style="text-align: left;">
-							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" style="margin-left: 20px">${adopt.subject }</a>
+							<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }&category=${param.category}" style="margin-left: 20px">${adopt.subject }</a>
 						</td>
 						<fmt:formatDate value="${adopt.reg_date }" pattern="yyyyMMdd" var="pastDate"/>
 						<c:if test="${nowDate > pastDate }">
