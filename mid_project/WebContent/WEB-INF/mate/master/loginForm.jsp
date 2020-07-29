@@ -5,6 +5,24 @@
 <head>
 <meta charset="UTF-8">
 <title>MATE</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+	  var placeholderTarget = $('.textbox input[type="text"], .textbox input[type="password"]');
+	  
+	  //포커스시
+	  placeholderTarget.on('focus', function(){
+	    $(this).siblings('label').fadeOut('fast');
+	  });
+	
+	  //포커스아웃시
+	  placeholderTarget.on('focusout', function(){
+	    if($(this).val() == ''){
+	      $(this).siblings('label').fadeIn('fast');
+	    }
+	  });
+	});
+</script>
 </head>
 <body>
 <!-- Header, NavBar -->
@@ -17,12 +35,17 @@
 </c:if>
 
 <div align="center" style="margin-top: 15%; margin-bottom: 15%;">
+<h1>관리자 로그인</h1>
 <form action="login.master" method="post">
-	<table class="w3-table w3-centered" style="max-width:400px"><caption style="font-size: 25px; font-weight: 900;">관리자 로그인</caption>
-		<tr><th>관리자 계정</th><td><input type="text" name="master_id" autofocus="autofocus" required="required"></td></tr>
-		<tr><th>비밀번호</th><td><input type="password" name="password" required="required"></td></tr>
-		<tr><th colspan="2"><input type="submit" class="btn-two small charcoal rounded" value="로그인"></th></tr>
-	</table>
+	<div class="textbox" style="max-width: 300px; margin-right: 15px">
+		<label for="id_input">아이디</label>
+		<input type="text" name="master_id" required="required" id="id_input">
+	</div>
+	<div class="textbox" style="max-width: 300px; margin-right: 15px">
+		<label for="pw_input">비밀번호</label>
+		<input type="password" name="password" required="required" id="pw_input">
+	</div>
+	<input type="submit" class="btn-two small charcoal rounded" value="로그인">
 </form>
 </div>
 

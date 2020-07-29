@@ -28,7 +28,7 @@
 	<input type="hidden" name="pageNum" value="${pageNum }">
 		<table class="w3-table w3-centered w3-bordered"  style="max-width: 700px">
 			<tr>
-				<th>지역</th><th>보호소 이름</th><th>전화번호</th>
+				<th>지역</th><th>보호소 이름</th><th>전화번호</th><c:if test="${not empty master_id }"><th>수정/삭제</th></c:if>
 			</tr>
 				
 		<c:if test="${empty list }">
@@ -62,15 +62,12 @@
 				<td>
 					${shelter.tel}
 				</td>
-				<td>
 					<c:if test="${not empty master_id }">
+					<td>
 					<a href="updateForm.shelter?shelter_no=${shelter.shelter_no}&pageNum=${pageNum }" style="font-size:16px; font-weight: 900;">수정</a>
-					</c:if>	
-					
-					<c:if test="${not empty master_id }">
 					<a href="#" onclick="deleteChk(${shelter.shelter_no})" style="font-size:16px; font-weight: 900; margin-left: 20px; color: red">삭제</a>
+					</td>
 					</c:if>
-				</td>
 							
 			</tr>
 		</c:forEach>
