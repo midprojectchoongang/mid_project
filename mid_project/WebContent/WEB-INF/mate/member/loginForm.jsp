@@ -28,7 +28,10 @@
 <!-- Header, NavBar -->
 <%@ include file="../mainPage/nav.jsp" %>
 
-<div align="center" style="margin-top: 15%; margin-bottom: 15%;">
+<div id="logo" align="center" style="margin-top: 15%; margin-bottom: 0;">
+	<img src="images/logo_login.png" width="340px">
+</div>
+<div align="center" style="margin-top: 5px; margin-bottom: 15%;">
 <form action="login.member" method="post">
 	<div class="textbox" style="max-width: 300px; margin-right: 15px">
 		<label for="id_input">아이디</label>

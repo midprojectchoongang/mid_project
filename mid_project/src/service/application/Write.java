@@ -14,11 +14,9 @@ public class Write implements CommandProcess {
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
 		String pageNum = request.getParameter("pageNum"); 
-		
 		HttpSession session = request.getSession();
 		String member_id = (String)session.getAttribute("member_id");
 		int adopt_no = Integer.parseInt(request.getParameter("adopt_no"));
-		
 		int location_no = Integer.parseInt(request.getParameter("location_no"));
 		String subject = request.getParameter("subject");
 		String gender = request.getParameter("gender");

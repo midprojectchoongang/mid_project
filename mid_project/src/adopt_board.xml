@@ -9,35 +9,32 @@
 		<result property="smallcate_id" column="smallcate_id" />
 		<result property="location_no" column="location_no" />
 		<result property="subject" column="subject" />
-		<result property="adopt_image1" column="adopt_image1" />
-		<result property="adopt_image2" column="adopt_image2" />
-		<result property="adopt_image3" column="adopt_image3" />
-		<result property="adopt_image4" column="adopt_image4" />
-		<result property="adopt_image5" column="adopt_image5" />
-		<result property="content" column="content" />
 		<result property="applier_count" column="applier_count" />
 		<result property="reg_date" column="reg_date" />
 		<result property="del" column="del" />
+		<result property="content" column="content" />
 	</resultMap>
 	<select id="list" parameterType="hashMap" resultMap="resultMap">
-		select * from (select rowNum rn, a.* from 
-		(select * from adopt_board where del = 'n' order by adopt_no desc) a) 
-		where rn between #{startRow} and #{endRow}
+		select * from (select rowNum rn, a.* from (select * from 
+		adopt_board where del = 'n' and not member_id = #{member_id}
+		order by adopt_no desc) a) where rn between #{startRow} and #{endRow}
 	</select>
-		<insert id="write" parameterType="adopt_board">
-		insert into adopt_board values (adopt_seq.nextval,#{member_id},#{largecate_id},#{smallcate_id},#{location_no},#{subject},
-		'test', 'test', 'test', 'test', 'test',
-		#{content}, 0, sysdate, 'n')
+	<insert id="write" parameterType="adopt_board">
+		insert into adopt_board values (adopt_seq.nextval,#{member_id},#{largecate_id},
+		#{smallcate_id},#{location_no},#{subject}, 0, sysdate, 'n', EMPTY_CLOB())
 	</insert>
-	<select id="total" resultType="integer">
-		select count(*) from adopt_board where del = 'n'
+	<update id="writeImg" parameterType="hashMap">
+		update adopt_board set content = #{content} where adopt_no = #{adopt_no}
+	</update>
+	<select id="total" parameterType="string" resultType="integer">
+		select count(*) from adopt_board where del = 'n' and not member_id = #{member_id}
 	</select>
 	<select id="read" parameterType="integer" resultType="adopt_board">
 		select * from adopt_board where adopt_no = #{adopt_no}
 	</select>
 	<update id="update" parameterType="adopt_board">
 		update adopt_board set location_no = #{location_no}, subject = #{subject},
-		content = #{content} where adopt_no = #{adopt_no} 
+		content = EMPTY_CLOB() where adopt_no = #{adopt_no} 
 	</update>
 	<update id="delete" parameterType="integer">
 		update adopt_board set del = 'y' where adopt_no = #{adopt_no}
@@ -52,5 +49,8 @@
 		select * from (select rowNum rn, a.* from 
 		(select * from adopt_board where del = 'n' and member_id = #{member_id}
 		order by adopt_no desc) a) where rn between #{startRow} and #{endRow}
+	</select>
+	<select id="myTotal" parameterType="string" resultType="integer">
+		select count(*) from adopt_board where del = 'n' and member_id = #{member_id}
 	</select>
 </mapper>

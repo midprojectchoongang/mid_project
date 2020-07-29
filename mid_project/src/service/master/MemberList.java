@@ -1,6 +1,8 @@
 package service.master;
 import java.util.*;
 import javax.servlet.http.*;
+
+import dao.LocationDao;
 import dao.MemberDao;
 import model.Member;
 public class MemberList implements CommandProcess {
@@ -17,6 +19,12 @@ public class MemberList implements CommandProcess {
 		// block
 		MemberDao md = MemberDao.getInstance();
 		List<Member> list = md.list(startRow, endRow);
+		LocationDao ld = LocationDao.getInstance();
+		int location_no = 0;
+		for (Member m : list) {
+			location_no = m.getLocation_no();
+			m.setLocation_name(ld.select(location_no));
+		}
 		int total = md.total();
 		int pagePerBlock = 10;
 		int totalPage = (int)Math.ceil((double)total/rowPerPage);

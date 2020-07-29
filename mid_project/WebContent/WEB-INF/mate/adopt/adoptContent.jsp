@@ -98,7 +98,7 @@
 		<a href="scrapChk.adoptS?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" class="btn-two mini blue rounded">스크랩</a>
 		<a href="writeForm.application?adopt_no=${adopt.adopt_no }&pageNum=${pageNum }" class="btn-two mini blue rounded">지원하기	</a>
 	</c:if>
-		<a href="#" onclick="history.back()" class="btn-two mini charcoal rounded">목록</a>
+		<a href="adoptList.adopt?pageNum=${pageNum}" class="btn-two mini charcoal rounded">목록</a>
 </div>
 
 <div id="showList">

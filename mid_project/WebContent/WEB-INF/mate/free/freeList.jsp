@@ -112,7 +112,7 @@
 
 <div id="page1">
 	<c:if test="${startPage > pagePerBlock }">
-		<a href="freeList.free?pageNum=${startPage - 1 }"><<</a>
+		<a href="freeList.free?category=${param.category}&pageNum=${startPage - 1 }"><<</a>
 	</c:if>
 	<c:forEach var="i" begin="${startPage }" end="${endPage }">
 		<c:if test="${i == currentPage }">
@@ -123,7 +123,7 @@
 		</c:if>
 	</c:forEach>
 	<c:if test="${endPage < totalPage }">
-		<a href="freeList.free?pageNum=${endPage + 1 }">>></a>
+		<a href="freeList.free?category=${param.category}&pageNum=${endPage + 1 }">>></a>
 	</c:if>
 </div>
 

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.ApplicationDao;
 import dao.Free_boardDao;
+import dao.LocationDao;
 import model.Application;
 import model.Free_board;
 
@@ -18,8 +19,6 @@ public class MyAppList implements CommandProcess {
 		HttpSession session = request.getSession();
 		String member_id = (String)session.getAttribute("member_id");
 		String pageNum = request.getParameter("pageNum");
-		
-		System.out.println(member_id);
 		
 		int rowPerPage = 10;
 		if (pageNum == null || pageNum.equals(""))
@@ -38,7 +37,16 @@ public class MyAppList implements CommandProcess {
 		
 		String sr = startRow + "";
 		String er = endRow + "";
+
+		LocationDao ld = LocationDao.getInstance();
+		int location_no = 0;
+		String location = null;
 		List<Application> list = ad.list(sr, er, member_id);
+		for (Application ac : list) {
+			location_no = ac.getLocation_no();
+			location = ld.select(location_no);
+			ac.setLocation_name(location);
+		}
 		
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);

@@ -29,7 +29,7 @@ public class MyAdoptList implements CommandProcess {
 				
 		// block
 		int pagePerBlock = 10;
-		int total = ad.total();
+		int total = ad.myTotal(member_id);
 		int totalPage = (int)Math.ceil((double)total/rowPerPage);
 		int startPage = currentPage - (currentPage-1) % pagePerBlock;
 		int endPage = startPage + pagePerBlock - 1;
