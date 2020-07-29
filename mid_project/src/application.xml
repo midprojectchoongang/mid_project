@@ -51,4 +51,7 @@
 	<select id="appTotal" parameterType="integer" resultType="integer">
 		select count(*) from application where adopt_no = #{adopt_no} and del = 'n'
 	</select>
+	<select id="getNo" parameterType="integer" resultType="integer">
+		select adopt_no from application where application_no = #{application_no}
+	</select>
 </mapper>

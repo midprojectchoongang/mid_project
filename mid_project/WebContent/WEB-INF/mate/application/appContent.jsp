@@ -26,22 +26,28 @@
 		<c:if test="${member_id == apply.member_id }">
 			<b style="font-size: 24px; margin-right: 20px">내 지원서</b>
 			<span style="font-weight: 900; color: grey;	">
-				${location_name }
-				&emsp;-&emsp;
-				<c:if test="${apply.largecate_id == 'd'}">강아지</c:if>
-				<c:if test="${apply.largecate_id == 'c'}">고양이</c:if>
-				&emsp;-&emsp;
-				<c:if test="${apply.smallcate_id == 'd1'}">대형견</c:if>										
-				<c:if test="${apply.smallcate_id == 'd2'}">중형견</c:if>										
-				<c:if test="${apply.smallcate_id == 'd3'}">소형견</c:if>										
-				<c:if test="${apply.smallcate_id == 'c1'}">장모종</c:if>										
-				<c:if test="${apply.smallcate_id == 'c2'}">단모종</c:if>
+				<table>
+				<tr><td>
+					${location_name2 }
+					&emsp;-&emsp;
+					<c:if test="${apply.largecate_id == 'd'}">강아지</c:if>
+					<c:if test="${apply.largecate_id == 'c'}">고양이</c:if>
+					&emsp;-&emsp;
+					<c:if test="${apply.smallcate_id == 'd1'}">대형견</c:if>										
+					<c:if test="${apply.smallcate_id == 'd2'}">중형견</c:if>										
+					<c:if test="${apply.smallcate_id == 'd3'}">소형견</c:if>										
+					<c:if test="${apply.smallcate_id == 'c1'}">장모종</c:if>										
+					<c:if test="${apply.smallcate_id == 'c2'}">단모종</c:if>
+				</td>
+				<td>&emsp; &emsp;[제목] ${adopt.subject }
+					<a href="adoptContent.adopt?adopt_no=${adopt.adopt_no }&fromApp=y" style="text-decoration:underline; font-size:10px; color: red">보러가기</a></td>
+				</table>
 			</span>
 		</c:if>
 		<c:if test="${member_id != apply.member_id }">
 			<b style="font-size: 24px; margin-right: 20px">지원서 보기</b>
 			<span style="font-weight: 900; color: grey;	">
-				${location_name }
+				${location_name2 }
 				&emsp;-&emsp;
 				<c:if test="${apply.largecate_id == 'd'}">강아지</c:if>
 				<c:if test="${apply.largecate_id == 'c'}">고양이</c:if>
@@ -56,31 +62,32 @@
 	</div>
 
 	<!-- 리스트 -->
-<div align="center" style="margin-top: 200px; position: relative; min-height: 400px;">
+<div align="center" style="margin-top: 200px; position: relative; min-height: 400px; margin-bottom: 100px">
 		<input type="hidden" name="pageNum" value="${pageNum }">
 		<input type="hidden" name="application_no" value="${apply.application_no }">
-	<table class="w3-table w3-centered w3-bordered" style="max-width: 1000px"> 	
-    <tr>
-			<th>분류</th>
+	<table class="w3-table w3-centered" style="max-width: 500px;"> 	
+	    <tr><th rowspan="5">지원자(${apply.member_id }) 정보</th>
+			<th>성별</th>
 			<td>
-				<c:if test="${apply.largecate_id == 'd'}">강아지</c:if>
-				<c:if test="${apply.largecate_id == 'c'}">고양이</c:if>
-			</td>
-			<th>품종</th>
-			<td>
-				<c:if test="${apply.smallcate_id == 'd1'}">대형견</c:if>										
-				<c:if test="${apply.smallcate_id == 'd2'}">중형견</c:if>										
-				<c:if test="${apply.smallcate_id == 'd3'}">소형견</c:if>										
-				<c:if test="${apply.smallcate_id == 'c1'}">장모</c:if>										
-				<c:if test="${apply.smallcate_id == 'c2'}">단모</c:if>										
-			</td>
-			<th>지역</th>
-			<td>${location_name }
-			</td>
+				<c:if test="${apply.gender == 'm'}">남성</c:if>
+				<c:if test="${apply.gender == 'f'}">여성</c:if>
+			</td></tr><tr>
+			<th>거주 지역</th>
+			<td>${location_name}</td></tr><tr>
+			<th>입양 경험</th>
+			<td><c:if test="${apply.experience == 'y'}">있음</c:if>
+				<c:if test="${apply.experience == 'n'}">없음</c:if>
+			</td></tr>
+		<tr><th>이메일</th>
+			<td colspan="2">${apply.email }</td></tr><tr>
+			<th>연락처</th>
+			<td colspan="2">${apply.tel }</td>
 		</tr>
+	</table><p>
+	<table class="w3-table w3-centered w3-bordered" style="max-width: 1000px"> 	
 		<tr>
 			<th width="100">제목</th>
-			<td style="text-align:left" colspan="4">${apply.subject }</td>
+			<td style="text-align:left">${apply.subject }</td>
 			<td width="150">${apply.member_id }<br>${date }</td>
 		</tr>
 		<tr height="300">
@@ -104,6 +111,6 @@
 </c:if>
 </div>
 
-
+<%@ include file="../mainPage/footer.jsp" %>
 </body>
 </html>

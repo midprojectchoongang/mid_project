@@ -112,13 +112,13 @@
 			</td>
 		</tr>
 		<tr>
-			<th>입양 희망자 성별</th>
+			<th>지원자 성별</th>
 			<td>
 			<input type="hidden" name="gender" value="${member.gender}">
 			<c:if test="${member.gender == 'm'}">남자</c:if>
 			<c:if test="${member.gender == 'f'}">여자</c:if>
 			</td>
-			<th>거주지</th>
+			<th>지원자 거주 지역</th>
 			<td ><select name="location_no">
 				<option value="2">서울</option>
 				<option value="31">경기</option>
@@ -140,13 +140,10 @@
 		</tr>
 		<tr>
 			<th>이메일</th>
-			<td>
-			<input type="text" name="email" required="required" value="${member.email }">
-			</td>
+			<td><input type="text" name="email" required="required" value="${member.email }"></td>
 			<th>전화번호</th>
-			<td>
-			<input type="tel" name="tel" required="required" pattern="\d{3}-\d{3,4}-\d{4}"
-				placeholder="xxx-xxxx-xxxxx" title="전화번호 형식 xxx-xxxx-xxxx" value="${member.tel }">
+			<td><input type="tel" name="tel" required="required" pattern="\d{3}-\d{3,4}-\d{4}" placeholder="xxx-xxxx-xxxxx"
+				title="전화번호 형식 xxx-xxxx-xxxx" value="${member.tel }">
 			</td>
 		</tr>
 		<tr><td colspan="4"><div class="textbox"><label for="sj_input">제목</label>
