@@ -61,18 +61,18 @@
 	<!-- 페이징 -->
 <div id="page1">
 	<c:if test="${startPage > pagePerBlock }">
-		<a href="freeList.free?pageNum=${startPage - 1 }"><<</a>
+		<a href="scrapList.freeS?pageNum=${startPage - 1 }"><<</a>
 	</c:if>
 	<c:forEach var="i" begin="${startPage }" end="${endPage }">
 		<c:if test="${i == currentPage }">
 			<b>${ i }</b>
 		</c:if>
 		<c:if test="${i != currentPage }">
-			<a href="freeList.free?pageNum=${i }">${i }</a>
+			<a href="scrapList.freeS?pageNum=${i }">${i }</a>
 		</c:if>
 	</c:forEach>
 	<c:if test="${endPage < totalPage }">
-		<a href="freeList.free?pageNum=${endPage + 1 }">>></a>
+		<a href="scrapList.freeS?pageNum=${endPage + 1 }">>></a>
 	</c:if>
 </div>
 
