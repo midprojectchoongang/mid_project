@@ -79,37 +79,34 @@
 		});
 	}
 	
-	$(document)
-			.ready(
-					function() {
-						var placeholderTarget = $('.textbox input[type="text"], .textbox input[type="password"]');
-
-						//포커스시
-						placeholderTarget.on('focus', function() {
-							$(this).siblings('label').fadeOut('fast');
-						});
-
-						//포커스아웃시
-						placeholderTarget.on('focusout', function() {
-							if ($(this).val() == '') {
-								$(this).siblings('label').fadeIn('fast');
-							}
-						});
-					});
+	$(document).ready(function() {
+		var placeholderTarget = $('.textbox input[type="text"], .textbox input[type="password"]');
+		
+		//포커스시
+		placeholderTarget.on('focus', function() {
+			$(this).siblings('label').fadeOut('fast');
+		});
+		
+		//포커스아웃시
+		placeholderTarget.on('focusout', function() {
+			if ($(this).val() == '') {
+				$(this).siblings('label').fadeIn('fast');
+			}
+		});
+	});
 </script>
 </head>
 
 <body>
 <!-- Header, NavBar -->
 <%@ include file="../mainPage/nav.jsp" %>
-<div align="center" style="margin: 100px;">
+<div align="center" style="margin-top: 200px; position: relative; min-height: 400px; margin-bottom: 100px">
 <form action="write.adopt" method="post" name="form">
 	<input type="hidden" name="member_id" value="${member_id }">
 	<input type="hidden" name="pageNum" value="${pageNum }">
-	<table class="w3-table w3-centered w3-bordered">
+	<table class="w3-table w3-centered" style="max-width: 900px">
 		<tr>
-			<th>지역</th>
-			<td>
+			<td>지역&emsp;
 				<select name="location_no">
 				<option value="2">서울<option value="31">경기
 				<option value="32">인천<option value="41">충남
@@ -119,12 +116,8 @@
 				<option value="54">경북<option value="55">경남
 				<option value="61">전남<option value="62">광주
 				<option value="63">전북<option value="64">제주
-				</select>
-			</td>
-		</tr>
-		<tr>	
-			<th>종류</th>
-			<td><select size="1" name="largecate_id" class="largecate" onchange="changeCate(document.form.largecate_id.value)" required="required">
+				</select>&emsp;	&emsp;
+				종류&emsp;<select size="1" name="largecate_id" class="largecate" onchange="changeCate(document.form.largecate_id.value)" required="required">
 					<option value="" selected="selected">--1차 카테고리--</option>
 					<option value="d">강아지</option>
 					<option value="c">고양이</option>
@@ -135,12 +128,10 @@
 			</td>
 				
 		</tr>
-		<tr>
-			<th>제목</th>
-			<td><input type="text" name="subject" required="required" autofocus="autofocus"></td>
+		<tr><td><div class="textbox"><label for="sj_input">제목</label>
+			<input type="text" name="subject" required="required" id="sj_input"></div></td>
 		</tr>
 		<tr>
-			<th>내용</th>
 			<td style="text-align: justify;">
 			<textarea id="summernote" name="content"></textarea></td>
 		</tr>
