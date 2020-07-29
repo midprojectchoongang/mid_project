@@ -34,7 +34,7 @@
 		update member set password=#{password}
 		where member_id=#{member_id}
 	</update>
-	<update id="delete" parameterType="int">
+	<update id="delete" parameterType="string">
 		update member set del='y' where member_id=#{member_id}
 	</update>
 	

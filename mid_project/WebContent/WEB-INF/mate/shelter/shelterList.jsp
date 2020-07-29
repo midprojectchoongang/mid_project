@@ -7,10 +7,10 @@
 <meta charset="UTF-8">
 <title>MATE</title>
 <script type="text/javascript">
-	function deleteChk() {
+	function deleteChk(num) {
 		var msg = "삭제하시겠습니까?";
 		if (confirm(msg)) {
-			location.href="delete.shelter?shelter_no=${shelter.shelter_no}&pageNum=${pageNum }";
+			location.href="delete.shelter?shelter_no=" + num + "&pageNum=${pageNum }";
 		} else {
 			return;
 		}
@@ -68,7 +68,7 @@
 					</c:if>	
 					
 					<c:if test="${not empty master_id }">
-					<a href="#" onclick="deleteChk()" style="font-size:16px; font-weight: 900; margin-left: 20px; color: red">삭제</a>
+					<a href="#" onclick="deleteChk(${shelter.shelter_no})" style="font-size:16px; font-weight: 900; margin-left: 20px; color: red">삭제</a>
 					</c:if>
 				</td>
 							

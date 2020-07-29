@@ -39,7 +39,7 @@ public class AdoptList implements CommandProcess {
 			location = ld.select(location_no);
 			ab.setLocation_name(location);
 		}
-				
+		
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("currentPage", currentPage);
