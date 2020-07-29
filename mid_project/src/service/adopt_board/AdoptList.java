@@ -15,6 +15,7 @@ public class AdoptList implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
 		String member_id = (String) session.getAttribute("member_id");
+		String master_id = (String) session.getAttribute("master_id");
 		
 		Adopt_boardDao ad = Adopt_boardDao.getInstance();
 		LocationDao ld = LocationDao.getInstance();
@@ -30,7 +31,12 @@ public class AdoptList implements CommandProcess {
 				
 		// block
 		int pagePerBlock = 10;
-		int total = ad.total(member_id);
+		int total = 0;
+		if (master_id == null) {
+		total = ad.total(member_id);
+		} else {
+			total = ad.total_m();
+		}
 		int totalPage = (int)Math.ceil((double)total/rowPerPage);
 		int startPage = currentPage - (currentPage-1) % pagePerBlock;
 		int endPage = startPage + pagePerBlock - 1;
@@ -38,7 +44,12 @@ public class AdoptList implements CommandProcess {
 		
 		int location_no = 0;
 		String location = null;
-		List<Adopt_board> list = ad.list(startRow, endRow, member_id);
+		List<Adopt_board> list = null;
+		if (master_id == null) {
+			list = ad.list(startRow, endRow, member_id);
+		} else {
+			list = ad.list_m(startRow, endRow);
+		}
 		for (Adopt_board ab : list) {
 			location_no = ab.getLocation_no();
 			location = ld.select(location_no);
