@@ -71,4 +71,15 @@ public class Free_boardDao {
 		hm.put("free_no", free_no+"");
 		session.update("freens.writeImg", hm);	
 	}
+	public int total_m(String category) {
+		return session.selectOne("freens.total_m", category);
+	}
+	public List<Free_board> list_m(String sr, String er, String category) {
+		HashMap<String, String> hm = new HashMap<>();
+		hm.put("startRow", sr);
+		hm.put("endRow", er);
+		hm.put("category", category);
+		List<Free_board> list = session.selectList("freens.list_m", hm);
+		return list;
+	}
 }
