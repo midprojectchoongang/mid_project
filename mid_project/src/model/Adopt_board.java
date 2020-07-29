@@ -10,11 +10,6 @@ public class Adopt_board {
 	private String smallcate_id;
 	private int location_no;
 	private String subject;
-	private String adopt_image1;
-	private String adopt_image2;
-	private String adopt_image3;
-	private String adopt_image4;
-	private String adopt_image5;
 	private String content;
 	private int applier_count;
 	private Date reg_date;
@@ -63,36 +58,6 @@ public class Adopt_board {
 	}
 	public void setSubject(String subject) {
 		this.subject = subject;
-	}
-	public String getAdopt_image1() {
-		return adopt_image1;
-	}
-	public void setAdopt_image1(String adopt_image1) {
-		this.adopt_image1 = adopt_image1;
-	}
-	public String getAdopt_image2() {
-		return adopt_image2;
-	}
-	public void setAdopt_image2(String adopt_image2) {
-		this.adopt_image2 = adopt_image2;
-	}
-	public String getAdopt_image3() {
-		return adopt_image3;
-	}
-	public void setAdopt_image3(String adopt_image3) {
-		this.adopt_image3 = adopt_image3;
-	}
-	public String getAdopt_image4() {
-		return adopt_image4;
-	}
-	public void setAdopt_image4(String adopt_image4) {
-		this.adopt_image4 = adopt_image4;
-	}
-	public String getAdopt_image5() {
-		return adopt_image5;
-	}
-	public void setAdopt_image5(String adopt_image5) {
-		this.adopt_image5 = adopt_image5;
 	}
 	public String getContent() {
 		return content;

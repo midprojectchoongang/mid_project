@@ -11,9 +11,11 @@ public class Update implements CommandProcess {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
+		
+		HttpSession session = request.getSession();
+		String member_id = (String) session.getAttribute("member_id");
 		String pageNum = request.getParameter("pageNum");
 		int adopt_no = Integer.parseInt(request.getParameter("adopt_no"));
-		
 		int location_no = Integer.parseInt(request.getParameter("location_no"));
 		String subject = request.getParameter("subject");
 		String content = request.getParameter("content");
@@ -21,12 +23,13 @@ public class Update implements CommandProcess {
 		Adopt_boardDao ad = Adopt_boardDao.getInstance();
 		Adopt_board adopt = new Adopt_board();
 		
+		adopt.setMember_id(member_id);;
 		adopt.setAdopt_no(adopt_no);
 		adopt.setLocation_no(location_no);
 		adopt.setSubject(subject);
-		adopt.setContent(content);
 		
 		int result = ad.update(adopt);
+		ad.writeImg(content, adopt_no);
 
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("adopt", adopt);

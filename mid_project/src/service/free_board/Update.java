@@ -27,14 +27,7 @@ public class Update implements CommandProcess {
 		free.setMember_id(member_id);
 		free.setCategory(category);
 		free.setSubject(subject);
-		// free.setContent(content);
-		
-		
-		  System.out.println(free_no); 
-		  System.out.println(category);
-		  System.out.println(subject);
 		 
-		 System.out.println(content);
 		int result = fd.update(free);
 		fd.writeImg(content, free_no);
 
