@@ -65,4 +65,13 @@ public class Adopt_boardDao {
 	public int myTotal(String member_id) {
 		return session.selectOne("adoptns.myTotal", member_id);
 	}
+	public int total_m() {
+		return session.selectOne("adoptns.total_m");
+	}
+	public List<Adopt_board> list_m(int startRow, int endRow) {
+		HashMap<String, String> hm = new HashMap<>();
+		hm.put("startRow", startRow+"");
+		hm.put("endRow", endRow+"");
+		return session.selectList("adoptns.list_m", hm);
+	}
 }

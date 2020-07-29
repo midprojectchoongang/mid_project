@@ -17,6 +17,10 @@
 		select * from (select rowNum rn, a.* from (select * from free_board where del = 'n' and category = #{category} order by free_no desc) a)
 		where rn between #{startRow} and #{endRow}
 	</select>
+	<select id="list_m" parameterType="hashMap" resultMap="resultMap">
+		select * from (select rowNum rn, a.* from (select * from free_board where category = #{category} order by free_no desc) a)
+		where rn between #{startRow} and #{endRow}
+	</select>
 	<insert id="write" parameterType="free_board">
 		insert into free_board values (free_seq.nextval, #{member_id}, #{category}, #{subject},
 		sysdate, 'n', 0, 0, EMPTY_CLOB())
@@ -26,6 +30,9 @@
 	</update>
 	<select id="total" parameterType="string" resultType="integer">
 		select count(*) from free_board where category = #{category} and del = 'n'
+	</select>
+	<select id="total_m" parameterType="string" resultType="integer">
+		select count(*) from free_board where category = #{category}
 	</select>
 	<select id="read" parameterType="integer" resultType="free_board">
 		select * from free_board where free_no = #{free_no}
