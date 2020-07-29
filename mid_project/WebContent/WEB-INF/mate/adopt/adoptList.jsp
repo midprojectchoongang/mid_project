@@ -13,12 +13,6 @@
 
 <!-- Header, NavBar -->
 <%@ include file="../mainPage/nav.jsp" %>
-<c:if test="${empty member_id && empty master_id }">
-	<script type="text/javascript">
-		alert("로그인 후에 이용할 수 있습니다");
-		location.href="loginForm.member";
-	</script>
-</c:if>
 <%@ include file="../mainPage/sideNav.jsp" %>
 
 <b style="font-size: 24px; position: absolute; margin-left: 25%; margin-top: -100px ">공고 게시판</b>

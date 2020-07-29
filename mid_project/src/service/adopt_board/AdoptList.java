@@ -16,7 +16,9 @@ public class AdoptList implements CommandProcess {
 		HttpSession session = request.getSession();
 		String member_id = (String) session.getAttribute("member_id");
 		String master_id = (String) session.getAttribute("master_id");
-		
+		if (member_id == null && master_id == null) {
+			return "../member/loginForm";
+		}
 		Adopt_boardDao ad = Adopt_boardDao.getInstance();
 		LocationDao ld = LocationDao.getInstance();
 		
@@ -63,6 +65,8 @@ public class AdoptList implements CommandProcess {
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("list", list);
+		request.setAttribute("member_id", member_id);
+		request.setAttribute("master_id", master_id);
 		return "adoptList";
 	}
 
