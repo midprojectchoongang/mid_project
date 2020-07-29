@@ -103,7 +103,12 @@
 <c:if test="${not empty master_id }">
 	<a href="delmsg()" class="btn-two mini red rounded">삭제</a>
 </c:if>
+<c:if test="${member_id == apply.member_id }">
+	<a href="myAppList.application" class="btn-two mini charcoal rounded">목록</a>
+</c:if>
+<c:if test="${member_id != apply.member_id }">
 	<a href="#" onclick="history.back()" class="btn-two mini charcoal rounded">목록</a>
+</c:if>
 </div>
 
 <%@ include file="../mainPage/footer.jsp" %>

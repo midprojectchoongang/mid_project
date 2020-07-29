@@ -20,15 +20,15 @@ public class Adopt_boardDao {
 			System.out.println("초기화 에러 : " + e.getMessage());
 		}
 	}
-	public List<Adopt_board> list(int startRow, int endRow) {
-		HashMap<String, Integer> hm = new HashMap<>();
-		hm.put("startRow", startRow);
-		hm.put("endRow", endRow);
-		
+	public List<Adopt_board> list(int startRow, int endRow, String member_id) {
+		HashMap<String, String> hm = new HashMap<>();
+		hm.put("startRow", startRow+"");
+		hm.put("endRow", endRow+"");
+		hm.put("member_id", member_id);
 		return session.selectList("adoptns.list", hm);
 	}
-	public int total() {
-		return session.selectOne("adoptns.total");
+	public int total(String member_id) {
+		return session.selectOne("adoptns.total", member_id);
 	}
 	public int insert(Adopt_board adopt_board) {
 		return session.insert("adoptns.write", adopt_board);
@@ -55,5 +55,14 @@ public class Adopt_boardDao {
 		hm.put("member_id", member_id);
 		
 		return session.selectList("adoptns.myList", hm);
+	}
+	public void writeImg(String content, int adopt_no) {
+		HashMap<String, String> hm = new HashMap<>();
+		hm.put("content", content);
+		hm.put("adopt_no", adopt_no+"");
+		session.update("adoptns.writeImg", hm);
+	}
+	public int myTotal(String member_id) {
+		return session.selectOne("adoptns.myTotal", member_id);
 	}
 }

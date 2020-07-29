@@ -19,36 +19,57 @@
 <script type="text/javascript">
 
 	$(document).ready(function() {
+		//여기 아래 부분
 		$('#summernote').summernote({
-			height: 300,
-			minHeight: null,
-			maxHeight: null,
-			focus: true,
-			callbacks: {
-				onImageUpload: function(files, editor, welEditable) {
-					for (var i = files.length - 1; i >= 0; i--) {
-						sendFile(files[i], this);
-					}
-				}
-			}
+			height : 500, // 에디터 높이
+			minHeight : null, // 최소 높이
+			maxHeight : null, // 최대 높이
+			focus : true, // 에디터 로딩후 포커스를 맞출지 여부
+			lang : "ko-KR", // 한글 설정
+			placeholder : '최대 2048자까지 쓸 수 있습니다' //placeholder 설정	
+	
 		});
 	});
-
-	$(document).ready(function() {
-		var placeholderTarget = $('.textbox input[type="text"], .textbox input[type="password"]');
-		
-		//포커스시
-		placeholderTarget.on('focus', function() {
-			$(this).siblings('label').fadeOut('fast');
-		});
-		
-		//포커스아웃시
-		placeholderTarget.on('focusout', function() {
-			if ($(this).val() == '') {
-				$(this).siblings('label').fadeIn('fast');
+	
+	/**
+	* 이미지 파일 업로드
+	*/
+	function uploadSummernoteImageFile(file, editor) {
+		data = new FormData();
+		data.append("file", file);
+		$.ajax({
+			data : data,
+			type : "POST",
+			url : "/uploadFile",
+			cache: false,
+			contentType : false,
+			processData : false,
+			maximumFileSize : 1 * 1024 * 1024,
+			maximumFileSizeError: '최대 파일 크기를 초과했습니다.',
+			success : function(data) {
+		//항상 업로드된 파일의 url이 있어야 한다.
+				$(editor).summernote('insertImage', data.url);
 			}
 		});
-	});
+	}
+	
+	$(document)
+			.ready(
+					function() {
+						var placeholderTarget = $('.textbox input[type="text"], .textbox input[type="password"]');
+	
+						//포커스시
+						placeholderTarget.on('focus', function() {
+							$(this).siblings('label').fadeOut('fast');
+						});
+	
+						//포커스아웃시
+						placeholderTarget.on('focusout', function() {
+							if ($(this).val() == '') {
+								$(this).siblings('label').fadeIn('fast');
+							}
+						});
+					});
 
 	$(function() {
 		var loc = ${member.location_no};
@@ -92,7 +113,11 @@
 		</tr>
 		<tr>
 			<th>지원자 성별</th>
-			<td>${member.gender }</td>
+			<td>
+			<input type="hidden" name="gender" value="${member.gender}">
+			<c:if test="${member.gender == 'm'}">남자</c:if>
+			<c:if test="${member.gender == 'f'}">여자</c:if>
+			</td>
 			<th>지원자 거주 지역</th>
 			<td ><select name="location_no">
 				<option value="2">서울</option>
