@@ -10,6 +10,8 @@ public class Member {
 	private String email;
 	private String tel;
 	private int location_no;
+	private String location_name;
+	
 	private String experience;
 	private Date reg_date;
 	private String del;
@@ -55,6 +57,12 @@ public class Member {
 	}
 	public void setLocation_no(int location_no) {
 		this.location_no = location_no;
+	}
+	public String getLocation_name() {
+		return location_name;
+	}
+	public void setLocation_name(String location_name) {
+		this.location_name = location_name;
 	}
 	public String getExperience() {
 		return experience;

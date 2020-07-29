@@ -33,23 +33,7 @@
 				<td>${updateMem.tel}</td>
 			<tr>
 				<th>주소</th>
-				<td>
-					<c:if test="${updateMem.location_no == 2}">서울</c:if>
-					<c:if test="${updateMem.location_no == 31}">경기</c:if>
-					<c:if test="${updateMem.location_no == 32}">인천</c:if>
-					<c:if test="${updateMem.location_no == 41}">충남</c:if>
-					<c:if test="${updateMem.location_no == 42}">대전</c:if>
-					<c:if test="${updateMem.location_no == 43}">충북</c:if>
-					<c:if test="${updateMem.location_no == 44}">세종</c:if>
-					<c:if test="${updateMem.location_no == 51}">부산</c:if>
-					<c:if test="${updateMem.location_no == 52}">울산</c:if>
-					<c:if test="${updateMem.location_no == 53}">대구</c:if>
-					<c:if test="${updateMem.location_no == 54}">경북</c:if>
-					<c:if test="${updateMem.location_no == 55}">경남</c:if>
-					<c:if test="${updateMem.location_no == 61}">전남</c:if>
-					<c:if test="${updateMem.location_no == 62}">광주</c:if>
-					<c:if test="${updateMem.location_no == 63}">전북</c:if>
-					<c:if test="${updateMem.location_no == 64}">제주</c:if>
+				<td>${updateMem.location_name }
 				</td>
 			</tr>
 			<tr>
@@ -69,10 +53,10 @@
 		</table><p>
 		<a href="#" onclick="location.href='memberList.master?pageNum=${pageNum}'" class="btn-two small charcoal rounded">목록</a>
 		<c:if test="${updateMem.del == 'n' }">
-			<a href="#" onclick="location.href='updateMember.master?member_id=${updateMem.member_id}&pageNum=${pageNum}'" class="btn-two small charcoal rounded">탈퇴</a>
+			<a href="#" onclick="location.href='updateMember.master?member_id=${updateMem.member_id}&pageNum=${pageNum}'" class="btn-two small red rounded">탈퇴</a>
 		</c:if>
 		<c:if test="${updateMem.del == 'y' }">
-			<a href="#" onclick="location.href='updateMember.master?member_id=${updateMem.member_id}&pageNum=${pageNum}'" class="btn-two small charcoal rounded">복구</a>
+			<a href="#" onclick="location.href='updateMember.master?member_id=${updateMem.member_id}&pageNum=${pageNum}'" class="btn-two small blue rounded">복구</a>
 		</c:if>
 	</div>
 
