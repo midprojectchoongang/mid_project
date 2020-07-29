@@ -32,7 +32,6 @@ public class WriteAction implements CommandProcess {
 		Adopt_boardDao ad = Adopt_boardDao.getInstance();
 		int result = ad.insert(adopt_board);
 		int adopt_no = ad.search(member_id);
-		System.out.println(adopt_no);
 		ad.writeImg(content, adopt_no);
 				
 		request.setAttribute("member_id", member_id);

@@ -102,6 +102,9 @@
 </script>
 </head>
 <body>
+<div style=" position: absolute; margin-left: 25%; margin-top: -100px">
+	<b style="font-size: 24px; margin-right: 20px">내가 쓴 공고</b>
+</div>
 <!-- Header, NavBar -->
 <%@ include file="../mainPage/nav.jsp" %>
 

@@ -100,6 +100,9 @@
 <body>
 <!-- Header, NavBar -->
 <%@ include file="../mainPage/nav.jsp" %>
+<div style=" position: absolute; margin-left: 25%; margin-top: -100px">
+	<b style="font-size: 24px; margin-right: 20px">공고 게시판</b>
+</div>
 <div align="center" style="margin-top: 200px; position: relative; min-height: 400px; margin-bottom: 100px">
 <form action="write.adopt" method="post" name="form">
 	<input type="hidden" name="member_id" value="${member_id }">
